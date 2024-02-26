@@ -4,7 +4,7 @@ import { Stats } from "./types";
 
 export function App() {
 
-  const [form, setForm] = React.useState({ positionId: '', height: '', weight: '', playstyleId: '' });
+  const [form, setForm] = React.useState({ position: '', height: '', weight: '', playstyle: '' });
   const [heights, setHeights] = React.useState<string[]>();
   const [weights, setWeights] = React.useState<string[]>();
   const [playstyles, setPlaystyles] = React.useState([{}]);
@@ -12,12 +12,12 @@ export function App() {
   const [stat, setStat] = React.useState<Stats>();
 
   useEffect(() => {
-    if (form.positionId) {
+    if (form.position) {
       const height = data.heights.find((height) => {
-        return height.positionId === Number.parseInt(form.positionId);
+        return height.position === form.position;
       });
       const styles = data.playstyles.filter((playstyle) => {
-        return playstyle.positionId === Number.parseInt(form.positionId);
+        return playstyle.position === form.position;
       });
       if (styles) {
         setPlaystyles([...styles]);
@@ -34,7 +34,7 @@ export function App() {
       }
     }
 
-    if (form.positionId && form.height && form.weight && form.playstyleId) {
+    if (form.position && form.height && form.weight && form.playstyle) {
       setHasAllValues(true);
     } else {
       setHasAllValues(false);
@@ -42,10 +42,10 @@ export function App() {
   }, [form]);
 
   useEffect(() => {
-    if (!form.positionId) {
-      setForm({ positionId: '', height: '', weight: '', playstyleId: '' });
+    if (!form.position) {
+      setForm({ position: '', height: '', weight: '', playstyle: '' });
     }
-  }, [form.positionId]);
+  }, [form.position]);
 
   useEffect(() => {
     setForm({ ...form, weight: '' });
@@ -54,7 +54,7 @@ export function App() {
   useEffect(() => {
     if (hasAllValues) {
       const stat = data.stats.find((stat) => {
-        return stat.positionId === Number.parseInt(form.positionId) && stat.height === form.height && stat.weight === form.weight;
+        return stat.position === form.position && stat.height === form.height && stat.weight === form.weight;
       });
       if (stat) {
         setStat(stat.stats);
@@ -66,7 +66,7 @@ export function App() {
     const elementId = e.target.id;
     const value = e.target.value;
     const newForm = { ...form };
-    newForm[elementId] = elementId === 'positionId' || elementId === 'playstyleId' ? parseInt(value) : value;
+    newForm[elementId] = value;
     setForm({ ...newForm });
   }
 
@@ -75,10 +75,10 @@ export function App() {
     <main className="container my-5">
       <div className="py-1">
         <Position data={data.positions} onChange={updateForm} />
-        <Height data={heights} onChange={updateForm} disabled={!form.positionId} value={form.height} />
+        <Height data={heights} onChange={updateForm} disabled={!form.position} value={form.height} />
         <Weight data={weights} onChange={updateForm} disabled={!form.height} value={form.weight} />
-        <Playstyle data={playstyles} onChange={updateForm} disabled={!form.positionId} value={form.playstyleId} />
-        {/* {JSON.stringify(form, null, 2)} */}
+        <Playstyle data={playstyles} onChange={updateForm} disabled={!form.position} value={form.playstyle} />
+        {JSON.stringify(form, null, 2)}
       </div>
       {hasAllValues &&
         <div className="row gy-5">
@@ -119,19 +119,19 @@ export function NavBar() {
 
 export function Position({ data, onChange }) {
   return <div className="form-floating my-3">
-    <select className="form-select" id="positionId" aria-label="Position" defaultValue={''} onChange={onChange}>
+    <select className="form-select" id="position" aria-label="Position" defaultValue={''} onChange={onChange}>
       <option></option>
       {data.map((position, index) => {
-        return <option key={index} value={position.id}>{position.value}</option>
+        return <option key={index} value={position}>{position}</option>
       })}
     </select>
-    <label htmlFor="positionId">Position</label>
+    <label htmlFor="position">Position</label>
   </div>
 }
 
 export function Height({ data, onChange, disabled, value }) {
   return <div className="form-floating my-3">
-    <select className="form-select" id="height" aria-label="Height" value={value ? value : ''} onChange={onChange} disabled={disabled}>
+    <select className="form-select" id="height" aria-label="Height" value={value} onChange={onChange} disabled={disabled}>
       <option></option>
       {data && data.map((height, index) => {
         return <option key={index} value={height}>{height}</option>
@@ -143,7 +143,7 @@ export function Height({ data, onChange, disabled, value }) {
 
 export function Weight({ data, onChange, disabled, value }) {
   return <div className="form-floating my-3">
-    <select className="form-select" id="weight" aria-label="Weight" value={value ? value : ''} onChange={onChange} disabled={disabled}>
+    <select className="form-select" id="weight" aria-label="Weight" value={value} onChange={onChange} disabled={disabled}>
       <option></option>
       {data && data.map((weight, index) => {
         return <option key={index} value={weight}>{weight}</option>
@@ -155,13 +155,13 @@ export function Weight({ data, onChange, disabled, value }) {
 
 export function Playstyle({ data, onChange, disabled, value }) {
   return <div className="form-floating my-3">
-    <select className="form-select" id="playstyleId" aria-label="Playstyle" value={value ? value : ''} onChange={onChange} disabled={disabled}>
+    <select className="form-select" id="playstyle" aria-label="Playstyle" value={value} onChange={onChange} disabled={disabled}>
       <option></option>
       {data && data.map((playstyle, index) => {
         return <option key={index} value={playstyle.id}>{playstyle.value}</option>
       })}
     </select>
-    <label htmlFor="playstyleId">Playstyle</label>
+    <label htmlFor="playstyle">Playstyle</label>
   </div>
 }
 

@@ -1,53 +1,20 @@
 {
   "positions": [
-    {
-      "id": 1,
-      "value": "GK"
-    },
-    {
-      "id": 2,
-      "value": "LB/RB"
-    },
-    {
-      "id": 3,
-      "value": "LWB/RWB"
-    },
-    {
-      "id": 4,
-      "value": "CB"
-    },
-    {
-      "id": 5,
-      "value": "CDM"
-    },
-    {
-      "id": 6,
-      "value": "CM"
-    },
-    {
-      "id": 7,
-      "value": "CAM"
-    },
-    {
-      "id": 8,
-      "value": "LM/RM"
-    },
-    {
-      "id": 9,
-      "value": "LW/RW"
-    },
-    {
-      "id": 10,
-      "value": "CF"
-    },
-    {
-      "id": 11,
-      "value": "ST"
-    }
+    "GK",
+    "LB/RB",
+    "LWB/RWB",
+    "CB",
+    "CDM",
+    "CM",
+    "CAM",
+    "LM/RM",
+    "LW/RW",
+    "CF",
+    "ST"
   ],
   "heights": [
     {
-      "positionId": 1,
+      "position": "GK",
       "values": [
         "178 - 182 cm",
         "183 - 187 cm",
@@ -57,7 +24,7 @@
       ]
     },
     {
-      "positionId": 2,
+      "position": "LB/RB",
       "values": [
         "163 - 167 cm",
         "168 - 172 cm",
@@ -104,200 +71,161 @@
   ],
   "playstyles": [
     {
-      "id": 1,
-      "positionId": 1,
+      "position": "GK",
       "value": "Line Keeper"
     },
     {
-      "id": 2,
-      "positionId": 1,
+      "position": "GK",
       "value": "Sweeper Keeper"
     },
     {
-      "id": 3,
-      "positionId": 1,
+      "position": "GK",
       "value": "Ball-playing Keeper"
     },
     {
-      "id": 4,
-      "positionId": 2,
+      "position": "LB/RB",
       "value": "Wide Full Back"
     },
     {
-      "id": 5,
-      "positionId": 2,
+      "position": "LB/RB",
       "value": "Deep Full Back"
     },
     {
-      "id": 6,
-      "positionId": 2,
+      "position": "LB/RB",
       "value": "Inverted Full Back"
     },
     {
-      "id": 7,
-      "positionId": 3,
+      "position": "LWB/RWB",
       "value": "Physical"
     },
     {
-      "id": 8,
-      "positionId": 3,
+      "position": "LWB/RWB",
       "value": "Cross Specialist"
     },
     {
-      "id": 9,
-      "positionId": 4,
+      "position": "CB",
       "value": "Stopper"
     },
     {
-      "id": 10,
-      "positionId": 4,
+      "position": "CB",
       "value": "Libero"
     },
     {
-      "id": 11,
-      "positionId": 4,
+      "position": "CB",
       "value": "Technical"
     },
     {
-      "id": 12,
-      "positionId": 5,
+      "position": "CDM",
       "value": "Anchorman"
     },
     {
-      "id": 13,
-      "positionId": 5,
+      "position": "CDM",
       "value": "Regista"
     },
     {
-      "id": 14,
-      "positionId": 5,
+      "position": "CDM",
       "value": "Destroyer"
     },
     {
-      "id": 15,
-      "positionId": 5,
+      "position": "CDM",
       "value": "Box-to-Box"
     },
     {
-      "id": 16,
-      "positionId": 6,
+      "position": "CM",
       "value": "Holding Midfielder"
     },
     {
-      "id": 17,
-      "positionId": 6,
+      "position": "CM",
       "value": "Box-to-Box"
     },
     {
-      "id": 18,
-      "positionId": 6,
+      "position": "CM",
       "value": "Orchestrator"
     },
     {
-      "id": 19,
-      "positionId": 6,
+      "position": "CM",
       "value": "Hole Player"
     },
     {
-      "id": 20,
-      "positionId": 6,
+      "position": "CM",
       "value": "Technical"
     },
     {
-      "id": 21,
-      "positionId": 7,
+      "position": "CAM",
       "value": "Classic No. 10"
     },
     {
-      "id": 22,
-      "positionId": 7,
+      "position": "CAM",
       "value": "Central Winger"
     },
     {
-      "id": 23,
-      "positionId": 7,
+      "position": "CAM",
       "value": "Second Striker"
     },
     {
-      "id": 24,
-      "positionId": 7,
+      "position": "CAM",
       "value": "Box-to-Box"
     },
     {
-      "id": 25,
-      "positionId": 8,
+      "position": "LM/RM",
       "value": "Speedster"
     },
     {
-      "id": 26,
-      "positionId": 8,
+      "position": "LM/RM",
       "value": "Physical"
     },
     {
-      "id": 27,
-      "positionId": 8,
+      "position": "LM/RM",
       "value": "Cross Specialist"
     },
     {
-      "id": 28,
-      "positionId": 8,
+      "position": "LM/RM",
       "value": "Playmaker"
     },
     {
-      "id": 29,
-      "positionId": 9,
+      "position": "LW/RW",
       "value": "Speedster"
     },
     {
-      "id": 30,
-      "positionId": 9,
+      "position": "LW/RW",
       "value": "Physical"
     },
     {
-      "id": 31,
-      "positionId": 9,
+      "position": "LW/RW",
       "value": "Cross Specialist"
     },
     {
-      "id": 32,
-      "positionId": 9,
+      "position": "LW/RW",
       "value": "Inverted Winger"
     },
     {
-      "id": 33,
-      "positionId": 10,
+      "position": "CF",
       "value": "Speedster"
     },
     {
-      "id": 34,
-      "positionId": 10,
+      "position": "CF",
       "value": "False 9"
     },
     {
-      "id": 35,
-      "positionId": 10,
+      "position": "CF",
       "value": "Second Striker"
     },
     {
-      "id": 36,
-      "positionId": 11,
+      "position": "ST",
       "value": "Target Man"
     },
     {
-      "id": 37,
-      "positionId": 11,
+      "position": "ST",
       "value": "Goal Poacher"
     },
     {
-      "id": 38,
-      "positionId": 11,
+      "position": "ST",
       "value": "Speedster"
     }
   ],
   "stats": [
     {
-      "id": 1,
-      "positionId": 1,
+      "position": "GK",
       "height": "178 - 182 cm",
       "weight": "69-79 kg",
       "stats": {
