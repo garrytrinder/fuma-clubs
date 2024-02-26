@@ -1,0 +1,498 @@
+{
+  "positions": [
+    {
+      "id": 1,
+      "value": "GK"
+    },
+    {
+      "id": 2,
+      "value": "LB/RB"
+    },
+    {
+      "id": 3,
+      "value": "LWB/RWB"
+    },
+    {
+      "id": 4,
+      "value": "CB"
+    },
+    {
+      "id": 5,
+      "value": "CDM"
+    },
+    {
+      "id": 6,
+      "value": "CM"
+    },
+    {
+      "id": 7,
+      "value": "CAM"
+    },
+    {
+      "id": 8,
+      "value": "LM/RM"
+    },
+    {
+      "id": 9,
+      "value": "LW/RW"
+    },
+    {
+      "id": 10,
+      "value": "CF"
+    },
+    {
+      "id": 11,
+      "value": "ST"
+    }
+  ],
+  "heights": [
+    {
+      "positionId": 1,
+      "values": [
+        "178 - 182 cm",
+        "183 - 187 cm",
+        "188 - 192 cm",
+        "193 - 197 cm",
+        "198 - 200 cm"
+      ]
+    },
+    {
+      "positionId": 2,
+      "values": [
+        "163 - 167 cm",
+        "168 - 172 cm",
+        "173 - 177 cm",
+        "178 - 182 cm",
+        "183 - 187 cm",
+        "188 - 192 cm"
+      ]
+    }
+  ],
+  "weights": [
+    {
+      "key": "163 - 167 cm",
+      "values": ["58-68 kg"]
+    },
+    {
+      "key": "168 - 172 cm",
+      "values": ["58-68 kg", "69-79 kg"]
+    },
+    {
+      "key": "173 - 177 cm",
+      "values": ["58-68 kg", "69-79 kg"]
+    },
+    {
+      "key": "178 - 182 cm",
+      "values": ["69-79 kg", "80-90 kg"]
+    },
+    {
+      "key": "183 - 187 cm",
+      "values": ["69-79 kg", "80-90 kg"]
+    },
+    {
+      "key": "188 - 192 cm",
+      "values": ["80-90 kg", "91-101 kg"]
+    },
+    {
+      "key": "193 - 197 cm",
+      "values": ["80-90 kg", "91-101 kg"]
+    },
+    {
+      "key": "198 - 200 cm",
+      "values": ["91-101 kg"]
+    }
+  ],
+  "playstyles": [
+    {
+      "id": 1,
+      "positionId": 1,
+      "value": "Line Keeper"
+    },
+    {
+      "id": 2,
+      "positionId": 1,
+      "value": "Sweeper Keeper"
+    },
+    {
+      "id": 3,
+      "positionId": 1,
+      "value": "Ball-playing Keeper"
+    },
+    {
+      "id": 4,
+      "positionId": 2,
+      "value": "Wide Full Back"
+    },
+    {
+      "id": 5,
+      "positionId": 2,
+      "value": "Deep Full Back"
+    },
+    {
+      "id": 6,
+      "positionId": 2,
+      "value": "Inverted Full Back"
+    },
+    {
+      "id": 7,
+      "positionId": 3,
+      "value": "Physical"
+    },
+    {
+      "id": 8,
+      "positionId": 3,
+      "value": "Cross Specialist"
+    },
+    {
+      "id": 9,
+      "positionId": 4,
+      "value": "Stopper"
+    },
+    {
+      "id": 10,
+      "positionId": 4,
+      "value": "Libero"
+    },
+    {
+      "id": 11,
+      "positionId": 4,
+      "value": "Technical"
+    },
+    {
+      "id": 12,
+      "positionId": 5,
+      "value": "Anchorman"
+    },
+    {
+      "id": 13,
+      "positionId": 5,
+      "value": "Regista"
+    },
+    {
+      "id": 14,
+      "positionId": 5,
+      "value": "Destroyer"
+    },
+    {
+      "id": 15,
+      "positionId": 5,
+      "value": "Box-to-Box"
+    },
+    {
+      "id": 16,
+      "positionId": 6,
+      "value": "Holding Midfielder"
+    },
+    {
+      "id": 17,
+      "positionId": 6,
+      "value": "Box-to-Box"
+    },
+    {
+      "id": 18,
+      "positionId": 6,
+      "value": "Orchestrator"
+    },
+    {
+      "id": 19,
+      "positionId": 6,
+      "value": "Hole Player"
+    },
+    {
+      "id": 20,
+      "positionId": 6,
+      "value": "Technical"
+    },
+    {
+      "id": 21,
+      "positionId": 7,
+      "value": "Classic No. 10"
+    },
+    {
+      "id": 22,
+      "positionId": 7,
+      "value": "Central Winger"
+    },
+    {
+      "id": 23,
+      "positionId": 7,
+      "value": "Second Striker"
+    },
+    {
+      "id": 24,
+      "positionId": 7,
+      "value": "Box-to-Box"
+    },
+    {
+      "id": 25,
+      "positionId": 8,
+      "value": "Speedster"
+    },
+    {
+      "id": 26,
+      "positionId": 8,
+      "value": "Physical"
+    },
+    {
+      "id": 27,
+      "positionId": 8,
+      "value": "Cross Specialist"
+    },
+    {
+      "id": 28,
+      "positionId": 8,
+      "value": "Playmaker"
+    },
+    {
+      "id": 29,
+      "positionId": 9,
+      "value": "Speedster"
+    },
+    {
+      "id": 30,
+      "positionId": 9,
+      "value": "Physical"
+    },
+    {
+      "id": 31,
+      "positionId": 9,
+      "value": "Cross Specialist"
+    },
+    {
+      "id": 32,
+      "positionId": 9,
+      "value": "Inverted Winger"
+    },
+    {
+      "id": 33,
+      "positionId": 10,
+      "value": "Speedster"
+    },
+    {
+      "id": 34,
+      "positionId": 10,
+      "value": "False 9"
+    },
+    {
+      "id": 35,
+      "positionId": 10,
+      "value": "Second Striker"
+    },
+    {
+      "id": 36,
+      "positionId": 11,
+      "value": "Target Man"
+    },
+    {
+      "id": 37,
+      "positionId": 11,
+      "value": "Goal Poacher"
+    },
+    {
+      "id": 38,
+      "positionId": 11,
+      "value": "Speedster"
+    }
+  ],
+  "stats": [
+    {
+      "id": 1,
+      "positionId": 1,
+      "height": "178 - 182 cm",
+      "weight": "69-79 kg",
+      "stats": {
+        "pace": {
+          "acceleration": {
+            "min": 46,
+            "max": 46
+          },
+          "speed": {
+            "min": 53,
+            "max": 53
+          }
+        },
+        "shooting": {
+          "finishing": {
+            "min": 20,
+            "max": 20
+          },
+          "fk_accuracy": {
+            "min": 20,
+            "max": 20
+          },
+          "heading_accuracy": {
+            "min": 15,
+            "max": 15
+          },
+          "shot_power": {
+            "min": 59,
+            "max": 59
+          },
+          "long_shots": {
+            "min": 15,
+            "max": 15
+          },
+          "volleys": {
+            "min": 15,
+            "max": 15
+          },
+          "penalties": {
+            "min": 35,
+            "max": 35
+          },
+          "weak_foot": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "passing": {
+          "vision": {
+            "min": 45,
+            "max": 45
+          },
+          "crossing": {
+            "min": 25,
+            "max": 25
+          },
+          "long_pass": {
+            "min": 40,
+            "max": 40
+          },
+          "short_pass": {
+            "min": 40,
+            "max": 40
+          },
+          "curve": {
+            "min": 30,
+            "max": 30
+          }
+        },
+        "dribbling": {
+          "agility": {
+            "min": 38,
+            "max": 38
+          },
+          "balance": {
+            "min": 58,
+            "max": 58
+          },
+          "attacking_position": {
+            "min": 20,
+            "max": 20
+          },
+          "ball_control": {
+            "min": 20,
+            "max": 20
+          },
+          "dribbling": {
+            "min": 15,
+            "max": 15
+          },
+          "skill_moves": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "defending": {
+          "interceptions": {
+            "min": 20,
+            "max": 20
+          },
+          "defensive_awareness": {
+            "min": 20,
+            "max": 20
+          },
+          "standing_tackle": {
+            "min": 20,
+            "max": 20
+          },
+          "sliding_tackle": {
+            "min": 20,
+            "max": 20
+          }
+        },
+        "physical": {
+          "jumping": {
+            "min": 73,
+            "max": 73
+          },
+          "stamina": {
+            "min": 52,
+            "max": 52
+          },
+          "strength": {
+            "min": 53,
+            "max": 53
+          },
+          "reactions": {
+            "min": 85,
+            "max": 85
+          },
+          "aggression": {
+            "min": 40,
+            "max": 40
+          }
+        },
+        "goalkeeping": {
+          "gk_diving": {
+            "min": 80,
+            "max": 80
+          },
+          "gk_handling": {
+            "min": 79,
+            "max": 79
+          },
+          "gk_kicking": {
+            "min": 80,
+            "max": 80
+          },
+          "gk_reflexes": {
+            "min": 83,
+            "max": 83
+          },
+          "gk_positioning": {
+            "min": 79,
+            "max": 79
+          }
+        }
+      }
+    }
+  ],
+  "stat_headings": {
+    "acceleration": "Acceleration",
+    "speed": "Speed",
+    "finishing": "Finishing",
+    "fk_accuracy": "FK Accuracy",
+    "heading_accuracy": "Heading Accuracy",
+    "shot_power": "Shot Power",
+    "long_shots": "Long Shots",
+    "volleys": "Volleys",
+    "penalties": "Penalties",
+    "weak_foot": "Weak Foot",
+    "vision": "Vision",
+    "crossing": "Crossing",
+    "long_pass": "Long Pass",
+    "short_pass": "Short Pass",
+    "curve": "Curve",
+    "agility": "Agility",
+    "balance": "Balance",
+    "attacking_position": "Attacking Position",
+    "ball_control": "Ball Control",
+    "dribbling": "Dribbling",
+    "skill_moves": "Skill Moves",
+    "interceptions": "Interceptions",
+    "defensive_awareness": "Defensive Awareness",
+    "standing_tackle": "Standing Tackle",
+    "sliding_tackle": "Sliding Tackle",
+    "jumping": "Jumping",
+    "stamina": "Stamina",
+    "strength": "Strength",
+    "reactions": "Reactions",
+    "aggression": "Aggression",
+    "gk_diving": "Diving",
+    "gk_handling": "Handling",
+    "gk_kicking": "Kicking",
+    "gk_reflexes": "Reflexes",
+    "gk_positioning": "Positioning"
+  }
+}

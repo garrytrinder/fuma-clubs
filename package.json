@@ -1,0 +1,28 @@
+{
+  "name": "fuma-clubs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve src/index.html --public-url / --dist-dir dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "@types/bootstrap": "^5.2.10",
+    "@types/gapi": "^0.0.47",
+    "@types/react": "^18.2.58",
+    "@types/react-dom": "^18.2.19",
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
