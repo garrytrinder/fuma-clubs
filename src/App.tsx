@@ -193,7 +193,7 @@ function StatSection({ data, title, headings }) {
     </div>
 
     {Object.keys(data).map((key, index) => {
-      return <div className="row">
+      return <div key={index} className="row">
         <div className="col-8">{headings[key]}</div>
         <div className="col-4 text-end">
           <span className={`badge ${getStatColor(data[key].min)}`}>{data[key].min}</span>
