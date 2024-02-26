@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import * as data from "./data/data.json";
-import { Stats } from "./types";
+import { General, Stats } from "./types";
 
 export function App() {
   const [form, setForm] = React.useState({ position: '', height: '', weight: '', playstyle: '' });
@@ -84,6 +84,9 @@ export function App() {
       </div>
       {hasAllValues &&
         <div className="row gy-5">
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <GenericStatSection data={stat?.general} title={'Overall'} headings={data.stat_headings} />
+          </div>
           <div className="col-lg-4 col-md-6 col-sm-12">
             <StatSection data={stat?.pace} title={'Pace'} headings={data.stat_headings} />
           </div>
@@ -170,32 +173,63 @@ function Playstyle({ data, onChange, disabled, value }) {
 function StatSection({ data, title, headings }) {
   if (!data) return null;
   const minTotal = Object.keys(data).reduce((acc, key) => {
-    if (key === 'weak_foot' || key === 'skill_moves') return acc;
     return acc + data[key].min;
   }, 0);
   const maxTotal = Object.keys(data).reduce((acc, key) => {
-    if (key === 'weak_foot' || key === 'skill_moves') return acc;
     return acc + data[key].max;
   }, 0);
-  const hasWeakFoot = Object.keys(data).includes('weak_foot');
-  const hasSkillMoves = Object.keys(data).includes('skill_moves');
-  const length = hasWeakFoot || hasSkillMoves ? Object.keys(data).length - 1 : Object.keys(data).length;
+  const length = Object.keys(data).length;
   const minAverage = Number.parseInt((minTotal / length).toFixed(0));
-  const maxAverage = Number.parseInt((maxTotal / length).toFixed(0));
 
   return <div>
     <div className="row">
       <div className="col-6"><h3>{title}</h3></div>
-      <div className="col-6 text-end"><h3><span className={`badge ${getStatColor(minAverage)}`}>{minAverage.toFixed(0)}</span> / <span className={`badge ${getStatColor(maxAverage)}`}>{maxAverage}</span></h3></div>
+      <div className="col-6 text-end">
+        <h3>
+          <span className={`badge ${getStatColor(minAverage)}`}>{minAverage.toFixed(0)}</span>
+          {/* / <span className={`badge ${getStatColor(maxAverage)}`}>{maxAverage}</span> */}
+        </h3>
+      </div>
     </div>
 
     {Object.keys(data).map((key, index) => {
       return <div className="row">
         <div className="col-8">{headings[key]}</div>
         <div className="col-4 text-end">
-          <span className={`badge ${getStatColor(data[key].min)}`}>{data[key].min}</span> / <span className={`badge ${getStatColor(data[key].max)}`}>{data[key].max}</span></div>
+          <span className={`badge ${getStatColor(data[key].min)}`}>{data[key].min}</span>
+          {/* / <span className={`badge ${getStatColor(data[key].max)}`}>{data[key].max}</span> */}
+        </div>
       </div>
     })}
+  </div>;
+}
+
+function GenericStatSection({ data, title, headings }) {
+  if (!data) return null;
+  const { overall, skill_moves, weak_foot } = (data as General)
+
+  return <div>
+    <div className="row">
+      <div className="col-6"><h3>{title}</h3></div>
+      <div className="col-6 text-end">
+        <h3>
+          <span className={`badge ${getStatColor(overall)}`}>{overall}</span>
+          {/* / <span className={`badge ${getStatColor(maxAverage)}`}>{maxAverage}</span> */}
+        </h3>
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-8">{headings['skill_moves']}</div>
+      <div className="col-4 text-end">
+        {<Rating data={skill_moves} />}
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-8">{headings['weak_foot']}</div>
+      <div className="col-4 text-end">
+        {<Rating data={weak_foot} />}
+      </div>
+    </div>
   </div>;
 }
 
@@ -205,4 +239,15 @@ function getStatColor(stat: number) {
   if (stat >= 60 && stat < 80) return 'text-bg-stat-70';
   if (stat >= 50 && stat < 60) return 'text-bg-stat-60';
   if (stat < 50) return 'text-bg-stat-50';
+}
+
+function Rating({ data }) {
+  // return the number of stars based on the stat using bootstrap icons
+  // iterate over the number of stars and return the star icon
+
+  const stars: ReactElement[] = [];
+  for (let i = 0; i < data; i++) {
+    stars.push(<i key={i} className="bi-star-fill"></i>)
+  }
+  return <>{stars}</>
 }
