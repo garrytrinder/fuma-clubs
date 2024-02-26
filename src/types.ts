@@ -1,4 +1,5 @@
 export type Stats = {
+  general: General;
   pace: Pace;
   shooting: Shooting;
   passing: Passing;
@@ -6,6 +7,12 @@ export type Stats = {
   defending: Defending;
   physical: Physical;
   goalkeeping: Goalkeeping;
+};
+
+export type General = {
+  overall: number;
+  weak_foot: number;
+  skill_moves: number;
 };
 
 type Pace = {
@@ -21,7 +28,6 @@ type Shooting = {
   long_shots: StatResult;
   volleys: StatResult;
   penalties: StatResult;
-  weak_foot: StatResult;
 };
 
 type Passing = {
@@ -38,7 +44,6 @@ type Dribbling = {
   attacking_position: StatResult;
   ball_control: StatResult;
   dribbling: StatResult;
-  skill_moves: StatResult;
 };
 
 type Defending = {
