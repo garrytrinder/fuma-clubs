@@ -3,7 +3,6 @@ import * as data from "./data/data.json";
 import { Stats } from "./types";
 
 export function App() {
-
   const [form, setForm] = React.useState({ position: '', height: '', weight: '', playstyle: '' });
   const [heights, setHeights] = React.useState<string[]>();
   const [weights, setWeights] = React.useState<string[]>();
@@ -112,7 +111,7 @@ export function App() {
   </>
 }
 
-export function NavBar() {
+function NavBar() {
   return <nav className="navbar fixed-top bg-fuma">
     <div className="container-fluid">
       <a className="navbar-brand fw-bold" href="#">FUMA Clubs</a>
@@ -120,7 +119,7 @@ export function NavBar() {
   </nav>
 }
 
-export function Position({ data, onChange }) {
+function Position({ data, onChange }) {
   return <div className="form-floating my-3">
     <select className="form-select" id="position" aria-label="Position" defaultValue={''} onChange={onChange}>
       <option></option>
@@ -132,7 +131,7 @@ export function Position({ data, onChange }) {
   </div>
 }
 
-export function Height({ data, onChange, disabled, value }) {
+function Height({ data, onChange, disabled, value }) {
   return <div className="form-floating my-3">
     <select className="form-select" id="height" aria-label="Height" value={value} onChange={onChange} disabled={disabled}>
       <option></option>
@@ -144,7 +143,7 @@ export function Height({ data, onChange, disabled, value }) {
   </div>
 }
 
-export function Weight({ data, onChange, disabled, value }) {
+function Weight({ data, onChange, disabled, value }) {
   return <div className="form-floating my-3">
     <select className="form-select" id="weight" aria-label="Weight" value={value} onChange={onChange} disabled={disabled}>
       <option></option>
@@ -156,7 +155,7 @@ export function Weight({ data, onChange, disabled, value }) {
   </div>
 }
 
-export function Playstyle({ data, onChange, disabled, value }) {
+function Playstyle({ data, onChange, disabled, value }) {
   return <div className="form-floating my-3">
     <select className="form-select" id="playstyle" aria-label="Playstyle" value={value} onChange={onChange} disabled={disabled}>
       <option></option>
@@ -168,7 +167,7 @@ export function Playstyle({ data, onChange, disabled, value }) {
   </div>
 }
 
-export function StatSection({ data, title, headings }) {
+function StatSection({ data, title, headings }) {
   if (!data) return null;
   const minTotal = Object.keys(data).reduce((acc, key) => {
     if (key === 'weak_foot' || key === 'skill_moves') return acc;
@@ -181,20 +180,29 @@ export function StatSection({ data, title, headings }) {
   const hasWeakFoot = Object.keys(data).includes('weak_foot');
   const hasSkillMoves = Object.keys(data).includes('skill_moves');
   const length = hasWeakFoot || hasSkillMoves ? Object.keys(data).length - 1 : Object.keys(data).length;
-  const minAverage = minTotal / length;
-  const maxAverage = maxTotal / length;
+  const minAverage = Number.parseInt((minTotal / length).toFixed(0));
+  const maxAverage = Number.parseInt((maxTotal / length).toFixed(0));
 
   return <div>
     <div className="row">
-      <div className="col-8"><h3>{title}</h3></div>
-      <div className="col-4 text-end"><h3>{minAverage.toFixed(0)} / {maxAverage.toFixed(0)}</h3></div>
+      <div className="col-6"><h3>{title}</h3></div>
+      <div className="col-6 text-end"><h3><span className={`badge ${getStatColor(minAverage)}`}>{minAverage.toFixed(0)}</span> / <span className={`badge ${getStatColor(maxAverage)}`}>{maxAverage}</span></h3></div>
     </div>
 
     {Object.keys(data).map((key, index) => {
       return <div className="row">
         <div className="col-8">{headings[key]}</div>
-        <div className="col-4 text-end">{data[key].min} / {data[key].max}</div>
+        <div className="col-4 text-end">
+          <span className={`badge ${getStatColor(data[key].min)}`}>{data[key].min}</span> / <span className={`badge ${getStatColor(data[key].max)}`}>{data[key].max}</span></div>
       </div>
     })}
   </div>;
+}
+
+function getStatColor(stat: number) {
+  if (stat >= 90) return 'text-bg-stat-90';
+  if (stat >= 80 && stat < 90) return 'text-bg-stat-80';
+  if (stat >= 60 && stat < 80) return 'text-bg-stat-70';
+  if (stat >= 50 && stat < 60) return 'text-bg-stat-60';
+  if (stat < 50) return 'text-bg-stat-50';
 }
