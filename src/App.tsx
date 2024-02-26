@@ -44,6 +44,8 @@ export function App() {
   useEffect(() => {
     if (!form.position) {
       setForm({ position: '', height: '', weight: '', playstyle: '' });
+    } else {
+      setForm({ ...form, height: '', weight: '', playstyle: '' });
     }
   }, [form.position]);
 
