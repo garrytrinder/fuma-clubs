@@ -39,6 +39,7 @@ export function App() {
     } else {
       setHasAllValues(false);
     }
+    console.log("form", JSON.stringify(form, null, 2));
   }, [form]);
 
   useEffect(() => {
@@ -80,7 +81,7 @@ export function App() {
         <Height data={heights} onChange={updateForm} disabled={!form.position} value={form.height} />
         <Weight data={weights} onChange={updateForm} disabled={!form.height} value={form.weight} />
         <Playstyle data={playstyles} onChange={updateForm} disabled={!form.position} value={form.playstyle} />
-        {JSON.stringify(form, null, 2)}
+
       </div>
       {hasAllValues &&
         <div className="row gy-5">
