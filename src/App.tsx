@@ -113,9 +113,9 @@ export function App() {
 }
 
 export function NavBar() {
-  return <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  return <nav className="navbar fixed-top bg-fuma">
     <div className="container-fluid">
-      <a className="navbar-brand" href="#">FUMA Clubs</a>
+      <a className="navbar-brand fw-bold" href="#">FUMA Clubs</a>
     </div>
   </nav>
 }
