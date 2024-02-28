@@ -109,22 +109,28 @@ export function App() {
   return (
     <>
       <NavBar />
-      <main className="container">
+      <main className="container my-5">
         <div className="row">
-          <div className="col">
+          <div className="col-lg-3 col-sm-4">
             <Position data={data.positions} onChange={handlePositionChange} />
+          </div>
+          <div className="col-lg-3 col-sm-4">
             <Height
               data={heights}
               onChange={handleHeightChange}
               disabled={!position}
               value={height}
             />
+          </div>
+          <div className="col-lg-3 col-sm-4">
             <Weight
               data={weights}
               onChange={handleWeightChange}
               disabled={!height}
               value={weight}
             />
+          </div>
+          <div className="col-lg-3 col-sm-4">
             <Playstyle
               data={playstyles}
               onChange={handlePlaystyleChange}
