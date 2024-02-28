@@ -1,12 +1,53 @@
 export type Stats = {
-  general: General;
-  pace: Pace;
-  shooting: Shooting;
-  passing: Passing;
-  dribbling: Dribbling;
-  defending: Defending;
-  physical: Physical;
-  goalkeeping: Goalkeeping;
+  overall: number;
+  weak_foot: number;
+  skill_moves: number;
+  acceleration: number;
+  speed: number;
+  finishing: number;
+  fk_accuracy: number;
+  heading_accuracy: number;
+  shot_power: number;
+  long_shots: number;
+  volleys: number;
+  penalties: number;
+  vision: number;
+  crossing: number;
+  long_pass: number;
+  short_pass: number;
+  curve: number;
+  agility: number;
+  balance: number;
+  attacking_position: number;
+  ball_control: number;
+  dribbling: number;
+  interceptions: number;
+  defensive_awareness: number;
+  standing_tackle: number;
+  sliding_tackle: number;
+  jumping: number;
+  stamina: number;
+  strength: number;
+  reactions: number;
+  aggression: number;
+  gk_diving: number;
+  gk_handling: number;
+  gk_kicking: number;
+  gk_reflexes: number;
+  gk_positioning: number;
+};
+
+export type DropDownData = {
+  heights: string[];
+  weights: string[];
+  playstyles: string[];
+};
+
+export type FormData = {
+  position: string;
+  height: string;
+  weight: string;
+  playstyle: string;
 };
 
 export type General = {
@@ -15,61 +56,68 @@ export type General = {
   skill_moves: number;
 };
 
-type Pace = {
-  acceleration: StatResult;
-  speed: StatResult;
+export type Pace = {
+  acceleration: number;
+  speed: number;
 };
 
-type Shooting = {
-  finishing: StatResult;
-  fk_accuracy: StatResult;
-  heading_accuracy: StatResult;
-  shot_power: StatResult;
-  long_shots: StatResult;
-  volleys: StatResult;
-  penalties: StatResult;
+export type Shooting = {
+  finishing: number;
+  fk_accuracy: number;
+  heading_accuracy: number;
+  shot_power: number;
+  long_shots: number;
+  volleys: number;
+  penalties: number;
 };
 
-type Passing = {
-  vision: StatResult;
-  crossing: StatResult;
-  long_pass: StatResult;
-  short_pass: StatResult;
-  curve: StatResult;
+export type Passing = {
+  vision: number;
+  crossing: number;
+  long_pass: number;
+  short_pass: number;
+  curve: number;
 };
 
-type Dribbling = {
-  agility: StatResult;
-  balance: StatResult;
-  attacking_position: StatResult;
-  ball_control: StatResult;
-  dribbling: StatResult;
+export type Dribbling = {
+  agility: number;
+  balance: number;
+  attacking_position: number;
+  ball_control: number;
+  dribbling: number;
 };
 
-type Defending = {
-  interceptions: StatResult;
-  defensive_awareness: StatResult;
-  standing_tackle: StatResult;
-  sliding_tackle: StatResult;
+export type Defending = {
+  interceptions: number;
+  defensive_awareness: number;
+  standing_tackle: number;
+  sliding_tackle: number;
 };
 
-type Physical = {
-  jumping: StatResult;
-  stamina: StatResult;
-  strength: StatResult;
-  reactions: StatResult;
-  aggression: StatResult;
+export type Physical = {
+  jumping: number;
+  stamina: number;
+  strength: number;
+  reactions: number;
+  aggression: number;
 };
 
-type Goalkeeping = {
-  gk_diving: StatResult;
-  gk_handling: StatResult;
-  gk_kicking: StatResult;
-  gk_reflexes: StatResult;
-  gk_positioning: StatResult;
+export type Goalkeeping = {
+  gk_diving: number;
+  gk_handling: number;
+  gk_kicking: number;
+  gk_reflexes: number;
+  gk_positioning: number;
 };
 
-type StatResult = {
-  min: number;
-  max: number;
+export type Playstyle = {
+  position: string;
+  value: string;
+  overall: number;
+  modifiers: KeyValuePair<string, number>[];
+};
+
+export type KeyValuePair<T, Q> = {
+  key: T;
+  value: Q;
 };

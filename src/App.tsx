@@ -1,253 +1,565 @@
-import React, { ReactElement, useEffect } from "react";
-import * as data from "./data/data.json";
-import { General, Stats } from "./types";
+import React, {ReactElement, useEffect} from 'react';
+import * as data from './data/data.json';
+import {
+  Defending,
+  Dribbling,
+  DropDownData,
+  FormData,
+  General,
+  Goalkeeping,
+  KeyValuePair,
+  Pace,
+  Passing,
+  Physical,
+  Playstyle,
+  Shooting,
+  Stats,
+} from './types';
 
 export function App() {
-  const [form, setForm] = React.useState({ position: '', height: '', weight: '', playstyle: '' });
-  const [heights, setHeights] = React.useState<string[]>();
-  const [weights, setWeights] = React.useState<string[]>();
-  const [playstyles, setPlaystyles] = React.useState([{}]);
-  const [hasAllValues, setHasAllValues] = React.useState(false);
-  const [stat, setStat] = React.useState<Stats>();
+  const [{position, height, weight, playstyle}, setForm] =
+    React.useState<FormData>({
+      position: '',
+      height: '',
+      weight: '',
+      playstyle: '',
+    });
 
-  useEffect(() => {
-    if (form.position) {
-      const height = data.heights.find((height) => {
-        return height.position === form.position;
+  const [{heights, weights, playstyles}, setData] =
+    React.useState<DropDownData>({heights: [], weights: [], playstyles: []});
+
+  const [stats, setStats] = React.useState<Stats>();
+
+  function handlePositionChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const {value} = e.target;
+
+    setForm(form => ({
+      ...form,
+      position: value,
+      height: '',
+      weight: '',
+      playstyle: '',
+    }));
+
+    const playstyles = data.playstyles
+      .filter(playstyle => {
+        return playstyle.position === value;
+      })
+      .map(playstyle => {
+        return playstyle.value;
       });
-      const styles = data.playstyles.filter((playstyle) => {
-        return playstyle.position === form.position;
-      });
-      if (styles) {
-        setPlaystyles([...styles]);
-      }
 
-      if (height) {
-        setHeights(height.values);
-        const weight = data.weights.find((weight) => {
-          return weight.key === form.height;
-        });
-        if (weight) {
-          setWeights(weight.values);
-        }
-      }
+    setData(data => ({...data, playstyles}));
+
+    const height = data.heights.find(height => {
+      return height.position === value;
+    });
+
+    if (height) {
+      setData(data => ({...data, heights: height.values}));
     }
-
-    if (form.position && form.height && form.weight && form.playstyle) {
-      setHasAllValues(true);
-    } else {
-      setHasAllValues(false);
-    }
-    console.log("form", JSON.stringify(form, null, 2));
-  }, [form]);
-
-  useEffect(() => {
-    if (!form.position) {
-      setForm({ position: '', height: '', weight: '', playstyle: '' });
-    } else {
-      setForm({ ...form, height: '', weight: '', playstyle: '' });
-    }
-  }, [form.position]);
-
-  useEffect(() => {
-    setForm({ ...form, weight: '' });
-  }, [form.height]);
-
-  useEffect(() => {
-    if (hasAllValues) {
-      const stat = data.stats.find((stat) => {
-        return stat.position === form.position && stat.height === form.height && stat.weight === form.weight;
-      });
-      if (stat) {
-        setStat(stat.stats);
-      }
-    }
-  }, [hasAllValues]);
-
-  function updateForm(e: React.ChangeEvent<HTMLSelectElement>) {
-    const elementId = e.target.id;
-    const value = e.target.value;
-    const newForm = { ...form };
-    newForm[elementId] = value;
-    setForm({ ...newForm });
   }
 
-  return <>
-    <NavBar />
-    <main className="container my-5">
-      <div className="py-1">
-        <Position data={data.positions} onChange={updateForm} />
-        <Height data={heights} onChange={updateForm} disabled={!form.position} value={form.height} />
-        <Weight data={weights} onChange={updateForm} disabled={!form.height} value={form.weight} />
-        <Playstyle data={playstyles} onChange={updateForm} disabled={!form.position} value={form.playstyle} />
+  function handleHeightChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setForm(form => ({...form, height: e.target.value, weight: ''}));
 
-      </div>
-      {hasAllValues &&
-        <div className="row gy-5">
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <GenericStatSection data={stat?.general} title={'Overall'} headings={data.stat_headings} />
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <StatSection data={stat?.pace} title={'Pace'} headings={data.stat_headings} />
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <StatSection data={stat?.shooting} title={'Shooting'} headings={data.stat_headings} />
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <StatSection data={stat?.passing} title={'Passing'} headings={data.stat_headings} />
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <StatSection data={stat?.dribbling} title={'Dribbling'} headings={data.stat_headings} />
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <StatSection data={stat?.defending} title={'Defending'} headings={data.stat_headings} />
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <StatSection data={stat?.physical} title={'Physical'} headings={data.stat_headings} />
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <StatSection data={stat?.goalkeeping} title={'Goalkeeping'} headings={data.stat_headings} />
-          </div>
-        </div>
+    const weight = data.weights.find(weight => {
+      return weight.key === e.target.value;
+    });
+    if (weight) {
+      setData(data => ({...data, weights: weight.values}));
+    }
+  }
+
+  function handleWeightChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setForm(form => ({...form, weight: e.target.value}));
+  }
+
+  function handlePlaystyleChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const {value} = e.target;
+    setForm(form => ({...form, playstyle: value}));
+  }
+
+  useEffect(() => {
+    const player = data.stats.find(player => {
+      return (
+        player.position === position &&
+        player.height === height &&
+        player.weight === weight
+      );
+    });
+    if (!player) setStats(undefined);
+    if (player && playstyle === '') {
+      setStats(player.stats);
+    }
+    if (player && playstyle !== '') {
+      const newStats = {} as Stats;
+      const style = data.playstyles.find(style => {
+        return style.value === playstyle;
+      });
+      if (style) {
+        style?.modifiers.forEach(modifier => {
+          newStats[modifier.key] = player.stats[modifier.key] + modifier.value;
+        });
       }
-    </main>
-  </>
+      setStats(stats => ({...stats, ...newStats}));
+    }
+  }, [position, height, weight, playstyle]);
+
+  return (
+    <>
+      <NavBar />
+      <main className="container">
+        <div className="row">
+          <div className="col">
+            <Position data={data.positions} onChange={handlePositionChange} />
+            <Height
+              data={heights}
+              onChange={handleHeightChange}
+              disabled={!position}
+              value={height}
+            />
+            <Weight
+              data={weights}
+              onChange={handleWeightChange}
+              disabled={!height}
+              value={weight}
+            />
+            <Playstyle
+              data={playstyles}
+              onChange={handlePlaystyleChange}
+              disabled={!position || !height || !weight}
+              value={playstyle}
+            />
+          </div>
+          {/* <div className="row">
+            <div className="col">
+              {JSON.stringify({position, height, weight, playstyle}, null, 2)}
+            </div>
+          </div> */}
+        </div>
+        {stats !== undefined && (
+          <TileView stats={stats} playstyle={playstyle} />
+        )}
+      </main>
+    </>
+  );
+}
+
+type TileViewProps = {
+  stats: Stats;
+  playstyle: string;
+};
+
+function TileView({stats, playstyle}: TileViewProps) {
+  const {
+    overall,
+    skill_moves,
+    weak_foot,
+    acceleration,
+    speed,
+    finishing,
+    fk_accuracy,
+    heading_accuracy,
+    shot_power,
+    long_shots,
+    volleys,
+    penalties,
+    vision,
+    crossing,
+    long_pass,
+    short_pass,
+    curve,
+    agility,
+    balance,
+    attacking_position,
+    ball_control,
+    dribbling,
+    interceptions,
+    defensive_awareness,
+    standing_tackle,
+    sliding_tackle,
+    jumping,
+    stamina,
+    strength,
+    reactions,
+    aggression,
+    gk_diving,
+    gk_handling,
+    gk_kicking,
+    gk_reflexes,
+    gk_positioning,
+  } = stats;
+
+  const general: General = {overall, skill_moves, weak_foot};
+  const pace: Pace = {acceleration, speed};
+  const shooting: Shooting = {
+    finishing,
+    fk_accuracy,
+    heading_accuracy,
+    shot_power,
+    long_shots,
+    volleys,
+    penalties,
+  };
+  const passing: Passing = {vision, crossing, long_pass, short_pass, curve};
+  const _dribbling: Dribbling = {
+    agility,
+    balance,
+    attacking_position,
+    ball_control,
+    dribbling,
+  };
+
+  const defending: Defending = {
+    interceptions,
+    defensive_awareness,
+    standing_tackle,
+    sliding_tackle,
+  };
+
+  const physical: Physical = {
+    jumping,
+    stamina,
+    strength,
+    reactions,
+    aggression,
+  };
+
+  const goalkeeping: Goalkeeping = {
+    gk_diving,
+    gk_handling,
+    gk_kicking,
+    gk_reflexes,
+    gk_positioning,
+  };
+
+  const style = data.playstyles.find(style => {
+    return style.value === playstyle;
+  });
+
+  return (
+    <div className="row gy-5">
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <GenericStatSection
+          data={general}
+          title={'Overall'}
+          headings={data.stat_headings}
+          playstyle={style}
+        />
+      </div>
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <StatSection
+          data={pace}
+          title={'Pace'}
+          headings={data.stat_headings}
+          modifiers={style?.modifiers}
+        />
+      </div>
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <StatSection
+          data={shooting}
+          title={'Shooting'}
+          headings={data.stat_headings}
+          modifiers={style?.modifiers}
+        />
+      </div>
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <StatSection
+          data={passing}
+          title={'Passing'}
+          headings={data.stat_headings}
+          modifiers={style?.modifiers}
+        />
+      </div>
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <StatSection
+          data={_dribbling}
+          title={'Dribbling'}
+          headings={data.stat_headings}
+          modifiers={style?.modifiers}
+        />
+      </div>
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <StatSection
+          data={defending}
+          title={'Defending'}
+          headings={data.stat_headings}
+          modifiers={style?.modifiers}
+        />
+      </div>
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <StatSection
+          data={physical}
+          title={'Physical'}
+          headings={data.stat_headings}
+          modifiers={style?.modifiers}
+        />
+      </div>
+      <div className="col-lg-4 col-md-6 col-sm-12">
+        <StatSection
+          data={goalkeeping}
+          title={'Goalkeeping'}
+          headings={data.stat_headings}
+          modifiers={style?.modifiers}
+        />
+      </div>
+    </div>
+  );
 }
 
 function NavBar() {
-  return <nav className="navbar fixed-top bg-fuma">
-    <div className="container-fluid">
-      <a className="navbar-brand fw-bold" href="#">FUMA Clubs</a>
+  return (
+    <nav className="navbar fixed-top bg-fuma">
+      <div className="container-fluid">
+        <a className="navbar-brand fw-bold" href="#">
+          FUMA Clubs
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+function Position({data, onChange}) {
+  return (
+    <div className="form-floating my-3">
+      <select
+        className="form-select"
+        id="position"
+        aria-label="Position"
+        defaultValue={''}
+        onChange={onChange}
+      >
+        <option></option>
+        {data.map((position, index) => {
+          return (
+            <option key={index} value={position}>
+              {position}
+            </option>
+          );
+        })}
+      </select>
+      <label htmlFor="position">Position</label>
     </div>
-  </nav>
+  );
 }
 
-function Position({ data, onChange }) {
-  return <div className="form-floating my-3">
-    <select className="form-select" id="position" aria-label="Position" defaultValue={''} onChange={onChange}>
-      <option></option>
-      {data.map((position, index) => {
-        return <option key={index} value={position}>{position}</option>
-      })}
-    </select>
-    <label htmlFor="position">Position</label>
-  </div>
+function Height({data, onChange, disabled, value}) {
+  return (
+    <div className="form-floating my-3">
+      <select
+        className="form-select"
+        id="height"
+        aria-label="Height"
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+      >
+        <option></option>
+        {data &&
+          data.map((height, index) => {
+            return (
+              <option key={index} value={height}>
+                {height}
+              </option>
+            );
+          })}
+      </select>
+      <label htmlFor="height">Height</label>
+    </div>
+  );
 }
 
-function Height({ data, onChange, disabled, value }) {
-  return <div className="form-floating my-3">
-    <select className="form-select" id="height" aria-label="Height" value={value} onChange={onChange} disabled={disabled}>
-      <option></option>
-      {data && data.map((height, index) => {
-        return <option key={index} value={height}>{height}</option>
-      })}
-    </select>
-    <label htmlFor="height">Height</label>
-  </div>
+function Weight({data, onChange, disabled, value}) {
+  return (
+    <div className="form-floating my-3">
+      <select
+        className="form-select"
+        id="weight"
+        aria-label="Weight"
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+      >
+        <option></option>
+        {data &&
+          data.map((weight, index) => {
+            return (
+              <option key={index} value={weight}>
+                {weight}
+              </option>
+            );
+          })}
+      </select>
+      <label htmlFor="weight">Weight</label>
+    </div>
+  );
 }
 
-function Weight({ data, onChange, disabled, value }) {
-  return <div className="form-floating my-3">
-    <select className="form-select" id="weight" aria-label="Weight" value={value} onChange={onChange} disabled={disabled}>
-      <option></option>
-      {data && data.map((weight, index) => {
-        return <option key={index} value={weight}>{weight}</option>
-      })}
-    </select>
-    <label htmlFor="weight">Weight</label>
-  </div>
+function Playstyle({data, onChange, disabled, value}) {
+  return (
+    <div className="form-floating my-3">
+      <select
+        className="form-select"
+        id="playstyle"
+        aria-label="Playstyle"
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+      >
+        <option></option>
+        {data &&
+          data.map((playstyle, index) => {
+            return (
+              <option key={index} value={playstyle}>
+                {playstyle}
+              </option>
+            );
+          })}
+      </select>
+      <label htmlFor="playstyle">Playstyle</label>
+    </div>
+  );
 }
 
-function Playstyle({ data, onChange, disabled, value }) {
-  return <div className="form-floating my-3">
-    <select className="form-select" id="playstyle" aria-label="Playstyle" value={value} onChange={onChange} disabled={disabled}>
-      <option></option>
-      {data && data.map((playstyle, index) => {
-        return <option key={index} value={playstyle.id}>{playstyle.value}</option>
-      })}
-    </select>
-    <label htmlFor="playstyle">Playstyle</label>
-  </div>
-}
+type StatSectionProps = {
+  data: Record<string, number>;
+  title: string;
+  headings: Record<string, string>;
+  modifiers: KeyValuePair<string, number>[] | undefined;
+};
 
-function StatSection({ data, title, headings }) {
+function StatSection({data, title, headings, modifiers}: StatSectionProps) {
   if (!data) return null;
-  const minTotal = Object.keys(data).reduce((acc, key) => {
-    return acc + data[key].min;
-  }, 0);
-  const maxTotal = Object.keys(data).reduce((acc, key) => {
-    return acc + data[key].max;
+  const baseTotal = Object.keys(data).reduce((acc, key) => {
+    return acc + data[key];
   }, 0);
   const length = Object.keys(data).length;
-  const minAverage = Number.parseInt((minTotal / length).toFixed(0));
+  const modifiedTotal = Object.keys(data).reduce((acc, key) => {
+    const upgrade = modifiers?.find(modifier => {
+      return modifier.key === key;
+    });
+    if (upgrade) {
+      return acc + (data[key] + upgrade?.value);
+    } else {
+      return acc + data[key];
+    }
+  }, 0);
+  const averageWithModifiers = Number.parseInt(
+    (modifiedTotal / length).toFixed(0)
+  );
 
-  return <div>
-    <div className="row">
-      <div className="col-6"><h3>{title}</h3></div>
-      <div className="col-6 text-end">
-        <h3>
-          <span className={`badge ${getStatColor(minAverage)}`}>{minAverage.toFixed(0)}</span>
-          {/* / <span className={`badge ${getStatColor(maxAverage)}`}>{maxAverage}</span> */}
-        </h3>
-      </div>
-    </div>
+  const baseTotalAverage = Number.parseInt((baseTotal / length).toFixed(0));
+  const average = modifiers ? averageWithModifiers : baseTotalAverage;
+  const increase = averageWithModifiers - baseTotalAverage;
 
-    {Object.keys(data).map((key, index) => {
-      return <div key={index} className="row">
-        <div className="col-8">{headings[key]}</div>
-        <div className="col-4 text-end">
-          <span className={`badge ${getStatColor(data[key].min)}`}>{data[key].min}</span>
-          {/* / <span className={`badge ${getStatColor(data[key].max)}`}>{data[key].max}</span> */}
+  return (
+    <div>
+      <div className="row">
+        <div className="col-8">
+          <h3>{title}</h3>
+        </div>
+        <div className="col text-end">
+          <h3>
+            <span className="text-stat-80">
+              {increase > 0 ? `+${increase}` : ''}
+            </span>
+          </h3>
+        </div>
+        <div className="col text-end">
+          <h3>
+            <span className={`badge ${getStatColor(average)}`}>
+              {average.toFixed(0)}
+            </span>
+          </h3>
         </div>
       </div>
-    })}
-  </div>;
+
+      {Object.keys(data).map((key, index) => {
+        const upgrade = modifiers?.find(modifier => {
+          return modifier.key === key;
+        });
+        return (
+          <div key={index} className="row">
+            <div className="col-8">{headings[key]}</div>
+            <div className="col text-end">
+              <span className="text-stat-80">
+                {upgrade ? `+ ${upgrade?.value}` : ''}
+              </span>
+            </div>
+            <div className="col text-center">
+              <span className={`badge ${getStatColor(data[key])}`}>
+                {data[key]}
+              </span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
-function GenericStatSection({ data, title, headings }) {
-  if (!data) return null;
-  const { overall, skill_moves, weak_foot } = (data as General)
+type GenericStatSectionProps = {
+  data: General;
+  title: string;
+  headings: Record<string, string>;
+  playstyle: Playstyle | undefined;
+};
 
-  return <div>
-    <div className="row">
-      <div className="col-6"><h3>{title}</h3></div>
-      <div className="col-6 text-end">
-        <h3>
-          <span className={`badge ${getStatColor(overall)}`}>{overall}</span>
-          {/* / <span className={`badge ${getStatColor(maxAverage)}`}>{maxAverage}</span> */}
-        </h3>
+function GenericStatSection({
+  data,
+  title,
+  headings,
+  playstyle,
+}: GenericStatSectionProps) {
+  const overall = playstyle ? playstyle.overall : data.overall;
+  const increase = overall - data.overall;
+
+  return (
+    <div>
+      <div className="row">
+        <div className="col-8">
+          <h3>{title}</h3>
+        </div>
+        <div className="col text-end">
+          <h3>
+            <span className="text-stat-80">
+              {increase > 0 ? `+${increase}` : ''}
+            </span>
+          </h3>
+        </div>
+        <div className="col text-end">
+          <h3>
+            <span className={`badge ${getStatColor(overall)}`}>{overall}</span>
+          </h3>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-8">{headings['skill_moves']}</div>
+        <div className="col-4 text-end">
+          {<Rating data={data.skill_moves} />}
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-8">{headings['weak_foot']}</div>
+        <div className="col-4 text-end">{<Rating data={data.weak_foot} />}</div>
       </div>
     </div>
-    <div className="row">
-      <div className="col-8">{headings['skill_moves']}</div>
-      <div className="col-4 text-end">
-        {<Rating data={skill_moves} />}
-      </div>
-    </div>
-    <div className="row">
-      <div className="col-8">{headings['weak_foot']}</div>
-      <div className="col-4 text-end">
-        {<Rating data={weak_foot} />}
-      </div>
-    </div>
-  </div>;
+  );
 }
 
 function getStatColor(stat: number) {
-  if (stat >= 90) return 'text-bg-stat-90';
-  if (stat >= 80 && stat < 90) return 'text-bg-stat-80';
-  if (stat >= 60 && stat < 80) return 'text-bg-stat-70';
-  if (stat >= 50 && stat < 60) return 'text-bg-stat-60';
-  if (stat < 50) return 'text-bg-stat-50';
+  if (stat >= 90) return 'bg-stat-90';
+  if (stat >= 80 && stat < 90) return 'bg-stat-80';
+  if (stat >= 60 && stat < 80) return 'bg-stat-70';
+  if (stat >= 50 && stat < 60) return 'bg-stat-60';
+  if (stat < 50) return 'bg-stat-50';
 }
 
-function Rating({ data }) {
-  // return the number of stars based on the stat using bootstrap icons
-  // iterate over the number of stars and return the star icon
-
+function Rating({data}) {
   const stars: ReactElement[] = [];
   for (let i = 0; i < data; i++) {
-    stars.push(<i key={i} className="bi-star-fill"></i>)
+    stars.push(<i key={i} className="bi-star-fill"></i>);
   }
-  return <>{stars}</>
+  return <>{stars}</>;
 }
