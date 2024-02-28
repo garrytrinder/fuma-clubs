@@ -94,18 +94,11 @@
     },
     {
       "position": "CF",
-      "values": [
-        "168 - 172 cm",
-        "168 - 172 cm",
-        "173 - 177 cm",
-        "178 - 182 cm",
-        "183 - 187 cm"
-      ]
+      "values": ["168 - 172 cm", "173 - 177 cm", "178 - 182 cm", "183 - 187 cm"]
     },
     {
       "position": "ST",
       "values": [
-        "168 - 172 cm",
         "168 - 172 cm",
         "173 - 177 cm",
         "178 - 182 cm",
@@ -117,15 +110,15 @@
   "weights": [
     {
       "key": "163 - 167 cm",
-      "values": ["58 - 68 kg"]
+      "values": ["55 - 68 kg"]
     },
     {
       "key": "168 - 172 cm",
-      "values": ["58 - 68 kg", "69 - 79 kg"]
+      "values": ["55 - 68 kg", "69 - 79 kg"]
     },
     {
       "key": "173 - 177 cm",
-      "values": ["58 - 68 kg", "69 - 79 kg"]
+      "values": ["55 - 68 kg", "69 - 79 kg"]
     },
     {
       "key": "178 - 182 cm",
@@ -145,26 +138,22 @@
     },
     {
       "key": "198 - 200 cm",
-      "values": ["91 - 101 kg"]
+      "values": ["80 - 90 kg", "91 - 101 kg"]
     }
   ],
   "playstyles": [
     {
       "position": "GK",
       "value": "Line Keeper",
-      "overall": 84,
+      "overall": 83,
       "modifiers": [
         {
           "key": "gk_diving",
-          "value": 8
-        },
-        {
-          "key": "gk_handling",
-          "value": 3
+          "value": 5
         },
         {
           "key": "gk_reflexes",
-          "value": 5
+          "value": 6
         },
         {
           "key": "gk_positioning",
@@ -175,7 +164,7 @@
     {
       "position": "GK",
       "value": "Sweeper Keeper",
-      "overall": 84,
+      "overall": 83,
       "modifiers": [
         {
           "key": "gk_diving",
@@ -191,17 +180,17 @@
         },
         {
           "key": "gk_reflexes",
-          "value": 8
+          "value": 5
         },
         {
           "key": "gk_positioning",
-          "value": 5
+          "value": 2
         }
       ]
     },
     {
       "position": "GK",
-      "overall": 84,
+      "overall": 83,
       "value": "Ball-playing Keeper",
       "modifiers": [
         {
@@ -218,11 +207,7 @@
         },
         {
           "key": "gk_reflexes",
-          "value": 3
-        },
-        {
-          "key": "gk_positioning",
-          "value": 5
+          "value": 2
         }
       ]
     },
@@ -233,35 +218,31 @@
       "modifiers": [
         {
           "key": "acceleration",
-          "value": 6
+          "value": 1
         },
         {
           "key": "speed",
-          "value": 2
+          "value": 3
         },
         {
           "key": "crossing",
           "value": 4
         },
         {
-          "key": "curve",
-          "value": 5
+          "key": "short_pass",
+          "value": 4
         },
         {
           "key": "agility",
-          "value": 7
-        },
-        {
-          "key": "dribbling",
           "value": 4
         },
         {
-          "key": "interceptions",
-          "value": 4
+          "key": "balance",
+          "value": 2
         },
         {
           "key": "defensive_awareness",
-          "value": 5
+          "value": 3
         },
         {
           "key": "standing_tackle",
@@ -270,12 +251,24 @@
         {
           "key": "sliding_tackle",
           "value": 6
+        },
+        {
+          "key": "strength",
+          "value": 6
+        },
+        {
+          "key": "reactions",
+          "value": 3
+        },
+        {
+          "key": "aggression",
+          "value": 3
         }
       ]
     },
     {
       "position": "LB/RB",
-      "value": "Deep Full Back",
+      "value": "Offensive Full Back",
       "overall": 82,
       "modifiers": [
         {
@@ -284,39 +277,55 @@
         },
         {
           "key": "speed",
-          "value": 4
+          "value": 3
         },
         {
           "key": "crossing",
-          "value": 3
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 4
         },
         {
           "key": "curve",
-          "value": 3
+          "value": 5
         },
         {
           "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "ball_control",
           "value": 5
         },
         {
           "key": "dribbling",
-          "value": 3
-        },
-        {
-          "key": "interceptions",
-          "value": 5
-        },
-        {
-          "key": "defensive_awareness",
-          "value": 6
+          "value": 4
         },
         {
           "key": "standing_tackle",
-          "value": 6
+          "value": 2
         },
         {
           "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "stamina",
           "value": 5
+        },
+        {
+          "key": "strength",
+          "value": 1
+        },
+        {
+          "key": "reactions",
+          "value": 4
         }
       ]
     },
@@ -326,24 +335,44 @@
       "overall": 82,
       "modifiers": [
         {
+          "key": "acceleration",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
           "key": "vision",
-          "value": 4
+          "value": 2
+        },
+        {
+          "key": "long_pass",
+          "value": 2
         },
         {
           "key": "short_pass",
-          "value": 5
+          "value": 6
         },
         {
           "key": "agility",
-          "value": 4
+          "value": 2
         },
         {
-          "key": "attacking_position",
-          "value": 3
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
+          "value": 5
         },
         {
           "key": "dribbling",
-          "value": 6
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
         },
         {
           "key": "interceptions",
@@ -351,15 +380,15 @@
         },
         {
           "key": "defensive_awareness",
-          "value": 5
-        },
-        {
-          "key": "sliding_tackle",
-          "value": 3
+          "value": 2
         },
         {
           "key": "standing_tackle",
-          "value": 6
+          "value": 4
+        },
+        {
+          "key": "stamina",
+          "value": 1
         },
         {
           "key": "strength",
@@ -370,12 +399,8 @@
           "value": 3
         },
         {
-          "key": "balance",
-          "value": 2
-        },
-        {
-          "key": "ball_control",
-          "value": 2
+          "key": "aggression",
+          "value": 3
         }
       ]
     },
