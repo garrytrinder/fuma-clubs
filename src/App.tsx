@@ -61,7 +61,12 @@ export function App() {
   }
 
   function handleHeightChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    setForm(form => ({...form, height: e.target.value, weight: ''}));
+    const {value} = e.target;
+    setForm(form => ({...form, height: value, weight: ''}));
+
+    if (value === '') {
+      setForm(form => ({...form, playstyle: ''}));
+    }
 
     const weight = data.weights.find(weight => {
       return weight.key === e.target.value;
@@ -72,7 +77,11 @@ export function App() {
   }
 
   function handleWeightChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    setForm(form => ({...form, weight: e.target.value}));
+    const {value} = e.target;
+    setForm(form => ({...form, weight: value}));
+    if (value === '') {
+      setForm(form => ({...form, playstyle: ''}));
+    }
   }
 
   function handlePlaystyleChange(e: React.ChangeEvent<HTMLSelectElement>) {
