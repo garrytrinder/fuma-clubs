@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve src/index.html --public-url / --dist-dir dist"
+    "start": "parcel serve src/index.html --public-url / --dist-dir dist",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +22,10 @@
     "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
     "parcel": "^2.11.0",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "gts": "^5.0.1",
+    "typescript": "~5.1.6",
+    "@types/node": "20.4.6"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
