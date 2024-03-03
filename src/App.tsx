@@ -109,6 +109,21 @@ export function App() {
       <NavBar />
       <main className="container my-5">
         <div className="row">
+          <div className="col">
+            <h1>
+              Build your pro{' '}
+              <span className="badge bg-danger fs-6 align-top">Preview</span>
+            </h1>
+            <p>
+              We welcome your{' '}
+              <a href="https://discord.com/channels/882539898953949204/1139476847277658112">
+                feedback
+              </a>
+              !
+            </p>
+          </div>
+        </div>
+        <div className="row">
           <div className="col-lg-3 col-sm-4">
             <Position data={data.positions} onChange={handlePositionChange} />
           </div>
