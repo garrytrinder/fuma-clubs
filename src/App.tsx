@@ -114,13 +114,6 @@ export function App() {
               Build your pro{' '}
               <span className="badge bg-danger fs-6 align-top">Preview</span>
             </h1>
-            <p>
-              We welcome your{' '}
-              <a href="https://discord.com/channels/882539898953949204/1139476847277658112">
-                feedback
-              </a>
-              !
-            </p>
           </div>
         </div>
         <div className="row">
@@ -244,6 +237,13 @@ function NavBar() {
       <div className="container-fluid">
         <a className="navbar-brand fw-bold" href="#">
           FUMA Clubs
+        </a>
+        <a
+          className="btn btn- text-light"
+          href="https://discord.com/channels/882539898953949204/1139476847277658112"
+          role="button"
+        >
+          Feedback
         </a>
       </div>
     </nav>
