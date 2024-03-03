@@ -138,23 +138,26 @@
     },
     {
       "key": "188 - 192 cm",
-      "values": ["69 - 79 kg", "80 - 90 kg", "91 - 101 kg"]
+      "values": ["69 - 79 kg", "80 - 90 kg", "91 - 100 kg"]
     },
     {
       "key": "193 - 197 cm",
-      "values": ["80 - 90 kg", "91 - 101 kg"]
+      "values": ["80 - 90 kg", "91 - 100 kg"]
     },
     {
       "key": "198 - 200 cm",
-      "values": ["80 - 90 kg", "91 - 101 kg"]
+      "values": ["80 - 90 kg", "91 - 100 kg"]
     }
   ],
   "playstyles": [
     {
       "position": "GK",
       "value": "Line Keeper",
-      "overall": 83,
       "modifiers": [
+        {
+          "key": "overall",
+          "value": 3
+        },
         {
           "key": "gk_diving",
           "value": 5
@@ -172,8 +175,11 @@
     {
       "position": "GK",
       "value": "Sweeper Keeper",
-      "overall": 83,
       "modifiers": [
+        {
+          "key": "overall",
+          "value": 3
+        },
         {
           "key": "gk_diving",
           "value": 5
@@ -198,9 +204,12 @@
     },
     {
       "position": "GK",
-      "overall": 83,
       "value": "Ball-playing Keeper",
       "modifiers": [
+        {
+          "key": "overall",
+          "value": 3
+        },
         {
           "key": "gk_diving",
           "value": 5
@@ -222,8 +231,11 @@
     {
       "position": "LB/RB",
       "value": "Wide Full Back",
-      "overall": 82,
       "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
         {
           "key": "acceleration",
           "value": 1
@@ -277,8 +289,11 @@
     {
       "position": "LB/RB",
       "value": "Offensive Full Back",
-      "overall": 82,
       "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
         {
           "key": "acceleration",
           "value": 4
@@ -340,8 +355,11 @@
     {
       "position": "LB/RB",
       "value": "Inverted Full Back",
-      "overall": 82,
       "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
         {
           "key": "acceleration",
           "value": 2
@@ -414,195 +432,1802 @@
     },
     {
       "position": "LWB/RWB",
-      "value": "Physical",
-      "overall": 82,
-      "modifiers": []
+      "value": "Defensive Wing Back",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "acceleration",
+          "value": 1
+        },
+        {
+          "key": "speed",
+          "value": 3
+        },
+        {
+          "key": "crossing",
+          "value": 2
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 3
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 6
+        },
+        {
+          "key": "strength",
+          "value": 6
+        },
+        {
+          "key": "reactions",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "LWB/RWB",
-      "value": "Cross Specialist",
-      "overall": 82,
-      "modifiers": []
+      "value": "Offensive Wing Back",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "acceleration",
+          "value": 4
+        },
+        {
+          "key": "speed",
+          "value": 1
+        },
+        {
+          "key": "crossing",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "curve",
+          "value": 5
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "ball_control",
+          "value": 5
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "stamina",
+          "value": 5
+        },
+        {
+          "key": "reactions",
+          "value": 4
+        }
+      ]
     },
     {
       "position": "CB",
       "value": "Stopper",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 2
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 6
+        },
+        {
+          "key": "interceptions",
+          "value": 2
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 4
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "jumping",
+          "value": 2
+        },
+        {
+          "key": "stamina",
+          "value": 4
+        },
+        {
+          "key": "strength",
+          "value": 3
+        },
+        {
+          "key": "aggression",
+          "value": 5
+        },
+        {
+          "key": "reactions",
+          "value": 4
+        }
+      ]
     },
     {
       "position": "CB",
       "value": "Libero",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 3
+        },
+        {
+          "key": "short_pass",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "interceptions",
+          "value": 6
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "strength",
+          "value": 3
+        },
+        {
+          "key": "reactions",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "CB",
       "value": "Technical",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "vision",
+          "value": 2
+        },
+        {
+          "key": "long_pass",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "interceptions",
+          "value": 2
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 1
+        }
+      ]
     },
     {
       "position": "CDM",
-      "value": "Anchorman",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "CDM",
-      "value": "Regista",
-      "overall": 82,
-      "modifiers": []
+      "value": "Anchor Man",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "long_pass",
+          "value": 2
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
+          "value": 5
+        },
+        {
+          "key": "interceptions",
+          "value": 6
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 3
+        },
+        {
+          "key": "reactions",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "CDM",
       "value": "Destroyer",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "short_pass",
+          "value": 2
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "interceptions",
+          "value": 2
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 5
+        },
+        {
+          "key": "standing_tackle",
+          "value": 4
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 6
+        },
+        {
+          "key": "stamina",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 6
+        },
+        {
+          "key": "reactions",
+          "value": 3
+        },
+        {
+          "key": "aggression",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "position": "CDM",
+      "value": "Regista",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "vision",
+          "value": 4
+        },
+        {
+          "key": "long_pass",
+          "value": 6
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "balance",
+          "value": 6
+        },
+        {
+          "key": "dribbling",
+          "value": 2
+        },
+        {
+          "key": "attacking_position",
+          "value": 3
+        },
+        {
+          "key": "ball_control",
+          "value": 6
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        }
+      ]
     },
     {
       "position": "CDM",
       "value": "Box-to-Box",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 3
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 2
+        },
+        {
+          "key": "interceptions",
+          "value": 2
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "stamina",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 3
+        },
+        {
+          "key": "aggression",
+          "value": 2
+        }
+      ]
     },
     {
       "position": "CM",
       "value": "Holding Midfielder",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 3
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 1
+        },
+        {
+          "key": "vision",
+          "value": 4
+        },
+        {
+          "key": "long_pass",
+          "value": 2
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "interceptions",
+          "value": 6
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 5
+        },
+        {
+          "key": "standing_tackle",
+          "value": 6
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "stamina",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 6
+        },
+        {
+          "key": "aggression",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "CM",
       "value": "Box-to-Box",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 3
+        },
+        {
+          "key": "vision",
+          "value": 4
+        },
+        {
+          "key": "long_pass",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 3
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "interceptions",
+          "value": 2
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "stamina",
+          "value": 5
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "CM",
       "value": "Orchestrator",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "fk_accuracy",
+          "value": 4
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "vision",
+          "value": 6
+        },
+        {
+          "key": "long_pass",
+          "value": 6
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "balance",
+          "value": 3
+        },
+        {
+          "key": "attacking_position",
+          "value": 4
+        },
+        {
+          "key": "ball_control",
+          "value": 5
+        }
+      ]
     },
     {
       "position": "CM",
       "value": "Hole Player",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 5
+        },
+        {
+          "key": "vision",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 2
+        },
+        {
+          "key": "stamina",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "CM",
-      "value": "Technical",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "CAM",
-      "value": "Classic No. 10",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "CAM",
-      "value": "Central Winger",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "CAM",
-      "value": "Second Striker",
-      "overall": 82,
-      "modifiers": []
+      "value": "Magician",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "fk_accuracy",
+          "value": 7
+        },
+        {
+          "key": "long_shots",
+          "value": 7
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "short_pass",
+          "value": 2
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 6
+        },
+        {
+          "key": "attacking_position",
+          "value": 7
+        },
+        {
+          "key": "ball_control",
+          "value": 6
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "skill_moves",
+          "value": 1
+        }
+      ]
     },
     {
       "position": "CAM",
       "value": "Box-to-Box",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "finishing",
+          "value": 3
+        },
+        {
+          "key": "fk_accuracy",
+          "value": 2
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 3
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 5
+        },
+        {
+          "key": "volleys",
+          "value": 3
+        },
+        {
+          "key": "long_pass",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "curve",
+          "value": 2
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 3
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "interceptions",
+          "value": 4
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 2
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 3
+        },
+        {
+          "key": "jumping",
+          "value": 3
+        },
+        {
+          "key": "stamina",
+          "value": 5
+        },
+        {
+          "key": "strength",
+          "value": 3
+        },
+        {
+          "key": "aggression",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "position": "CAM",
+      "value": "Classic No. 10",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "fk_accuracy",
+          "value": 4
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "vision",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "attacking_position",
+          "value": 7
+        },
+        {
+          "key": "ball_control",
+          "value": 6
+        },
+        {
+          "key": "dribbling",
+          "value": 6
+        },
+        {
+          "key": "skill_moves",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "position": "CAM",
+      "value": "Second Striker",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "acceleration",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 7
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "agility",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 8
+        },
+        {
+          "key": "attacking_position",
+          "value": 4
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "strength",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "position": "CAM",
+      "value": "Central Winger",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "acceleration",
+          "value": 4
+        },
+        {
+          "key": "speed",
+          "value": 3
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 5
+        },
+        {
+          "key": "crossing",
+          "value": 2
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "curve",
+          "value": 5
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 8
+        },
+        {
+          "key": "attacking_position",
+          "value": 7
+        },
+        {
+          "key": "ball_control",
+          "value": 6
+        },
+        {
+          "key": "dribbling",
+          "value": 6
+        }
+      ]
     },
     {
       "position": "LM/RM",
-      "value": "Speedster",
-      "overall": 82,
-      "modifiers": []
+      "value": "Defensive Wide Midfielder",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 5
+        },
+        {
+          "key": "crossing",
+          "value": 2
+        },
+        {
+          "key": "long_pass",
+          "value": 4
+        },
+        {
+          "key": "curve",
+          "value": 2
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "attacking_position",
+          "value": 3
+        },
+        {
+          "key": "ball_control",
+          "value": 5
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "interceptions",
+          "value": 6
+        },
+        {
+          "key": "defensive_awareness",
+          "value": 5
+        },
+        {
+          "key": "standing_tackle",
+          "value": 2
+        },
+        {
+          "key": "sliding_tackle",
+          "value": 6
+        },
+        {
+          "key": "strength",
+          "value": 6
+        },
+        {
+          "key": "aggression",
+          "value": 5
+        }
+      ]
     },
     {
       "position": "LM/RM",
-      "value": "Physical",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "LM/RM",
-      "value": "Cross Specialist",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "LM/RM",
-      "value": "Playmaker",
-      "overall": 82,
-      "modifiers": []
+      "value": "Offensive Wide Midfielder",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 3
+        },
+        {
+          "key": "fk_accuracy",
+          "value": 4
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 3
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 7
+        },
+        {
+          "key": "volleys",
+          "value": 3
+        },
+        {
+          "key": "crossing",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "curve",
+          "value": 5
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "attacking_position",
+          "value": 3
+        },
+        {
+          "key": "ball_control",
+          "value": 5
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "stamina",
+          "value": 5
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "LW/RW",
-      "value": "Speedster",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "LW/RW",
-      "value": "Physical",
-      "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "LW/RW",
-      "value": "Cross Specialist",
-      "overall": 82,
-      "modifiers": []
+      "value": "Classic Winger",
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "acceleration",
+          "value": 4
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 1
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 3
+        },
+        {
+          "key": "crossing",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 2
+        },
+        {
+          "key": "curve",
+          "value": 9
+        },
+        {
+          "key": "agility",
+          "value": 6
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "attacking_position",
+          "value": 4
+        },
+        {
+          "key": "ball_control",
+          "value": 5
+        },
+        {
+          "key": "dribbling",
+          "value": 6
+        },
+        {
+          "key": "skill_moves",
+          "value": 1
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "LW/RW",
       "value": "Inverted Winger",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 4
+        },
+        {
+          "key": "speed",
+          "value": 1
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 7
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "crossing",
+          "value": 2
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "curve",
+          "value": 5
+        },
+        {
+          "key": "agility",
+          "value": 7
+        },
+        {
+          "key": "balance",
+          "value": 8
+        },
+        {
+          "key": "attacking_position",
+          "value": 4
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
     },
     {
-      "position": "CF",
+      "position": "LW/RW",
       "value": "Speedster",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 1
+        },
+        {
+          "key": "acceleration",
+          "value": 6
+        },
+        {
+          "key": "speed",
+          "value": 3
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 5
+        },
+        {
+          "key": "crossing",
+          "value": 4
+        },
+        {
+          "key": "curve",
+          "value": 5
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "stamina",
+          "value": 5
+        },
+        {
+          "key": "strength",
+          "value": 3
+        },
+        {
+          "key": "aggression",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "CF",
       "value": "False 9",
       "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 7
+        },
+        {
+          "key": "vision",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "long_pass",
+          "value": 2
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "attacking_position",
+          "value": 4
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "skill_moves",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "position": "CF",
+      "value": "Speedster",
+      "overall": 82,
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 6
+        },
+        {
+          "key": "speed",
+          "value": 3
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 3
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 1
+        },
+        {
+          "key": "volleys",
+          "value": 3
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
     },
     {
       "position": "CF",
       "value": "Second Striker",
       "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 2
+        },
+        {
+          "key": "speed",
+          "value": 1
+        },
+        {
+          "key": "finishing",
+          "value": 8
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 6
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "volleys",
+          "value": 6
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "position": "ST",
+      "value": "False 9",
+      "overall": 82,
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 3
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 5
+        },
+        {
+          "key": "vision",
+          "value": 4
+        },
+        {
+          "key": "short_pass",
+          "value": 6
+        },
+        {
+          "key": "agility",
+          "value": 6
+        },
+        {
+          "key": "balance",
+          "value": 8
+        },
+        {
+          "key": "attacking_position",
+          "value": 8
+        },
+        {
+          "key": "ball_control",
+          "value": 5
+        },
+        {
+          "key": "dribbling",
+          "value": 6
+        },
+        {
+          "key": "skill_moves",
+          "value": 1
+        }
+      ]
     },
     {
       "position": "ST",
       "value": "Target Man",
       "overall": 82,
-      "modifiers": []
-    },
-    {
-      "position": "ST",
-      "value": "Goal Poacher",
-      "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 9
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "weak_foot",
+          "value": 1
+        },
+        {
+          "key": "short_pass",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "attacking_position",
+          "value": 4
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 6
+        },
+        {
+          "key": "aggression",
+          "value": 5
+        }
+      ]
     },
     {
       "position": "ST",
       "value": "Speedster",
       "overall": 82,
-      "modifiers": []
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "acceleration",
+          "value": 6
+        },
+        {
+          "key": "speed",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 5
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 3
+        },
+        {
+          "key": "volleys",
+          "value": 3
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 1
+        },
+        {
+          "key": "short_pass",
+          "value": 2
+        },
+        {
+          "key": "agility",
+          "value": 4
+        },
+        {
+          "key": "balance",
+          "value": 2
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "dribbling",
+          "value": 4
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "position": "ST",
+      "value": "Goal Poacher",
+      "overall": 82,
+      "modifiers": [
+        {
+          "key": "overall",
+          "value": 2
+        },
+        {
+          "key": "finishing",
+          "value": 8
+        },
+        {
+          "key": "shot_power",
+          "value": 5
+        },
+        {
+          "key": "long_shots",
+          "value": 5
+        },
+        {
+          "key": "penalties",
+          "value": 5
+        },
+        {
+          "key": "heading_accuracy",
+          "value": 3
+        },
+        {
+          "key": "volleys",
+          "value": 3
+        },
+        {
+          "key": "weak_foot",
+          "value": 2
+        },
+        {
+          "key": "strength",
+          "value": 3
+        }
+      ]
     }
   ],
   "stats": [
@@ -5588,5 +7213,40 @@
     "gk_kicking": "Kicking",
     "gk_reflexes": "Reflexes",
     "gk_positioning": "Positioning"
+  },
+  "stat_groups": {
+    "general": ["overall", "weak_foot", "skill_moves"],
+    "pace": ["acceleration", "speed"],
+    "shooting": [
+      "finishing",
+      "fk_accuracy",
+      "heading_accuracy",
+      "shot_power",
+      "long_shots",
+      "volleys",
+      "penalties"
+    ],
+    "passing": ["vision", "crossing", "long_pass", "short_pass", "curve"],
+    "dribbling": [
+      "agility",
+      "balance",
+      "attacking_position",
+      "ball_control",
+      "dribbling"
+    ],
+    "defending": [
+      "interceptions",
+      "defensive_awareness",
+      "standing_tackle",
+      "sliding_tackle"
+    ],
+    "physical": ["jumping", "stamina", "strength", "reactions", "aggression"],
+    "goalkeeping": [
+      "gk_diving",
+      "gk_handling",
+      "gk_kicking",
+      "gk_reflexes",
+      "gk_positioning"
+    ]
   }
 }

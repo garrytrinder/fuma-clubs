@@ -1,20 +1,6 @@
-import React, {ReactElement, useEffect} from 'react';
+import React, {ReactElement} from 'react';
 import * as data from './data/data.json';
-import {
-  Defending,
-  Dribbling,
-  DropDownData,
-  FormData,
-  General,
-  Goalkeeping,
-  KeyValuePair,
-  Pace,
-  Passing,
-  Physical,
-  Playstyle,
-  Shooting,
-  Stats,
-} from './types';
+import {FormData, Playstyle, ProStats} from './types';
 
 export function App() {
   const [{position, height, weight, playstyle}, setForm] =
@@ -25,14 +11,75 @@ export function App() {
       playstyle: '',
     });
 
-  const [{heights, weights, playstyles}, setData] =
-    React.useState<DropDownData>({heights: [], weights: [], playstyles: []});
+  const heights = getHeights(position);
+  const weights = getWeights(height);
+  const playstyles = getPlaystyles(position);
+  const baseProStats = getProStats(position, height, weight);
+  const proStatsWithPlaystyle = getProStatsWithPlaystyle(
+    baseProStats,
+    position,
+    playstyle
+  );
 
-  const [stats, setStats] = React.useState<Stats>();
+  function getProStats(position: string, height: string, weight: string) {
+    const stats = data.stats.find(pro => {
+      return (
+        pro.position === position &&
+        pro.height === height &&
+        pro.weight === weight
+      );
+    });
+
+    return stats ? stats.stats : undefined;
+  }
+
+  function getProStatsWithPlaystyle(
+    baseProStats: ProStats | undefined,
+    position: string,
+    playstyle: string
+  ) {
+    if (!baseProStats) return undefined;
+
+    const style = data.playstyles.find(style => {
+      return style.value === playstyle && style.position === position;
+    });
+    const proStatsWithPlaystyle = {...baseProStats};
+    style?.modifiers.forEach(modifier => {
+      proStatsWithPlaystyle[modifier.key] += modifier.value;
+    });
+
+    return proStatsWithPlaystyle;
+  }
+
+  function getHeights(position: string) {
+    const heights = data.heights.find(height => {
+      return height.position === position;
+    });
+    return heights ? heights.values : [];
+  }
+
+  function getWeights(height: string) {
+    const weights = data.weights.find(weight => {
+      return weight.key === height;
+    });
+    return weights ? weights.values : [];
+  }
+
+  function getPlaystyles(position: string) {
+    const playstyles = data.playstyles
+      .filter(style => {
+        if (style.position === position) {
+          return style;
+        }
+      })
+      .map(style => {
+        return style.value;
+      });
+    return playstyles ? playstyles : [];
+  }
 
   function handlePositionChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const {value} = e.target;
-
     setForm(form => ({
       ...form,
       position: value,
@@ -40,80 +87,22 @@ export function App() {
       weight: '',
       playstyle: '',
     }));
-
-    const playstyles = data.playstyles
-      .filter(playstyle => {
-        return playstyle.position === value;
-      })
-      .map(playstyle => {
-        return playstyle.value;
-      });
-
-    setData(data => ({...data, playstyles}));
-
-    const height = data.heights.find(height => {
-      return height.position === value;
-    });
-
-    if (height) {
-      setData(data => ({...data, heights: height.values}));
-    }
   }
 
   function handleHeightChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const {value} = e.target;
-    setForm(form => ({...form, height: value, weight: ''}));
-
-    if (value === '') {
-      setForm(form => ({...form, playstyle: ''}));
-    }
-
-    const weight = data.weights.find(weight => {
-      return weight.key === e.target.value;
-    });
-    if (weight) {
-      setData(data => ({...data, weights: weight.values}));
-    }
+    setForm(form => ({...form, height: value}));
   }
 
   function handleWeightChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const {value} = e.target;
     setForm(form => ({...form, weight: value}));
-    if (value === '') {
-      setForm(form => ({...form, playstyle: ''}));
-    }
   }
 
   function handlePlaystyleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const {value} = e.target;
     setForm(form => ({...form, playstyle: value}));
   }
-
-  useEffect(() => {
-    const player = data.stats.find(player => {
-      return (
-        player.position === position &&
-        player.height === height &&
-        player.weight === weight
-      );
-    });
-    if (!player) setStats(undefined);
-    if (player && playstyle === '') {
-      setStats(player.stats);
-    }
-    if (player && playstyle !== '') {
-      const newStats = {} as Stats;
-      const style = data.playstyles.find(style => {
-        return style.value === playstyle;
-      });
-      if (style) {
-        style?.modifiers.forEach(modifier => {
-          newStats[modifier.key] = player.stats[modifier.key] + modifier.value;
-        });
-      }
-      setStats(stats => ({...stats, ...newStats}));
-    }
-  }, [position, height, weight, playstyle]);
 
   return (
     <>
@@ -147,14 +136,12 @@ export function App() {
               value={playstyle}
             />
           </div>
-          {/* <div className="row">
-            <div className="col">
-              {JSON.stringify({position, height, weight, playstyle}, null, 2)}
-            </div>
-          </div> */}
         </div>
-        {stats !== undefined && (
-          <TileView stats={stats} playstyle={playstyle} />
+        {baseProStats !== undefined && (
+          <TileView
+            baseProStats={baseProStats}
+            proStatsWithPlaystyle={proStatsWithPlaystyle}
+          />
         )}
       </main>
     </>
@@ -162,161 +149,74 @@ export function App() {
 }
 
 type TileViewProps = {
-  stats: Stats;
-  playstyle: string;
+  baseProStats: ProStats;
+  proStatsWithPlaystyle: ProStats | undefined;
 };
 
-function TileView({stats, playstyle}: TileViewProps) {
-  const {
-    overall,
-    skill_moves,
-    weak_foot,
-    acceleration,
-    speed,
-    finishing,
-    fk_accuracy,
-    heading_accuracy,
-    shot_power,
-    long_shots,
-    volleys,
-    penalties,
-    vision,
-    crossing,
-    long_pass,
-    short_pass,
-    curve,
-    agility,
-    balance,
-    attacking_position,
-    ball_control,
-    dribbling,
-    interceptions,
-    defensive_awareness,
-    standing_tackle,
-    sliding_tackle,
-    jumping,
-    stamina,
-    strength,
-    reactions,
-    aggression,
-    gk_diving,
-    gk_handling,
-    gk_kicking,
-    gk_reflexes,
-    gk_positioning,
-  } = stats;
-
-  const general: General = {overall, skill_moves, weak_foot};
-  const pace: Pace = {acceleration, speed};
-  const shooting: Shooting = {
-    finishing,
-    fk_accuracy,
-    heading_accuracy,
-    shot_power,
-    long_shots,
-    volleys,
-    penalties,
-  };
-  const passing: Passing = {vision, crossing, long_pass, short_pass, curve};
-  const _dribbling: Dribbling = {
-    agility,
-    balance,
-    attacking_position,
-    ball_control,
-    dribbling,
-  };
-
-  const defending: Defending = {
-    interceptions,
-    defensive_awareness,
-    standing_tackle,
-    sliding_tackle,
-  };
-
-  const physical: Physical = {
-    jumping,
-    stamina,
-    strength,
-    reactions,
-    aggression,
-  };
-
-  const goalkeeping: Goalkeeping = {
-    gk_diving,
-    gk_handling,
-    gk_kicking,
-    gk_reflexes,
-    gk_positioning,
-  };
-
-  const style = data.playstyles.find(style => {
-    return style.value === playstyle;
-  });
-
+function TileView({baseProStats, proStatsWithPlaystyle}: TileViewProps) {
   return (
     <div className="row gy-5">
       <div className="col-lg-4 col-md-6 col-sm-12">
         <GenericStatSection
-          data={general}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Overall'}
-          headings={data.stat_headings}
-          playstyle={style}
         />
       </div>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <StatSection
-          data={pace}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Pace'}
-          headings={data.stat_headings}
-          modifiers={style?.modifiers}
+          attributes={data.stat_groups.pace}
         />
       </div>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <StatSection
-          data={shooting}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Shooting'}
-          headings={data.stat_headings}
-          modifiers={style?.modifiers}
+          attributes={data.stat_groups.shooting}
         />
       </div>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <StatSection
-          data={passing}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Passing'}
-          headings={data.stat_headings}
-          modifiers={style?.modifiers}
+          attributes={data.stat_groups.passing}
         />
       </div>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <StatSection
-          data={_dribbling}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Dribbling'}
-          headings={data.stat_headings}
-          modifiers={style?.modifiers}
+          attributes={data.stat_groups.dribbling}
         />
       </div>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <StatSection
-          data={defending}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Defending'}
-          headings={data.stat_headings}
-          modifiers={style?.modifiers}
+          attributes={data.stat_groups.defending}
         />
       </div>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <StatSection
-          data={physical}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Physical'}
-          headings={data.stat_headings}
-          modifiers={style?.modifiers}
+          attributes={data.stat_groups.physical}
         />
       </div>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <StatSection
-          data={goalkeeping}
+          baseProStats={baseProStats}
+          proStatsWithPlaystyle={proStatsWithPlaystyle}
           title={'Goalkeeping'}
-          headings={data.stat_headings}
-          modifiers={style?.modifiers}
+          attributes={data.stat_groups.goalkeeping}
         />
       </div>
     </div>
@@ -371,7 +271,7 @@ function Height({data, onChange, disabled, value}) {
         disabled={disabled}
       >
         <option></option>
-        {data &&
+        {data.length > 0 &&
           data.map((height, index) => {
             return (
               <option key={index} value={height}>
@@ -397,7 +297,7 @@ function Weight({data, onChange, disabled, value}) {
         disabled={disabled}
       >
         <option></option>
-        {data &&
+        {data.length > 0 &&
           data.map((weight, index) => {
             return (
               <option key={index} value={weight}>
@@ -422,7 +322,7 @@ function Playstyle({data, onChange, disabled, value}) {
         onChange={onChange}
         disabled={disabled}
       >
-        <option></option>
+        <option value="">Base</option>
         {data &&
           data.map((playstyle, index) => {
             return (
@@ -438,35 +338,51 @@ function Playstyle({data, onChange, disabled, value}) {
 }
 
 type StatSectionProps = {
-  data: Record<string, number>;
+  baseProStats: ProStats;
+  proStatsWithPlaystyle: ProStats | undefined;
   title: string;
-  headings: Record<string, string>;
-  modifiers: KeyValuePair<string, number>[] | undefined;
+  attributes: string[];
 };
 
-function StatSection({data, title, headings, modifiers}: StatSectionProps) {
-  if (!data) return null;
-  const baseTotal = Object.keys(data).reduce((acc, key) => {
-    return acc + data[key];
-  }, 0);
-  const length = Object.keys(data).length;
-  const modifiedTotal = Object.keys(data).reduce((acc, key) => {
-    const upgrade = modifiers?.find(modifier => {
-      return modifier.key === key;
-    });
-    if (upgrade) {
-      return acc + (data[key] + upgrade?.value);
-    } else {
-      return acc + data[key];
-    }
-  }, 0);
-  const averageWithModifiers = Number.parseInt(
-    (modifiedTotal / length).toFixed(0)
+function StatSection({
+  baseProStats,
+  proStatsWithPlaystyle,
+  title,
+  attributes,
+}: StatSectionProps) {
+  const isPlaystyle = proStatsWithPlaystyle
+    ? baseProStats.overall !== proStatsWithPlaystyle.overall
+    : false;
+
+  const baseProStatsTotal = Object.keys(baseProStats)
+    .filter(key => attributes.includes(key))
+    .reduce((acc, key) => {
+      return acc + baseProStats[key];
+    }, 0);
+
+  const proStatsWithPlaystyleTotal = proStatsWithPlaystyle
+    ? Object.keys(proStatsWithPlaystyle)
+        .filter(key => attributes.includes(key))
+        .reduce((acc, key) => {
+          return acc + proStatsWithPlaystyle[key];
+        }, 0)
+    : 0;
+
+  const baseProStatsAverage = Number.parseInt(
+    (baseProStatsTotal / attributes.length).toFixed(0)
+  );
+  const proStatsWithPlaystyleAverage = Number.parseInt(
+    (proStatsWithPlaystyleTotal / attributes.length).toFixed(0)
   );
 
-  const baseTotalAverage = Number.parseInt((baseTotal / length).toFixed(0));
-  const average = modifiers ? averageWithModifiers : baseTotalAverage;
-  const increase = averageWithModifiers - baseTotalAverage;
+  const increase = isPlaystyle
+    ? proStatsWithPlaystyleAverage - baseProStatsAverage
+    : baseProStatsAverage;
+  const average = isPlaystyle
+    ? proStatsWithPlaystyleAverage
+    : baseProStatsAverage;
+  const stats =
+    proStatsWithPlaystyle && isPlaystyle ? proStatsWithPlaystyle : baseProStats;
 
   return (
     <div>
@@ -477,7 +393,7 @@ function StatSection({data, title, headings, modifiers}: StatSectionProps) {
         <div className="col text-end">
           <h3>
             <span className="text-stat-80">
-              {increase > 0 ? `+${increase}` : ''}
+              {isPlaystyle && increase > 0 ? `+${increase}` : ''}
             </span>
           </h3>
         </div>
@@ -490,45 +406,55 @@ function StatSection({data, title, headings, modifiers}: StatSectionProps) {
         </div>
       </div>
 
-      {Object.keys(data).map((key, index) => {
-        const upgrade = modifiers?.find(modifier => {
-          return modifier.key === key;
-        });
-        return (
-          <div key={index} className="row">
-            <div className="col-8">{headings[key]}</div>
-            <div className="col text-end">
-              <span className="text-stat-80">
-                {upgrade ? `+ ${upgrade?.value}` : ''}
-              </span>
+      {Object.keys(stats)
+        .filter(key => attributes.includes(key))
+        .map((key, index) => {
+          const increase = proStatsWithPlaystyle
+            ? proStatsWithPlaystyle[key] - baseProStats[key]
+            : 0;
+          return (
+            <div key={index} className="row">
+              <div className="col-8">{data.stat_headings[key]}</div>
+              <div className="col text-end">
+                <span className="text-stat-80">
+                  {increase > 0 ? `+${increase}` : ''}
+                </span>
+              </div>
+              <div className="col text-center">
+                <span className={`badge ${getStatColor(stats[key])}`}>
+                  {stats[key]}
+                </span>
+              </div>
             </div>
-            <div className="col text-center">
-              <span className={`badge ${getStatColor(data[key])}`}>
-                {data[key]}
-              </span>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 }
 
 type GenericStatSectionProps = {
-  data: General;
+  baseProStats: ProStats;
+  proStatsWithPlaystyle: ProStats | undefined;
   title: string;
-  headings: Record<string, string>;
-  playstyle: Playstyle | undefined;
 };
 
 function GenericStatSection({
-  data,
+  baseProStats,
+  proStatsWithPlaystyle,
   title,
-  headings,
-  playstyle,
 }: GenericStatSectionProps) {
-  const overall = playstyle ? playstyle.overall : data.overall;
-  const increase = overall - data.overall;
+  const overall = proStatsWithPlaystyle
+    ? proStatsWithPlaystyle.overall
+    : baseProStats.overall;
+  const overall_increase = proStatsWithPlaystyle
+    ? proStatsWithPlaystyle.overall - baseProStats.overall
+    : 0;
+  const skill_moves = proStatsWithPlaystyle
+    ? proStatsWithPlaystyle.skill_moves
+    : baseProStats.skill_moves;
+  const weak_foot = proStatsWithPlaystyle
+    ? proStatsWithPlaystyle.weak_foot
+    : baseProStats.weak_foot;
 
   return (
     <div>
@@ -539,7 +465,7 @@ function GenericStatSection({
         <div className="col text-end">
           <h3>
             <span className="text-stat-80">
-              {increase > 0 ? `+${increase}` : ''}
+              {overall_increase > 0 ? `+${overall_increase}` : ''}
             </span>
           </h3>
         </div>
@@ -550,14 +476,12 @@ function GenericStatSection({
         </div>
       </div>
       <div className="row">
-        <div className="col-8">{headings['skill_moves']}</div>
-        <div className="col-4 text-end">
-          {<Rating data={data.skill_moves} />}
-        </div>
+        <div className="col-8">{data.stat_headings['skill_moves']}</div>
+        <div className="col text-end">{<Rating data={skill_moves} />}</div>
       </div>
       <div className="row">
-        <div className="col-8">{headings['weak_foot']}</div>
-        <div className="col-4 text-end">{<Rating data={data.weak_foot} />}</div>
+        <div className="col-8">{data.stat_headings['weak_foot']}</div>
+        <div className="col-4 text-end">{<Rating data={weak_foot} />}</div>
       </div>
     </div>
   );
@@ -573,8 +497,10 @@ function getStatColor(stat: number) {
 
 function Rating({data}) {
   const stars: ReactElement[] = [];
-  for (let i = 0; i < data; i++) {
-    stars.push(<i key={i} className="bi-star-fill"></i>);
+
+  for (let i = 0; i < 5; i++) {
+    const colour = data > i ? 'text-warning' : 'text-secondary';
+    stars.push(<i key={i} className={`bi-star-fill ${colour}`}></i>);
   }
-  return <>{stars}</>;
+  return <>{stars.reverse()}</>;
 }

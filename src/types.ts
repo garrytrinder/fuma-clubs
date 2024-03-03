@@ -1,4 +1,4 @@
-export type Stats = {
+export type ProStats = {
   overall: number;
   weak_foot: number;
   skill_moves: number;
@@ -35,12 +35,6 @@ export type Stats = {
   gk_kicking: number;
   gk_reflexes: number;
   gk_positioning: number;
-};
-
-export type DropDownData = {
-  heights: string[];
-  weights: string[];
-  playstyles: string[];
 };
 
 export type FormData = {
@@ -48,66 +42,6 @@ export type FormData = {
   height: string;
   weight: string;
   playstyle: string;
-};
-
-export type General = {
-  overall: number;
-  weak_foot: number;
-  skill_moves: number;
-};
-
-export type Pace = {
-  acceleration: number;
-  speed: number;
-};
-
-export type Shooting = {
-  finishing: number;
-  fk_accuracy: number;
-  heading_accuracy: number;
-  shot_power: number;
-  long_shots: number;
-  volleys: number;
-  penalties: number;
-};
-
-export type Passing = {
-  vision: number;
-  crossing: number;
-  long_pass: number;
-  short_pass: number;
-  curve: number;
-};
-
-export type Dribbling = {
-  agility: number;
-  balance: number;
-  attacking_position: number;
-  ball_control: number;
-  dribbling: number;
-};
-
-export type Defending = {
-  interceptions: number;
-  defensive_awareness: number;
-  standing_tackle: number;
-  sliding_tackle: number;
-};
-
-export type Physical = {
-  jumping: number;
-  stamina: number;
-  strength: number;
-  reactions: number;
-  aggression: number;
-};
-
-export type Goalkeeping = {
-  gk_diving: number;
-  gk_handling: number;
-  gk_kicking: number;
-  gk_reflexes: number;
-  gk_positioning: number;
 };
 
 export type Playstyle = {
