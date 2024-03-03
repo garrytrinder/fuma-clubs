@@ -240,7 +240,7 @@ function NavBar() {
         </a>
         <a
           className="btn btn-primary text-light"
-          href="https://discord.com/channels/882539898953949204/1139476847277658112"
+          href="https://discord.com/channels/882539898953949204/1213909629424107580"
           role="button"
         >
           Feedback
