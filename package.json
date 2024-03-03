@@ -7,11 +7,7 @@
     "start": "parcel serve src/index.html --public-url / --dist-dir dist",
     "lint": "gts lint",
     "clean": "gts clean",
-    "compile": "tsc",
-    "fix": "gts fix",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "fix": "gts fix"
   },
   "keywords": [],
   "author": "",
