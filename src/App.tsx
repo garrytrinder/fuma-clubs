@@ -239,7 +239,7 @@ function NavBar() {
           FUMA Clubs
         </a>
         <a
-          className="btn btn- text-light"
+          className="btn btn-primary text-light"
           href="https://discord.com/channels/882539898953949204/1139476847277658112"
           role="button"
         >
