@@ -2,8 +2,8 @@
   "name": "fuma-clubs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "build": "parcel build src/index.html --public-url / --dist-dir dist",
     "start": "parcel serve src/index.html --public-url / --dist-dir dist",
     "lint": "gts lint",
     "clean": "gts clean",
