@@ -112,7 +112,7 @@ export function App() {
           <div className="col">
             <h1>
               Build your pro{' '}
-              <span className="badge bg-danger fs-6 align-top">Preview</span>
+              <span className="badge bg-danger preview align-top">Preview</span>
             </h1>
           </div>
         </div>
