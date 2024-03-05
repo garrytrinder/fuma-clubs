@@ -11,6 +11,7 @@ export function App() {
       playstyle: '',
     });
 
+  const [showHowTo, setShowHowTo] = React.useState(false);
   const heights = getHeights(position);
   const weights = getWeights(height);
   const playstyles = getPlaystyles(position);
@@ -114,6 +115,40 @@ export function App() {
               Build your pro{' '}
               <span className="badge bg-danger preview align-top">Preview</span>
             </h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <button
+              className="btn btn-primary"
+              type="button"
+              aria-expanded={showHowTo}
+              onClick={() => setShowHowTo(!showHowTo)}
+            >
+              How to use
+            </button>
+            <div className={`collapse ${showHowTo ? 'show' : ''}`}>
+              <ol className="list-group list-group-numbered">
+                <li className="list-group-item">
+                  Select the position, height and weight to find the base stats
+                  for your pro.
+                </li>
+                <li className="list-group-item">
+                  Create your pro in-game with the same position, height and
+                  weight.
+                </li>
+                <li className="list-group-item">
+                  Select a playstyle to find the maximum overall rating for you
+                  pro, the attributes that you can increase and the maximum
+                  value you can increase them to using skill points.
+                </li>
+                <li className="list-group-item">
+                  Decide which attributes are the most important to you and
+                  assign skill points accordingly, without exceeding the maximum
+                  overall rating or the maximum value for each attribute.
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
         <div className="row">
