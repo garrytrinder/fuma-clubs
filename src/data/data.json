@@ -238,7 +238,7 @@
         },
         {
           "key": "acceleration",
-          "value": 1
+          "value": 4
         },
         {
           "key": "speed",
@@ -258,6 +258,10 @@
         },
         {
           "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "ball_control",
           "value": 2
         },
         {
