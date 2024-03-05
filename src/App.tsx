@@ -128,24 +128,27 @@ export function App() {
               How to use
             </button>
             <div className={`collapse ${showHowTo ? 'show' : ''}`}>
-              <ol className="list-group list-group-numbered">
+              <ol className="list-group list-group-numbered mt-3">
                 <li className="list-group-item">
                   Select the position, height and weight to find the base stats
                   for your pro.
                 </li>
                 <li className="list-group-item">
                   Create your pro in-game with the same position, height and
-                  weight.
+                  weight. <br />
+                  <a href="https://discord.com/channels/882539898953949204/1214494552363245589/1214641241640271954">
+                    My game shows imperial measurements not metric!
+                  </a>
                 </li>
                 <li className="list-group-item">
-                  Select a playstyle to find the maximum overall rating for you
+                  Select a playstyle to find the maximum overall rating for your
                   pro, the attributes that you can increase and the maximum
                   value you can increase them to using skill points.
                 </li>
                 <li className="list-group-item">
                   Decide which attributes are the most important to you and
                   assign skill points accordingly, without exceeding the maximum
-                  overall rating or the maximum value for each attribute.
+                  overall rating, or the maximum value for each attribute.
                 </li>
               </ol>
             </div>
