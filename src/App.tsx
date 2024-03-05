@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
 import * as data from './data/data.json';
 import {FormData, Playstyle, ProStats} from './types';
+import * as constants from './constants';
 
 export function App() {
   const [{position, height, weight, playstyle}, setForm] =
@@ -10,7 +11,7 @@ export function App() {
       weight: '',
       playstyle: '',
     });
-
+  const language = navigator.language || 'en-US';
   const [showHowTo, setShowHowTo] = React.useState(false);
   const heights = getHeights(position);
   const weights = getWeights(height);
@@ -119,39 +120,11 @@ export function App() {
         </div>
         <div className="row">
           <div className="col">
-            <button
-              className="btn btn-primary"
-              type="button"
-              aria-expanded={showHowTo}
-              onClick={() => setShowHowTo(!showHowTo)}
-            >
-              How to use
-            </button>
-            <div className={`collapse ${showHowTo ? 'show' : ''}`}>
-              <ol className="list-group list-group-numbered mt-3">
-                <li className="list-group-item">
-                  Select the position, height and weight to find the base stats
-                  for your pro.
-                </li>
-                <li className="list-group-item">
-                  Create your pro in-game with the same position, height and
-                  weight. <br />
-                  <a href="https://discord.com/channels/882539898953949204/1214494552363245589/1214641241640271954">
-                    My game shows imperial measurements not metric!
-                  </a>
-                </li>
-                <li className="list-group-item">
-                  Select a playstyle to find the maximum overall rating for your
-                  pro, the attributes that you can increase and the maximum
-                  value you can increase them to using skill points.
-                </li>
-                <li className="list-group-item">
-                  Decide which attributes are the most important to you and
-                  assign skill points accordingly, without exceeding the maximum
-                  overall rating, or the maximum value for each attribute.
-                </li>
-              </ol>
-            </div>
+            <HowToUse
+              display={showHowTo}
+              updateDisplay={setShowHowTo}
+              language={language}
+            />
           </div>
         </div>
         <div className="row">
@@ -556,4 +529,51 @@ function Rating({data}) {
     stars.push(<i key={i} className={`bi-star-fill ${colour}`}></i>);
   }
   return <>{stars.reverse()}</>;
+}
+
+type HowToUseProps = {
+  display: boolean;
+  updateDisplay: (display: boolean) => void;
+  language: string;
+};
+
+function HowToUse({display, updateDisplay, language}: HowToUseProps) {
+  const text = getHowToText(language);
+  return (
+    <>
+      <button
+        className="btn btn-primary"
+        type="button"
+        aria-expanded={display}
+        onClick={() => updateDisplay(!display)}
+      >
+        How to use
+      </button>
+      <div className={`collapse ${display ? 'show' : ''}`}>
+        <ol className="list-group list-group-numbered mt-3">
+          {text.map((item, index) => {
+            return (
+              <li key={index} className="list-group-item">
+                {item}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </>
+  );
+}
+
+function getHowToText(language: string) {
+  const lang = language.toLowerCase();
+  if (lang.includes('fr') || lang === 'fr') {
+    return constants.HOWTOUSE_FR;
+  }
+  if (lang.includes('it') || lang === 'it') {
+    return constants.HOWTOUSE_IT;
+  }
+  if (lang.includes('es') || lang === 'es') {
+    return constants.HOWTOUSE_ES;
+  }
+  return constants.HOWTOUSE;
 }
