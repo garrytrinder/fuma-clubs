@@ -307,11 +307,11 @@
           "value": 3
         },
         {
-          "key": "crossing",
+          "key": "short_pass",
           "value": 4
         },
         {
-          "key": "short_pass",
+          "key": "crossing",
           "value": 4
         },
         {
@@ -390,19 +390,11 @@
         },
         {
           "key": "balance",
-          "value": 5
+          "value": 2
         },
         {
           "key": "ball_control",
           "value": 5
-        },
-        {
-          "key": "dribbling",
-          "value": 2
-        },
-        {
-          "key": "standing_tackle",
-          "value": 2
         },
         {
           "key": "interceptions",
@@ -417,19 +409,11 @@
           "value": 4
         },
         {
-          "key": "stamina",
-          "value": 1
-        },
-        {
           "key": "strength",
           "value": 3
         },
         {
           "key": "reactions",
-          "value": 3
-        },
-        {
-          "key": "aggression",
           "value": 3
         }
       ]
