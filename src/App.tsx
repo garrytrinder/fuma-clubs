@@ -429,8 +429,8 @@ function StatSection({
     ? proStatsWithPlaystyleAverage - baseProStatsAverage
     : baseProStatsAverage;
   const average = isPlaystyle
-    ? proStatsWithPlaystyleAverage
-    : baseProStatsAverage;
+    ? proStatsWithPlaystyleAverage + 1
+    : baseProStatsAverage + 1;
   const stats =
     proStatsWithPlaystyle && isPlaystyle ? proStatsWithPlaystyle : baseProStats;
 
