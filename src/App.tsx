@@ -248,6 +248,7 @@ function NavBar() {
       <div className="container-fluid">
         <a className="navbar-brand fw-bold" href="#">
           FUMA Clubs
+          <span className="badge bg-danger preview align-top">Preview</span>
         </a>
         <a
           className="btn btn-primary text-light"
