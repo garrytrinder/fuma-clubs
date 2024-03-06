@@ -156,11 +156,35 @@
       "modifiers": [
         {
           "key": "overall",
+          "value": 5
+        },
+        {
+          "key": "agility",
+          "value": 7
+        },
+        {
+          "key": "strength",
           "value": 3
         },
         {
-          "key": "gk_diving",
+          "key": "stamina",
           "value": 5
+        },
+        {
+          "key": "reactions",
+          "value": 7
+        },
+        {
+          "key": "jumping",
+          "value": 5
+        },
+        {
+          "key": "gk_diving",
+          "value": 8
+        },
+        {
+          "key": "gk_handing",
+          "value": 3
         },
         {
           "key": "gk_reflexes",
@@ -178,38 +202,91 @@
       "modifiers": [
         {
           "key": "overall",
+          "value": 6
+        },
+        {
+          "key": "acceleration",
+          "value": 4
+        },
+        {
+          "key": "speed",
           "value": 3
+        },
+        {
+          "key": "ball_control",
+          "value": 2
+        },
+        {
+          "key": "balance",
+          "value": 5
+        },
+        {
+          "key": "strength",
+          "value": 6
+        },
+        {
+          "key": "stamina",
+          "value": 5
+        },
+        {
+          "key": "reactions",
+          "value": 4
+        },
+        {
+          "key": "jumping",
+          "value": 5
         },
         {
           "key": "gk_diving",
-          "value": 5
+          "value": 14
         },
         {
           "key": "gk_handling",
-          "value": 3
-        },
-        {
-          "key": "gk_kicking",
-          "value": 3
-        },
-        {
-          "key": "gk_reflexes",
-          "value": 5
-        },
-        {
-          "key": "gk_positioning",
-          "value": 2
+          "value": 14
         }
       ]
     },
     {
-      "position": "GK",
+    "position": "GK",
       "value": "Ball-playing Keeper",
       "modifiers": [
         {
           "key": "overall",
+          "value": 5
+        },
+         {
+          "key": "short_pass",
+          "value": 6
+        },
+         {
+          "key": "long_pass",
+          "value": 6
+        },
+         {
+          "key": "vision",
+          "value": 4
+        },
+         {
+          "key": "agility",
+          "value": 4
+        },
+         {
+          "key": "ball control",
+          "value": 5
+        },
+         {
+          "key": "balance",
+          "value": 2
+        },
+         {
+          "key": "stamina",
+          "value": 5
+        },
+         {
+          "key": "jumping",
           "value": 3
         },
+
         {
           "key": "gk_diving",
           "value": 5
@@ -220,10 +297,14 @@
         },
         {
           "key": "gk_kicking",
-          "value": 6
+          "value": 12
         },
         {
           "key": "gk_reflexes",
+          "value": 3
+        },
+         {
+          "key": "gk_positioning",
           "value": 2
         }
       ]
