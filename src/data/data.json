@@ -1026,12 +1026,8 @@
           "value": 3
         },
         {
-          "key": "shot_power",
-          "value": 5
-        },
-        {
           "key": "long_shots",
-          "value": 1
+          "value": 2
         },
         {
           "key": "vision",
