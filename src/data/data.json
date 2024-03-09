@@ -625,6 +625,10 @@
         },
         {
           "key": "acceleration",
+          "value": 4
+        },
+        {
+          "key": "speed",
           "value": 2
         },
         {
@@ -653,7 +657,7 @@
         },
         {
           "key": "stamina",
-          "value": 4
+          "value": 5
         },
         {
           "key": "strength",
@@ -665,7 +669,7 @@
         },
         {
           "key": "reactions",
-          "value": 4
+          "value": 7
         }
       ]
     },
