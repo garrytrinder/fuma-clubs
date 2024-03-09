@@ -1670,6 +1670,10 @@
           "value": 3
         },
         {
+          "key": "finishing",
+          "value": 5
+        },
+        {
           "key": "fk_accuracy",
           "value": 4
         },
