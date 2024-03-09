@@ -1873,7 +1873,7 @@
         },
         {
           "key": "acceleration",
-          "value": 6
+          "value": 4
         },
         {
           "key": "speed",
@@ -1881,7 +1881,7 @@
         },
         {
           "key": "finishing",
-          "value": 5
+          "value": 3
         },
         {
           "key": "long_shots",
@@ -1900,24 +1900,12 @@
           "value": 4
         },
         {
-          "key": "balance",
-          "value": 5
-        },
-        {
           "key": "ball_control",
           "value": 2
         },
         {
           "key": "stamina",
           "value": 5
-        },
-        {
-          "key": "strength",
-          "value": 3
-        },
-        {
-          "key": "aggression",
-          "value": 3
         }
       ]
     },
