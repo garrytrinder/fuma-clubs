@@ -1748,16 +1748,12 @@
           "value": 4
         },
         {
-          "key": "speed",
-          "value": 2
-        },
-        {
           "key": "finishing",
-          "value": 1
+          "value": 5
         },
         {
           "key": "shot_power",
-          "value": 5
+          "value": 2
         },
         {
           "key": "long_shots",
@@ -1773,7 +1769,7 @@
         },
         {
           "key": "curve",
-          "value": 9
+          "value": 2
         },
         {
           "key": "agility",
@@ -1781,7 +1777,7 @@
         },
         {
           "key": "balance",
-          "value": 5
+          "value": 2
         },
         {
           "key": "attacking_position",
@@ -1789,19 +1785,15 @@
         },
         {
           "key": "ball_control",
-          "value": 5
-        },
-        {
-          "key": "dribbling",
-          "value": 6
+          "value": 2
         },
         {
           "key": "skill_moves",
           "value": 1
         },
         {
-          "key": "strength",
-          "value": 3
+          "key": "stamina",
+          "value": 2
         }
       ]
     },
