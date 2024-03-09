@@ -1336,6 +1336,14 @@
           "value": 3
         },
         {
+          "key": "vision",
+          "value": 2
+        },
+        {
+          "key": "crossing",
+          "value": 2
+        },
+        {
           "key": "long_pass",
           "value": 4
         },
@@ -1360,6 +1368,10 @@
           "value": 2
         },
         {
+          "key": "dribbling",
+          "value": 2
+        },
+        {
           "key": "interceptions",
           "value": 4
         },
@@ -1376,12 +1388,8 @@
           "value": 3
         },
         {
-          "key": "jumping",
-          "value": 3
-        },
-        {
           "key": "stamina",
-          "value": 5
+          "value": 2
         },
         {
           "key": "strength",
