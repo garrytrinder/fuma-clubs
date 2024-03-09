@@ -247,42 +247,42 @@
       ]
     },
     {
-    "position": "GK",
+      "position": "GK",
       "value": "Ball-playing Keeper",
       "modifiers": [
         {
           "key": "overall",
           "value": 5
         },
-         {
+        {
           "key": "short_pass",
           "value": 6
         },
-         {
+        {
           "key": "long_pass",
           "value": 6
         },
-         {
+        {
           "key": "vision",
           "value": 4
         },
-         {
+        {
           "key": "agility",
           "value": 4
         },
-         {
+        {
           "key": "ball control",
           "value": 5
         },
-         {
+        {
           "key": "balance",
           "value": 2
         },
-         {
+        {
           "key": "stamina",
           "value": 5
         },
-         {
+        {
           "key": "jumping",
           "value": 3
         },
@@ -303,7 +303,7 @@
           "key": "gk_reflexes",
           "value": 3
         },
-         {
+        {
           "key": "gk_positioning",
           "value": 2
         }
@@ -683,15 +683,19 @@
         },
         {
           "key": "speed",
-          "value": 2
+          "value": 3
         },
         {
           "key": "heading_accuracy",
           "value": 3
         },
         {
-          "key": "short_pass",
+          "key": "vision",
           "value": 2
+        },
+        {
+          "key": "short_pass",
+          "value": 4
         },
         {
           "key": "balance",
@@ -712,10 +716,6 @@
         {
           "key": "standing_tackle",
           "value": 2
-        },
-        {
-          "key": "sliding_tackle",
-          "value": 3
         },
         {
           "key": "strength",
