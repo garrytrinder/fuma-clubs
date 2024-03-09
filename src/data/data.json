@@ -736,6 +736,10 @@
           "value": 2
         },
         {
+          "key": "heading_accuracy",
+          "value": 6
+        },
+        {
           "key": "shot_power",
           "value": 5
         },
@@ -745,11 +749,11 @@
         },
         {
           "key": "vision",
-          "value": 2
+          "value": 4
         },
         {
           "key": "long_pass",
-          "value": 4
+          "value": 6
         },
         {
           "key": "short_pass",
@@ -757,15 +761,19 @@
         },
         {
           "key": "agility",
-          "value": 2
+          "value": 4
+        },
+        {
+          "key": "dribbling",
+          "value": 4
         },
         {
           "key": "balance",
-          "value": 2
+          "value": 5
         },
         {
           "key": "ball_control",
-          "value": 2
+          "value": 5
         },
         {
           "key": "interceptions",
