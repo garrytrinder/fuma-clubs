@@ -1555,7 +1555,7 @@
         },
         {
           "key": "agility",
-          "value": 4
+          "value": 2
         },
         {
           "key": "balance",
@@ -1567,11 +1567,11 @@
         },
         {
           "key": "ball_control",
-          "value": 6
+          "value": 5
         },
         {
           "key": "dribbling",
-          "value": 6
+          "value": 4
         }
       ]
     },
