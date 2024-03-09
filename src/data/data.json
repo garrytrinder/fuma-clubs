@@ -1807,11 +1807,7 @@
         },
         {
           "key": "acceleration",
-          "value": 4
-        },
-        {
-          "key": "speed",
-          "value": 1
+          "value": 2
         },
         {
           "key": "finishing",
@@ -1843,11 +1839,11 @@
         },
         {
           "key": "agility",
-          "value": 7
+          "value": 2
         },
         {
           "key": "balance",
-          "value": 8
+          "value": 5
         },
         {
           "key": "attacking_position",
