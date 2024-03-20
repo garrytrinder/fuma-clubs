@@ -1,0 +1,56 @@
+$primary: #07f468;
+$breadcrumb-divider: quote(">");
+
+div.divider {
+  width: 100%;
+  height: 3rem;
+}
+
+a.navbar-brand,
+a.navbar-brand:hover {
+  color: #000 !important;
+}
+
+li.nav-item > a.nav-link.active {
+  color: $primary;
+  font-weight: bold;
+}
+
+button.navbar-toggler {
+  border: solid 1px rgb(0, 0, 0, 0.55);
+}
+
+.bg-stat-excellent {
+  background-color: #356917;
+}
+
+.bg-stat-very-good {
+  background-color: #43831d;
+}
+
+.bg-stat-good {
+  background-color: #58a52a;
+}
+
+.bg-stat-fair {
+  background-color: #f2b62a;
+}
+
+.bg-stat-poor {
+  background-color: #d78934;
+}
+
+.bg-stat-very-poor {
+  background-color: #db2e33;
+}
+
+.bg-stat-extremely-poor {
+  background-color: #b7272b;
+}
+
+.text-stat-increase {
+  color: #43831d;
+}
+
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import "/node_modules/bootstrap-icons/font/bootstrap-icons.scss";

@@ -1,0 +1,4582 @@
+[
+  {
+    "position": "GK",
+    "value": "Line Keeper",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 5
+      },
+      {
+        "key": "agility",
+        "value": 7
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "stamina",
+        "value": 5
+      },
+      {
+        "key": "reactions",
+        "value": 7
+      },
+      {
+        "key": "jumping",
+        "value": 5
+      },
+      {
+        "key": "gk_diving",
+        "value": 8
+      },
+      {
+        "key": "gk_handling",
+        "value": 3
+      },
+      {
+        "key": "gk_reflexes",
+        "value": 6
+      },
+      {
+        "key": "gk_positioning",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "position": "GK",
+    "value": "Sweeper Keeper",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 6
+      },
+      {
+        "key": "acceleration",
+        "value": 4
+      },
+      {
+        "key": "speed",
+        "value": 3
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "strength",
+        "value": 6
+      },
+      {
+        "key": "stamina",
+        "value": 5
+      },
+      {
+        "key": "reactions",
+        "value": 4
+      },
+      {
+        "key": "jumping",
+        "value": 5
+      },
+      {
+        "key": "gk_diving",
+        "value": 14
+      },
+      {
+        "key": "gk_handling",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "position": "GK",
+    "value": "Ball-playing Keeper",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 5
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "long_pass",
+        "value": 6
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "ball control",
+        "value": 5
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "stamina",
+        "value": 5
+      },
+      {
+        "key": "jumping",
+        "value": 3
+      },
+
+      {
+        "key": "gk_diving",
+        "value": 5
+      },
+      {
+        "key": "gk_handling",
+        "value": 7
+      },
+      {
+        "key": "gk_kicking",
+        "value": 12
+      },
+      {
+        "key": "gk_reflexes",
+        "value": 3
+      },
+      {
+        "key": "gk_positioning",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "position": "LB/RB",
+    "value": "Wide Full Back",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 4
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 2
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 3
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 6
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 5
+      },
+      {
+        "key": "strength",
+        "value": 6
+      },
+      {
+        "key": "reactions",
+        "value": 7
+      },
+      {
+        "key": "aggression",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "position": "LB/RB",
+    "value": "Offensive Full Back",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 4
+      },
+      {
+        "key": "speed",
+        "value": 3
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 4
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 5
+      },
+      {
+        "key": "agility",
+        "value": 7
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 3
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 5
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 3
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "LB/RB",
+    "value": "Inverted Full Back",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 2
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 2
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 3
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 6
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 4
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 2
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "LWB/RWB",
+    "value": "Defensive Wing Back",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 3
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 6
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 2
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 3
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "LWB/RWB",
+    "value": "Offensive Wing Back",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 4
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 4
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 5
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 6
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 5
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CB",
+    "value": "Stopper",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 2
+      },
+      {
+        "key": "acceleration",
+        "value": 2
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 6
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 0
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 2
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 2
+      },
+      {
+        "key": "standing_tackle",
+        "value": 4
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 3
+      },
+      {
+        "key": "jumping",
+        "value": 2
+      },
+      {
+        "key": "stamina",
+        "value": 5
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 7
+      },
+      {
+        "key": "aggression",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "position": "CB",
+    "value": "Libero",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 2
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 3
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 2
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 2
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 6
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 2
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 3
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 3
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CB",
+    "value": "Technical",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 2
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 6
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 6
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 5
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 2
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 2
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 1
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CDM",
+    "value": "Anchor Man",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 2
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 4
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 2
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 4
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 2
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CDM",
+    "value": "Destroyer",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 4
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 5
+      },
+      {
+        "key": "standing_tackle",
+        "value": 4
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 6
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 6
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "position": "CDM",
+    "value": "Regista",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 6
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 2
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CDM",
+    "value": "Box-to-Box",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 2
+      },
+      {
+        "key": "long_shots",
+        "value": 3
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 2
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 2
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 2
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 3
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "position": "CM",
+    "value": "Holding Midfielder",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 2
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 4
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 2
+      },
+      {
+        "key": "standing_tackle",
+        "value": 4
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 3
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 6
+      },
+      {
+        "key": "reactions",
+        "value": 3
+      },
+      {
+        "key": "aggression",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "position": "CM",
+    "value": "Box-to-Box",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 2
+      },
+      {
+        "key": "long_shots",
+        "value": 3
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 2
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 2
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 2
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 2
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 3
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CM",
+    "value": "Orchestrator",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 5
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 4
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CM",
+    "value": "Hole Player",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 2
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 5
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 7
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 2
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 6
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "position": "CM",
+    "value": "Magician",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 4
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 5
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 2
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 1
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CAM",
+    "value": "Box-to-Box",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 1
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 2
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 2
+      },
+      {
+        "key": "long_shots",
+        "value": 1
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 2
+      },
+      {
+        "key": "crossing",
+        "value": 2
+      },
+      {
+        "key": "long_pass",
+        "value": 2
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 2
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 3
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CAM",
+    "value": "Classic No. 10",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 4
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 5
+      },
+      {
+        "key": "crossing",
+        "value": 2
+      },
+      {
+        "key": "long_pass",
+        "value": 2
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 4
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 1
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CAM",
+    "value": "Second Striker",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 5
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 7
+      },
+      {
+        "key": "volleys",
+        "value": 3
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 2
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 2
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 6
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CAM",
+    "value": "Central Winger",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 2
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "crossing",
+        "value": 4
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 5
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CAM",
+    "value": "Magician",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 4
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 0
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 7
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 5
+      },
+      {
+        "key": "dribbling",
+        "value": 6
+      },
+      {
+        "key": "skill_moves",
+        "value": 1
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "LM/RM",
+    "value": "Defensive Wide Midfielder",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 2
+      },
+      {
+        "key": "long_pass",
+        "value": 2
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 6
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 5
+      },
+      {
+        "key": "standing_tackle",
+        "value": 2
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 6
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 6
+      },
+      {
+        "key": "reactions",
+        "value": 3
+      },
+      {
+        "key": "aggression",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "position": "LM/RM",
+    "value": "Offensive Wide Midfielder",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 0
+      },
+      {
+        "key": "acceleration",
+        "value": 2
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 3
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 4
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 3
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 4
+      },
+      {
+        "key": "long_pass",
+        "value": 4
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 5
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "LW/RW",
+    "value": "Classic Winger",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 2
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 1
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 2
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 4
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 2
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 4
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 1
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "LW/RW",
+    "value": "Inverted Winger",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 3
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 5
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 2
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 4
+      },
+      {
+        "key": "curve",
+        "value": 5
+      },
+      {
+        "key": "agility",
+        "value": 2
+      },
+      {
+        "key": "balance",
+        "value": 3
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "LW/RW",
+    "value": "Speedster",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 4
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 1
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 0
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 4
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 5
+      },
+      {
+        "key": "agility",
+        "value": 2
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 2
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 2
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+
+  {
+    "position": "CF",
+    "value": "False 9",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 2
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 2
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 3
+      },
+      {
+        "key": "attacking_position",
+        "value": 4
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 1
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CF",
+    "value": "Speedster",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 4
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 3
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 3
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 0
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "CF",
+    "value": "Second Striker",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 3
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 3
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 0
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 2
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 2
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "ST",
+    "value": "False 9",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 0
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 0
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 4
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 6
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 4
+      },
+      {
+        "key": "balance",
+        "value": 5
+      },
+      {
+        "key": "attacking_position",
+        "value": 4
+      },
+      {
+        "key": "ball_control",
+        "value": 2
+      },
+      {
+        "key": "dribbling",
+        "value": 4
+      },
+      {
+        "key": "skill_moves",
+        "value": 1
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "ST",
+    "value": "Target Man",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 1
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 9
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 0
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 1
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 2
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "position": "ST",
+    "value": "Speedster",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 4
+      },
+      {
+        "key": "speed",
+        "value": 2
+      },
+      {
+        "key": "finishing",
+        "value": 3
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 2
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 3
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 0
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 0
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 3
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "position": "ST",
+    "value": "Goal Poacher",
+    "modifiers": [
+      {
+        "key": "overall",
+        "value": 1
+      },
+      {
+        "key": "acceleration",
+        "value": 0
+      },
+      {
+        "key": "speed",
+        "value": 0
+      },
+      {
+        "key": "finishing",
+        "value": 5
+      },
+      {
+        "key": "fk_accuracy",
+        "value": 0
+      },
+      {
+        "key": "heading_accuracy",
+        "value": 3
+      },
+      {
+        "key": "shot_power",
+        "value": 5
+      },
+      {
+        "key": "long_shots",
+        "value": 0
+      },
+      {
+        "key": "volleys",
+        "value": 3
+      },
+      {
+        "key": "penalties",
+        "value": 0
+      },
+      {
+        "key": "weak_foot",
+        "value": 2
+      },
+      {
+        "key": "vision",
+        "value": 0
+      },
+      {
+        "key": "crossing",
+        "value": 0
+      },
+      {
+        "key": "long_pass",
+        "value": 0
+      },
+      {
+        "key": "short_pass",
+        "value": 0
+      },
+      {
+        "key": "curve",
+        "value": 0
+      },
+      {
+        "key": "agility",
+        "value": 0
+      },
+      {
+        "key": "balance",
+        "value": 0
+      },
+      {
+        "key": "attacking_position",
+        "value": 0
+      },
+      {
+        "key": "ball_control",
+        "value": 0
+      },
+      {
+        "key": "dribbling",
+        "value": 0
+      },
+      {
+        "key": "skill_moves",
+        "value": 0
+      },
+      {
+        "key": "interception",
+        "value": 0
+      },
+      {
+        "key": "defensive_awareness",
+        "value": 0
+      },
+      {
+        "key": "standing_tackle",
+        "value": 0
+      },
+      {
+        "key": "sliding_tackle",
+        "value": 0
+      },
+      {
+        "key": "jumping",
+        "value": 0
+      },
+      {
+        "key": "stamina",
+        "value": 0
+      },
+      {
+        "key": "strength",
+        "value": 0
+      },
+      {
+        "key": "reactions",
+        "value": 0
+      },
+      {
+        "key": "aggression",
+        "value": 0
+      }
+    ]
+  }
+]

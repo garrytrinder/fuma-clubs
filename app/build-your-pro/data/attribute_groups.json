@@ -1,0 +1,35 @@
+{
+  "general": ["overall", "weak_foot", "skill_moves"],
+  "pace": ["acceleration", "speed"],
+  "shooting": [
+    "finishing",
+    "fk_accuracy",
+    "heading_accuracy",
+    "shot_power",
+    "long_shots",
+    "volleys",
+    "penalties"
+  ],
+  "passing": ["vision", "crossing", "long_pass", "short_pass", "curve"],
+  "dribbling": [
+    "agility",
+    "balance",
+    "attacking_position",
+    "ball_control",
+    "dribbling"
+  ],
+  "defending": [
+    "interceptions",
+    "defensive_awareness",
+    "standing_tackle",
+    "sliding_tackle"
+  ],
+  "physical": ["jumping", "stamina", "strength", "reactions", "aggression"],
+  "goalkeeping": [
+    "gk_diving",
+    "gk_handling",
+    "gk_kicking",
+    "gk_reflexes",
+    "gk_positioning"
+  ]
+}

@@ -37,14 +37,14 @@ export type ProStats = {
   gk_positioning: number;
 };
 
-export type FormData = {
+export type BuildYourProFormData = {
   position: string;
   height: string;
   weight: string;
-  playstyle: string;
+  profile: string;
 };
 
-export type Playstyle = {
+export type Profile = {
   position: string;
   value: string;
   overall: number;
