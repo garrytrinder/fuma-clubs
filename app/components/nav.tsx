@@ -14,7 +14,7 @@ export const Nav = () => {
     <div className="container-fluid">
       <Link className="navbar-brand" href="/">{title}</Link>
       <button className="navbar-toggler" type="button" onClick={() => { setShow(true) }} aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <Image src="menu.svg" alt="Menu toggle" height={30} width={30}></Image>
+        <Image src="/menu.svg" alt="Menu toggle" height={30} width={30}></Image>
       </button>
       <div className={`offcanvas offcanvas-end ${show ? 'show' : ''}`} tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div className="offcanvas-header">
