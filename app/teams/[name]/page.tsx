@@ -64,10 +64,10 @@ export default async function TeamPage({ params }: { params: { name: string } })
     {
       hasTrophies && <>
         <h2 className="text-secondary">Trophy Room</h2>
-        <div className="row my-5">
+        <div className="row py-3">
           {trophies.map((trophy, index) => {
             return (
-              <div key={`trophy-${index}`} className="col-3 mb-3 mb-sm-0">
+              <div key={`trophy-${index}`} className="col-lg-3 col-md-4 col-sm-6 col-6 mb-3 mb-sm-0">
                 <div className="card text-center">
                   <div className="card-body">
                     <i className="bi bi-trophy-fill text-warning display-4"></i>
