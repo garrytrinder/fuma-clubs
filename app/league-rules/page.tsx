@@ -69,7 +69,7 @@ export default function RulesPage() {
     <ul>
       <li>The transfer period is open between each season.</li>
       <li>Each club can register max. 16 players</li>
-      <li>"Free-players" (players without a club) are free to join a club at anytime, but Team Players will have to wait until transfer period to move in other team.</li>
+      <li>&quot;Free-players&quot; (players without a club) are free to join a club at anytime, but Team Players will have to wait until transfer period to move in other team.</li>
       <li><b className="text-primary">No player can play for two teams during the same season.</b></li>
       <li>All transfers and status change have to be reported by captains in transfer-news channel on Discord</li>
     </ul>
@@ -77,11 +77,11 @@ export default function RulesPage() {
     <p><b className="text-primary">Each situation is unique but you will find here the generic consequences (the most serious) in the case where an admin has to make a decision. No admin will intervene if the captains manage to find an arrangement between themselves:</b></p>
     <h3>1) Disconnection</h3>
     <p>If a player is disconnected during an official game (voluntarily or not), the game shall continue playing to its end except if 2 captains are agree to restart and only if the disconnection takes place during the first half and there is no goal.</p>
-    <p>If all the team disconnects without the opponents captain's consent, the match will end in defeat for the team who disconnected (3-0).</p>
+    <p>If all the team disconnects without the opponents captain&apos;s consent, the match will end in defeat for the team who disconnected (3-0).</p>
     <h3>2) Cheat / Rules infringement</h3>
     <ul>
-      <li>If your avatar doesn't respect the restrictions mentioned above = Team defeat (3 - 0)</li>
-      <li>At the request of an opponent's captain (<b className="text-primary">EXCEPTIONAL CASE</b>):
+      <li>If your avatar doesn&apo;t respect the restrictions mentioned above = Team defeat (3 - 0)</li>
+      <li>At the request of an opponent&apos;s captain (<b className="text-primary">EXCEPTIONAL CASE</b>):
         <ol>
           <li>The video is sent but no commands are displayed = Team defeat (3 - 0)</li>
           <li>The video is not sent = Team defeat (3 - 0)  + 1 matchday ban for the player.</li>
