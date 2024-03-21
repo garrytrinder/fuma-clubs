@@ -14,7 +14,7 @@ export default async function TablePage() {
       <thead>
         <tr>
           <th>&nbsp;</th>
-          <th className="text-secondary">Team</th>
+          <th className="text-secondary">Teams</th>
           <th className="text-secondary text-center">P</th>
           <th className="text-secondary text-center">W</th>
           <th className="text-secondary text-center">D</th>

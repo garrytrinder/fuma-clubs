@@ -1,3 +1,4 @@
+import { GoogleSpreadsheetRow } from "google-spreadsheet";
 import { SheetIds, getGoogleSpreadsheet } from "../data/google-sheets";
 
 export default async function ScoresFixturesPage() {
@@ -17,11 +18,13 @@ export default async function ScoresFixturesPage() {
         <div key={`${matchday}-${index}`} className="fluid-container mb-3">
           <h2 className="text-secondary text-center">Matchday {matchday}</h2>
           {matchdayGames && matchdayGames.map((game, index) => {
+            const winner = determineWinner(game);
+
             return (
               <div className="row py-2" key={`${matchday}-game-${index}`}>
-                <div className="col text-end text-truncate">{game.get("TEAM HOME")}</div>
+                <div className={`col text-end text-truncate ${winner === Result.Home ? 'text-primary fw-bold' : ''}`}>{game.get("TEAM HOME")}</div>
                 <div className="col-2 text-center text-truncate">{game.get("SCORE HOME")} - {game.get("SCORE AWAY")}</div>
-                <div className="col text-start text-truncate">{game.get("TEAM AWAY")}</div>
+                <div className={`col text-start text-truncate ${winner === Result.Away ? 'text-primary fw-bold' : ''}`}>{game.get("TEAM AWAY")}</div>
               </div>
             )
           })}
@@ -29,4 +32,24 @@ export default async function ScoresFixturesPage() {
       )
     })}
   </>;
+}
+
+
+enum Result {
+  Home = "home",
+  Away = "away",
+  Draw = "draw"
+}
+
+function determineWinner(game: GoogleSpreadsheetRow<Record<string, any>>) {
+  const homeScore = parseInt(game.get("SCORE HOME"));
+  const awayScore = parseInt(game.get("SCORE AWAY"));
+
+  if (homeScore > awayScore) {
+    return Result.Home;
+  } else if (homeScore < awayScore) {
+    return Result.Away;
+  } else {
+    return Result.Draw;
+  }
 }
