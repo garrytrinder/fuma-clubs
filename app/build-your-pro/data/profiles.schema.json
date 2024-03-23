@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "position": {
+        "type": "string"
+      },
+      "value": {
+        "type": "string"
+      },
+      "modifiers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "overall",
+                "acceleration",
+                "speed",
+                "finishing",
+                "fk_accuracy",
+                "heading_accuracy",
+                "shot_power",
+                "long_shots",
+                "volleys",
+                "penalties",
+                "weak_foot",
+                "vision",
+                "crossing",
+                "long_pass",
+                "short_pass",
+                "curve",
+                "agility",
+                "balance",
+                "attacking_position",
+                "ball_control",
+                "dribbling",
+                "skill_moves",
+                "interceptions",
+                "defensive_awareness",
+                "standing_tackle",
+                "sliding_tackle",
+                "jumping",
+                "stamina",
+                "strength",
+                "reactions",
+                "aggression",
+                "gk_diving",
+                "gk_handling",
+                "gk_kicking",
+                "gk_reflexes",
+                "gk_positioning"
+              ]
+            },
+            "value": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "position",
+      "value",
+      "modifiers"
+    ]
+  }
+}
