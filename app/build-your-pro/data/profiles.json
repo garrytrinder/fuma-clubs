@@ -120,7 +120,7 @@
         "value": 4
       },
       {
-        "key": "ball control",
+        "key": "ball_control",
         "value": 5
       },
       {
@@ -135,7 +135,6 @@
         "key": "jumping",
         "value": 3
       },
-
       {
         "key": "gk_diving",
         "value": 5
@@ -251,7 +250,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -381,7 +380,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -511,7 +510,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 6
       },
       {
@@ -641,7 +640,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -771,7 +770,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -901,7 +900,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 2
       },
       {
@@ -1031,7 +1030,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 6
       },
       {
@@ -1161,7 +1160,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 2
       },
       {
@@ -1291,7 +1290,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 4
       },
       {
@@ -1421,7 +1420,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 4
       },
       {
@@ -1551,7 +1550,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -1681,7 +1680,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 2
       },
       {
@@ -1811,7 +1810,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 4
       },
       {
@@ -1941,7 +1940,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 2
       },
       {
@@ -2071,7 +2070,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -2201,7 +2200,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -2331,7 +2330,7 @@
         "value": 1
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -2461,7 +2460,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -2591,7 +2590,7 @@
         "value": 1
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -2721,7 +2720,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -2851,7 +2850,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -2981,7 +2980,7 @@
         "value": 1
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -3111,7 +3110,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 6
       },
       {
@@ -3241,7 +3240,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -3371,7 +3370,7 @@
         "value": 1
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -3501,7 +3500,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -3631,7 +3630,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -3668,7 +3667,6 @@
       }
     ]
   },
-
   {
     "position": "CF",
     "value": "False 9",
@@ -3762,7 +3760,7 @@
         "value": 1
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -3892,7 +3890,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -4022,7 +4020,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -4152,7 +4150,7 @@
         "value": 1
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -4282,7 +4280,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -4412,7 +4410,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
@@ -4542,7 +4540,7 @@
         "value": 0
       },
       {
-        "key": "interception",
+        "key": "interceptions",
         "value": 0
       },
       {
