@@ -2315,7 +2315,7 @@
       },
       {
         "key": "attacking_position",
-        "value": 0
+        "value": 4
       },
       {
         "key": "ball_control",
@@ -2957,15 +2957,15 @@
       },
       {
         "key": "agility",
-        "value": 7
+        "value": 6
       },
       {
         "key": "balance",
-        "value": 5
+        "value": 2
       },
       {
         "key": "attacking_position",
-        "value": 0
+        "value": 4
       },
       {
         "key": "ball_control",
@@ -3017,6 +3017,7 @@
       }
     ]
   },
+
   {
     "position": "LM/RM",
     "value": "Defensive Wide Midfielder",
