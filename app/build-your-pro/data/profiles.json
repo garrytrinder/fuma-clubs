@@ -515,7 +515,7 @@
       },
       {
         "key": "defensive_awareness",
-        "value": 0
+        "value": 2
       },
       {
         "key": "standing_tackle",
@@ -1153,7 +1153,7 @@
       },
       {
         "key": "dribbling",
-        "value": 0
+        "value": 4
       },
       {
         "key": "skill_moves",
