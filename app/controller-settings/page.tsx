@@ -45,7 +45,7 @@ export default function ControllerSettingsPage() {
     </ul>
     <h3>Controller Preferences</h3>
     <ul>
-      <li>Analog Sprint: <b className="text-primary">On</b></li>
+      <li>Analog Sprint: <b className="text-primary">On / Off</b></li>
       <li>Trigger Effect (PS Only): <b className="text-primary">Off</b></li>
     </ul>
     <h2 className="text-secondary">Visual</h2>
