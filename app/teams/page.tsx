@@ -2,6 +2,8 @@ import Link from "next/link";
 import { SheetIds, getGoogleSpreadsheet } from "../data/google-sheets";
 import { convertTeamNameToUrl } from "../components/helpers";
 
+export const dynamic = 'force-dynamic';
+
 export default async function TeamsPage() {
 
   const googleSpreadsheet = await getGoogleSpreadsheet();

@@ -1,6 +1,8 @@
 import { GoogleSpreadsheetRow } from "google-spreadsheet";
 import { SheetIds, getGoogleSpreadsheet } from "../data/google-sheets";
 
+export const dynamic = 'force-dynamic';
+
 export default async function ScoresFixturesPage() {
 
   const googleSpreadsheet = await getGoogleSpreadsheet();
