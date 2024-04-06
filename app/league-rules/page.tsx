@@ -13,6 +13,7 @@ export default function RulesPage() {
       <li><Link href="/teams/passandmoveea">Pass&Move</Link></li>
       <li><Link href="/teams/toho-spain">Toho Spain</Link></li>
       <li><Link href="/teams/phase3-esfc">PHASE3 ESFC</Link></li>
+      <li><Link href="teams/fc-jogo-bonito">FC Jogo Bonito</Link></li>
     </ul>
     <h2 className="text-secondary">B. EQUITY RULES (FUMA SETTINGS / BUILD YOUR PRO)</h2>
     <ul>
