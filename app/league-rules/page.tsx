@@ -44,7 +44,8 @@ export default function RulesPage() {
     </ul>
     <h2 className="text-secondary">D. PLAYER CREATION</h2>
     <ul>
-      <li><Link href="/build-your-pro">Build your pro</Link> system</li>
+      <li><Link href="/build-your-pro">V1 system</Link> (work in progress)</li>
+      <li>Each player must use his pro in their own position (e.g. no using RB as CDM)</li>
       <li>Men and women allowed</li>
       <li>Accessories allowed</li>
       <li>The pro of each player must be validated by the captain before the matchday</li>
@@ -72,7 +73,7 @@ export default function RulesPage() {
       <li>Each club can register max. 16 players</li>
       <li>&quot;Free-players&quot; (players without a club) are free to join a club at anytime, but Team Players will have to wait until transfer period to move in other team.</li>
       <li><b className="text-primary">No player can play for two teams during the same season.</b></li>
-      <li>All transfers and status change have to be reported by captains in transfer-news channel on Discord</li>
+      <li>All transfers and status change have to be reported by captains in <Link href="https://discord.com/channels/882539898953949204/1064517191661256716">transfer-news</Link> channel on Discord</li>
     </ul>
     <h2 className="text-secondary">H. MAIN ISSUES AND CONSEQUENCES</h2>
     <p><b className="text-primary">Each situation is unique but you will find here the generic consequences (the most serious) in the case where an admin has to make a decision. No admin will intervene if the captains manage to find an arrangement between themselves:</b></p>
