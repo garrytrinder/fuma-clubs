@@ -70,7 +70,7 @@ export default function RulesPage() {
     <h2 className="text-secondary">G. TRANSFER WINDOW</h2>
     <ul>
       <li>The transfer period is open between each season.</li>
-      <li>Each club can register max. 16 players</li>
+      <li>Each club can register max. 17 players</li>
       <li>&quot;Free-players&quot; (players without a club) are free to join a club at anytime, but Team Players will have to wait until transfer period to move in other team.</li>
       <li><b className="text-primary">No player can play for two teams during the same season.</b></li>
       <li>All transfers and status change have to be reported by captains in <Link href="https://discord.com/channels/882539898953949204/1064517191661256716">transfer-news</Link> channel on Discord</li>
