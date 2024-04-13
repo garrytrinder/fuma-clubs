@@ -1,12 +1,12 @@
 import { GoogleSpreadsheetRow } from "google-spreadsheet";
-import { SheetIds, getGoogleSpreadsheet } from "../data/google-sheets";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../data/google-sheets";
 
 export const dynamic = 'force-dynamic';
 
 export default async function ScoresFixturesPage() {
 
-  const googleSpreadsheet = await getGoogleSpreadsheet();
-  const sheet = googleSpreadsheet.sheetsById[SheetIds.ScoresFixtures];
+  const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
+  const sheet = googleSpreadsheet.sheetsById[GoogleSheets.ScoresFixtures];
   const allRows = await sheet.getRows();
   const matchdays = allRows.map((row) => { return row.get("MATCHDAY") }).filter((value, index, self) => {
     return self.indexOf(value) === index;

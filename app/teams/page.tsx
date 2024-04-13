@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { SheetIds, getGoogleSpreadsheet } from "../data/google-sheets";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../data/google-sheets";
 import { convertTeamNameToUrl } from "../components/helpers";
 
 export const dynamic = 'force-dynamic';
 
 export default async function TeamsPage() {
 
-  const googleSpreadsheet = await getGoogleSpreadsheet();
-  const teamsSheet = googleSpreadsheet.sheetsById[SheetIds.Teams];
-  const hallOfFameSheet = googleSpreadsheet.sheetsById[SheetIds.HallOfFame];
+  const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
+  const teamsSheet = googleSpreadsheet.sheetsById[GoogleSheets.Teams];
+  const hallOfFameSheet = googleSpreadsheet.sheetsById[GoogleSheets.HallOfFame];
 
   const data = await Promise.all([await teamsSheet.getRows(), await hallOfFameSheet.getRows()]);
 

@@ -1,14 +1,14 @@
-import { SheetIds, getGoogleSpreadsheet } from "@/app/data/google-sheets";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "@/app/data/google-sheets";
 import Link from "next/link";
 import Image from "next/image";
 
 export default async function TeamPage({ params }: { params: { name: string } }) {
   const team = params.name.replaceAll('-', ' ');
 
-  const googleSpreadsheet = await getGoogleSpreadsheet();
-  const playersSheet = googleSpreadsheet.sheetsById[SheetIds.Players];
-  const teamSheet = googleSpreadsheet.sheetsById[SheetIds.Teams];
-  const hofSheet = googleSpreadsheet.sheetsById[SheetIds.HallOfFame];
+  const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
+  const playersSheet = googleSpreadsheet.sheetsById[GoogleSheets.Players];
+  const teamSheet = googleSpreadsheet.sheetsById[GoogleSheets.Teams];
+  const hofSheet = googleSpreadsheet.sheetsById[GoogleSheets.HallOfFame];
 
   const playersSheetRows = await playersSheet.getRows();
   const players = playersSheetRows.filter((row) => {
