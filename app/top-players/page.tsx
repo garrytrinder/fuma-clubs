@@ -263,10 +263,6 @@ export default async function TopPlayersPage() {
                 <span className="d-none d-md-block">Red Cards</span>
                 <span className="d-block d-md-none">RC</span>
               </th>
-              <th className="text-secondary text-center">
-                <span className="d-none d-md-block">Played</span>
-                <span className="d-block d-md-none">P</span>
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -285,7 +281,6 @@ export default async function TopPlayersPage() {
                   </div>
                 </td>
                 <td className="text-center align-middle">{redCards}</td>
-                <td className="text-center align-middle">{games}</td>
               </tr>
             })}
           </tbody>
