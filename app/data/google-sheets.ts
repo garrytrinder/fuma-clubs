@@ -21,9 +21,8 @@ export enum GoogleSpreadsheets {
 }
 
 export enum GoogleSheets {
-  AssistsRanking = "1817545439",
-  GoalsRanking = "870295573",
   HallOfFame = "491937758",
+  Overall = "1200680596",
   Players = "724675989",
   ScoresFixtures = "2098181175",
   Table = "765264264",
