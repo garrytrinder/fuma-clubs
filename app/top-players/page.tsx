@@ -69,7 +69,7 @@ export default async function TopPlayersPage() {
   return <>
     <h1 className="text-primary">Top Players</h1>
     <p></p>
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-underline">
       <li className="nav-item">
         <a className="nav-link active" aria-current="page" href="#" id="scorers-tab" data-bs-toggle="tab" data-bs-target="#scorers-tab-pane" type="button" role="tab" aria-controls="scorers-tab-pane" aria-selected="true">Scorers</a>
       </li>
