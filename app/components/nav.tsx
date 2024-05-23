@@ -39,6 +39,9 @@ export const Nav = () => {
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/teams' ? 'active' : ''}`} href="/teams" onClick={() => { setShow(false) }}>Teams</Link>
             </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname === '/free-players' ? 'active' : ''}`} href="/free-players" onClick={() => { setShow(false) }}>Free players</Link>
+            </li>
             <hr />
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/league-rules' ? 'active' : ''}`} href="/league-rules" onClick={() => { setShow(false) }}>League Rules</Link>
