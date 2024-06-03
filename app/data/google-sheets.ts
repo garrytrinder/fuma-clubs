@@ -18,6 +18,7 @@ export async function getGoogleSpreadsheet(
 export enum GoogleSpreadsheets {
   ManualProLeague = "1V2ooEhHbtywHP0X_Ffy16EMTgUyw_DRfHbUOlzuJMRc",
   PostResults = "1uLVYXob4gx4GYVAw0Gkco5_hCc6ZedAdJ9Q3Gw5RcG0",
+  GkSystem = "1opkcUhFrNai3K1FY6nxYXV4GWDI0D_DrBwqxnmvm-8w",
 }
 
 export enum GoogleSheets {
@@ -27,4 +28,10 @@ export enum GoogleSheets {
   ScoresFixtures = "2098181175",
   Table = "765264264",
   Teams = "1090915850",
+}
+
+export enum GkSystemSheets {
+  Base = "0",
+  Profiles = "2021171954",
+  PlayStyles = "126548641",
 }
