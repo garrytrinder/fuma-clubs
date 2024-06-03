@@ -3,6 +3,7 @@ import './globals.scss';
 import type { Metadata } from "next";
 import BootstrapClient from "./components/bootstrapClient";
 import { Nav } from "./components/nav";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: "FUMA Clubs Community",
@@ -22,6 +23,7 @@ export default function RootLayout({
           {children}
         </main>
         <BootstrapClient />
+        <Analytics />
       </body>
     </html>
   );
