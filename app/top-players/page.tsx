@@ -236,7 +236,7 @@ export default async function TopPlayersPage() {
               const player = row.get("PLAYERS");
               const club = row.get("TEAMS");
               const games = row.get("GAMES PLAYED");
-              const rating = row.get("RATING");
+              const rating = row.get("RATING").replace(",", ".");
 
               return <tr key={index + 1}>
                 <td className="text-center">{index + 1}</td>
