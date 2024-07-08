@@ -1,5 +1,7 @@
 import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "@/app/data/google-sheets";
 
+export const dynamic = 'force-dynamic';
+
 export default async function FreePlayersPage() {
   const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
   const playersSheet = googleSpreadsheet.sheetsById[GoogleSheets.Players];
