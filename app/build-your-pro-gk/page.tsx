@@ -191,19 +191,10 @@ export default function BuildYourProGkPage() {
                 </div>
               </div>
               {selectedProfile.ps_max > 0 && (
-
                 <div className="col-lg-4 col-md-6 col-sm-12">
-                  <SectionHeader title="PlayStyles" />
+                  <PlayStylesHeader total={selectedProfile.ps_max} />
                   {selectedProfile.ps_ballcontrol_max > 0 && (
                     <>
-                      <div className="row">
-                        <div className="col-10">Max Allowed</div>
-                        <div className="col text-end">
-                          <span className="badge text-bg-primary">
-                            {selectedProfile.ps_max}
-                          </span>
-                        </div>
-                      </div>
                       <div className="row">
                         <div className="col-10">Ball Control</div>
                         <div className="col text-end">
@@ -270,9 +261,8 @@ export default function BuildYourProGkPage() {
                       </div>
                       <div className="row">
                         <div className="col">
-                          <Image className={selectedProfile.ps_passing_silver?.includes("Tiki Taka") ? "d-all" : "d-none"} src={`/ps_tiki_taka_silver.png`} alt={"Tiki Taka"} width={50} height={50} />
-                          <Image className={selectedProfile.ps_passing_gold?.includes("Tiki Taka") ? "d-all" : "d-none"} src={`/ps_tiki_taka_gold.png`} alt={"Tiki Taka"} width={50} height={50} />
-                          {selectedProfile.ps_passing_max > 1 ? "+" : ""}
+                          {/* <Image className={selectedProfile.ps_passing_silver?.includes("Tiki Taka") ? "d-all" : "d-none"} src={`/ps_tiki_taka_silver.png`} alt={"Tiki Taka"} width={50} height={50} />
+                          <Image className={selectedProfile.ps_passing_gold?.includes("Tiki Taka") ? "d-all" : "d-none"} src={`/ps_tiki_taka_gold.png`} alt={"Tiki Taka"} width={50} height={50} /> */}
                           <Image className={selectedProfile.ps_passing_silver?.includes("Incisive Pass") ? "d-all" : "d-none"} src={`/ps_incisive_pass_silver.png`} alt={"Incisive Pass"} width={50} height={50} />
                           <Image className={selectedProfile.ps_passing_gold?.includes("Incisive Pass") ? "d-all" : "d-none"} src={`/ps_incisive_pass_gold.png`} alt={"Incisive Pass"} width={50} height={50} />
                           <Image className={selectedProfile.ps_passing_silver?.includes("Pinged Pass") ? "d-all" : "d-none"} src={`/ps_pinged_pass_silver.png`} alt={"Pinged Pass"} width={50} height={50} />
@@ -487,6 +477,31 @@ function SectionHeader({ title }: SectionHeaderProps) {
     <div className="row">
       <div className="col-8">
         <h3>{title}</h3>
+      </div>
+    </div>
+  )
+}
+
+type PlayStylesHeaderProps = {
+  total: number;
+}
+
+function PlayStylesHeader({ total }: PlayStylesHeaderProps) {
+  return (
+    <div className="row">
+      <div className="col-8">
+        <h3>
+          PlayStyles
+        </h3>
+      </div>
+      <div className="col text-end">
+        <h3>
+          <Image src={`/ps_tiki_taka_silver.png`} alt={"Tiki Taka"} width={35} height={35} />
+          {' + '}
+          <span className="badge text-bg-primary">
+            {total}
+          </span>
+        </h3>
       </div>
     </div>
   )
