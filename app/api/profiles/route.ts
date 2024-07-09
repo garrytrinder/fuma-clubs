@@ -6,6 +6,8 @@ import {
   GoogleSpreadsheets,
 } from "@/app/data/google-sheets";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: Request) {
   const googleSpreadsheet = await getGoogleSpreadsheet(
     GoogleSpreadsheets.GkSystem
@@ -110,8 +112,11 @@ export async function GET(request: Request) {
       ps_goalkeeper_silver: splitPlayStyles(row.get("ps_goalkeeper_silver")),
     };
   });
-
-  return NextResponse.json(data, { status: 200 });
+  // don't cache this response
+  return NextResponse.json(data, {
+    status: 200,
+    headers: { "Cache-Control": "no-cache" },
+  });
 }
 
 const splitPlayStyles = (playStyle: string) => {
