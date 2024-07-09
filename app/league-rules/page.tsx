@@ -17,7 +17,7 @@ export default function RulesPage() {
     </ul>
     <h2 className="text-secondary">B. EQUITY RULES (FUMA SETTINGS / BUILD YOUR PRO)</h2>
     <ul>
-      <li><b className="text-primary">All players must record the game and display, before the kick-off, their manual settings and the statistics of their pro</b> (<Link href="/build-your-pro">Controller Settings</Link>)</li>
+      <li><b className="text-primary">All players must record the game and display, before the kick-off, their manual settings and the statistics of their pro</b> (<Link href="/build-your-pro-gk">Controller Settings</Link>)</li>
       <li>At least <b className="text-primary">one player per team</b> must stream and sharing the game to promote our community to others.</li>
       <li>In case of doubt (based on the stream), the captains <b className="text-primary">can request</b> the recording of a player. If this one is not able to provide it in the week, this player and his team will be sanctioned.</li>
     </ul>
@@ -44,7 +44,7 @@ export default function RulesPage() {
     </ul>
     <h2 className="text-secondary">D. PLAYER CREATION</h2>
     <ul>
-      <li><Link href="/build-your-pro">V1 system</Link> (work in progress)</li>
+      <li><Link href="/build-your-pro-gk">V1 system</Link> (work in progress)</li>
       <li>Each player must use his pro in their own position (e.g. no using RB as CDM)</li>
       <li>Men and women allowed</li>
       <li>Accessories allowed</li>

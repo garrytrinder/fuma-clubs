@@ -33,7 +33,7 @@ export default function HomePage() {
             <i className="bi bi-2-circle text-primary display-4"></i>
           </div>
           <h2 className="display-5 fw-bold text-primary lh-1 mb-3 text-center">Create your player</h2>
-          <p className="lead">To take part in the championship, your player must respect the <Link href="/build-your-pro">pro restriction system</Link>.</p>
+          <p className="lead">To take part in the championship, your player must respect the <Link href="/build-your-pro-gk">pro restriction system</Link>.</p>
         </div>
       </div>
     </section>

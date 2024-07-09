@@ -51,7 +51,7 @@ export const Nav = () => {
             </li>
             <hr />
             <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/build-your-pro' ? 'active' : ''}`} href="/build-your-pro" onClick={() => { setShow(false) }}>Build your pro</Link>
+              <Link className={`nav-link ${pathname === '/build-your-pro-gk' ? 'active' : ''}`} href="/build-your-pro-gk" onClick={() => { setShow(false) }}>Build your pro</Link>
             </li>
           </ul>
         </div>
