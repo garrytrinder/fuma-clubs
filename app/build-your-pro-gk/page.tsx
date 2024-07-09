@@ -4,6 +4,8 @@ import React, { ReactElement } from "react";
 import { Profile } from "../api/profiles/type";
 import Image from "next/image";
 
+export const dynamic = 'force-dynamic';
+
 export default function BuildYourProGkPage() {
 
   const [loading, setLoading] = React.useState(true);
