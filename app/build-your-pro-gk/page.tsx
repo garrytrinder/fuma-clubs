@@ -21,7 +21,7 @@ export default function BuildYourProGkPage() {
   const heights = Array.from(new Set(profilesData?.filter(p => p.position === position).map(p => p.height) || []));
   const weights = Array.from(new Set(profilesData?.filter(p => p.position === position && p.height === height).map(p => p.weight) || []));
   const profiles = Array.from(new Set(profilesData?.filter(p => p.position === position && p.height === height && p.weight === weight).map(p => p.name) || []));
-  const selectedProfile = profile && profilesData?.find(p => p.name === profile) || {} as Profile;
+  const selectedProfile = profile && profilesData?.find(p => p.position === position && p.height === height && p.weight === weight && p.name === profile) || {} as Profile;
 
   React.useEffect(() => {
     (async () => {
