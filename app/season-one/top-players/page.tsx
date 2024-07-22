@@ -1,8 +1,8 @@
-import { getGoogleSpreadsheet, GoogleSpreadsheets, GoogleSheets } from "../data/google-sheets";
+import { getGoogleSpreadsheet, GoogleSpreadsheets, GoogleSheets } from "../../data/google-sheets";
 
 export const dynamic = 'force-dynamic';
 
-export default async function TopPlayersPage() {
+export default async function SeasonOneTopPlayersPage() {
   const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.PostResults);
   const rows = (await googleSpreadsheet.sheetsById[GoogleSheets.Overall].getRows()).filter(row => row.get("PLAYERS") !== "");
 

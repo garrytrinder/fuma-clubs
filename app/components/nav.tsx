@@ -27,15 +27,22 @@ export const Nav = () => {
               <Link className={`nav-link ${pathname === '/' ? 'active' : ''}`} href="/" onClick={() => { setShow(false) }}>Home</Link>
             </li>
             <hr />
+            <h5 className="offcanvas-title">Preseason</h5>
             <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/table' ? 'active' : ''}`} href="/table" onClick={() => { setShow(false) }}>Table</Link>
+              <Link className={`nav-link ${pathname === '/pre-season/table' ? 'active' : ''}`} href="/pre-season/table" onClick={() => { setShow(false) }}>Table</Link>
+            </li>
+            <hr />
+            <h5 className="offcanvas-title">Season One</h5>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname === '/season-one/table' ? 'active' : ''}`} href="/season-one/table" onClick={() => { setShow(false) }}>Table</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/scores-fixtures' ? 'active' : ''}`} href="/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
+              <Link className={`nav-link ${pathname === '/season-one/scores-fixtures' ? 'active' : ''}`} href="/season-one/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/top-players' ? 'active' : ''}`} href="/top-players" onClick={() => { setShow(false) }}>Top Players</Link>
+              <Link className={`nav-link ${pathname === '/season-one/top-players' ? 'active' : ''}`} href="/season-one/top-players" onClick={() => { setShow(false) }}>Top Players</Link>
             </li>
+            <hr />
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/teams' ? 'active' : ''}`} href="/teams" onClick={() => { setShow(false) }}>Teams</Link>
             </li>

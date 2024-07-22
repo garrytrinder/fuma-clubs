@@ -1,9 +1,9 @@
 import { GoogleSpreadsheetRow } from "google-spreadsheet";
-import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../data/google-sheets";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../data/google-sheets";
 
 export const dynamic = 'force-dynamic';
 
-export default async function ScoresFixturesPage() {
+export default async function SeasonOneScoresFixturesPage() {
 
   const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
   const sheet = googleSpreadsheet.sheetsById[GoogleSheets.ScoresFixtures];

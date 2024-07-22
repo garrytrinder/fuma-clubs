@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../data/google-sheets";
-import { convertTeamNameToUrl } from "../components/helpers";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../data/google-sheets";
+import { convertTeamNameToUrl } from "../../components/helpers";
 
 export const dynamic = 'force-dynamic';
 
-export default async function TablePage() {
+export default async function SeasonOneTablePage() {
 
   const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
   const sheet = googleSpreadsheet.sheetsById[GoogleSheets.Table];
