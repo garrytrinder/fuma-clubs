@@ -19,7 +19,7 @@ export enum GoogleSpreadsheets {
   ManualProLeague = "1V2ooEhHbtywHP0X_Ffy16EMTgUyw_DRfHbUOlzuJMRc",
   PostResults = "1uLVYXob4gx4GYVAw0Gkco5_hCc6ZedAdJ9Q3Gw5RcG0",
   GkSystem = "1opkcUhFrNai3K1FY6nxYXV4GWDI0D_DrBwqxnmvm-8w",
-  PreseasonSummer24 = "1Lf1k594LSR_eMU_ZBEAYD4Fw5TqVU2ZHP7ZhqoSkM0k"
+  PreseasonSummer24 = "1Lf1k594LSR_eMU_ZBEAYD4Fw5TqVU2ZHP7ZhqoSkM0k",
 }
 
 export enum GoogleSheets {
@@ -35,8 +35,9 @@ export enum GkSystemSheets {
   Base = "0",
   Profiles = "2021171954",
   PlayStyles = "126548641",
+  v3 = "250967509",
 }
 
 export enum PreseasonSummer24Sheets {
-  Table = "0"
+  Table = "0",
 }
