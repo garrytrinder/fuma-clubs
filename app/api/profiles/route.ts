@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Profile, ProfileV3 } from "./type";
+import { Profile, ProfileV4 } from "./type";
 import {
   getGoogleSpreadsheet,
   GkSystemSheets,
@@ -129,7 +129,7 @@ export async function GET(request: Request) {
 
   if (apiVersion === "3") {
     const sheet = googleSpreadsheet.sheetsById[GkSystemSheets.v3];
-    const rows = await sheet.getRows<ProfileV3>();
+    const rows = await sheet.getRows<ProfileV4>();
     const data = rows.map((row) => {
       return {
         applies_to: row.get("applies_to"),
@@ -192,7 +192,7 @@ export async function GET(request: Request) {
         ps_shooting_silver: splitPlayStyles(row.get("ps_shooting_silver")),
         ps_goalkeeper_gold: splitPlayStyles(row.get("ps_goalkeeper_gold")),
         ps_goalkeeper_silver: splitPlayStyles(row.get("ps_goalkeeper_silver")),
-      } as ProfileV3;
+      } as ProfileV4;
     });
 
     // don't cache this response

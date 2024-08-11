@@ -1,15 +1,15 @@
 "use client";
 
 import React, { ReactElement } from "react";
-import { ProfileV3 } from "../api/profiles/type";
+import { ProfileV4 } from "../api/profiles/type";
 import Image from "next/image";
 
 export const dynamic = 'force-dynamic';
 
-export default function BuildYourProGkV3Page() {
+export default function BuildYourProGkV4Page() {
 
   const [loading, setLoading] = React.useState(true);
-  const [profilesData, setProfilesData] = React.useState<ProfileV3[]>();
+  const [profilesData, setProfilesData] = React.useState<ProfileV4[]>();
   const [{ position }, setForm] = React.useState({
     position: ''
   });

@@ -95,7 +95,7 @@ export type Profile = {
   ps_goalkeeper_silver?: string[];
 };
 
-export type ProfileV3 = {
+export type ProfileV4 = {
   position: string;
   applies_to: string;
   min_height_metric: string;
