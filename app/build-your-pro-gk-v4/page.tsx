@@ -3,6 +3,7 @@
 import React, { ReactElement } from "react";
 import { ProfileV4 } from "../api/profiles/type";
 import Image from "next/image";
+import { ChangelogV4 } from "../api/changelog/type";
 
 export const dynamic = 'force-dynamic';
 
@@ -10,6 +11,7 @@ export default function BuildYourProGkV4Page() {
 
   const [loading, setLoading] = React.useState(true);
   const [profilesData, setProfilesData] = React.useState<ProfileV4[]>();
+  const [changelogData, setChangelogData] = React.useState<ChangelogV4[]>();
   const [{ position }, setForm] = React.useState({
     position: ''
   });
@@ -19,9 +21,13 @@ export default function BuildYourProGkV4Page() {
 
   React.useEffect(() => {
     (async () => {
-      const req = await fetch('api/profiles?api-version=3');
-      const profilesData = await req.json();
-      setProfilesData(profilesData);
+      const profiles = fetch('api/profiles?api-version=3');
+      const changelog = fetch('api/changelog');
+      const responses = await Promise.all([profiles, changelog]);
+      const data = await Promise.all([responses[0].json(), responses[1].json()]);
+
+      setProfilesData(data[0]);
+      setChangelogData(data[1]);
       setLoading(false);
     })();
   }, []);
@@ -29,14 +35,39 @@ export default function BuildYourProGkV4Page() {
   return (
     <>
       <div className="row">
-        <h1 className="text-primary">Build your pro: GK edition</h1>
+        <h1 className="text-primary">Build your pro: GK edition </h1>
       </div>
       {loading ? (<div className="row">
         <p>Loading...</p>
       </div>) : (
         <>
-          <div className="row mb-3">
-            <div className="col-lg-3 col-sm-4">
+          <div className="row">
+            <div className="col">
+              <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changelogV4Modal">
+                {changelogData ? `${changelogData[0].version} (${changelogData[0].date})` : null}
+              </button>
+            </div>
+          </div>
+          <div className="modal fade" id="changelogV4Modal" tabIndex={-1} aria-labelledby="changelogV4Modal" aria-hidden="true">
+            <div className="modal-dialog modal-fullscreen">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5" id="">Changelog</h1>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                  {changelogData?.map((changelog, index) =>
+                    <div key={index}>
+                      <h4>{changelog.date} - {changelog.type}</h4>
+                      <p>{changelog.detail}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
               <div className="form-floating my-3">
                 <select
                   className="form-select"

@@ -35,7 +35,8 @@ export enum GkSystemSheets {
   Base = "0",
   Profiles = "2021171954",
   PlayStyles = "126548641",
-  v3 = "250967509",
+  v4 = "250967509",
+  v4Changelog = "1287968148",
 }
 
 export enum PreseasonSummer24Sheets {

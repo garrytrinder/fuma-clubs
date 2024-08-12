@@ -128,7 +128,7 @@ export async function GET(request: Request) {
   }
 
   if (apiVersion === "3") {
-    const sheet = googleSpreadsheet.sheetsById[GkSystemSheets.v3];
+    const sheet = googleSpreadsheet.sheetsById[GkSystemSheets.v4];
     const rows = await sheet.getRows<ProfileV4>();
     const data = rows.map((row) => {
       return {

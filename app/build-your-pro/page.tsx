@@ -11,7 +11,6 @@ import headings from './data/attribute_headings.json';
 import groups from './data/attribute_groups.json';
 
 import HowToUse from "./components/howToUse";
-import { redirect } from "next/navigation";
 
 export default function BuildYourProPage() {
   const [{ position, height, weight, profile }, setForm] =
