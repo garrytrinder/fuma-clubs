@@ -173,6 +173,7 @@ export async function GET(request: Request) {
         strength: row.get("strength"),
         reactions: row.get("reactions"),
         aggression: row.get("aggression"),
+        ps_max: row.get("ps_max"),
         gk_diving: row.get("gk_diving"),
         gk_handling: row.get("gk_handling"),
         gk_kicking: row.get("gk_kicking"),

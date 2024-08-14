@@ -157,7 +157,7 @@ export default function BuildYourProGkV4Page() {
               </div>
 
               <div className="col-lg-4 col-md-6 col-sm-12">
-                <PlayStylesHeader />
+                <SectionHeader title="PlayStyles" />
                 {(!hasPlayStyles(selectedPosition.ps_ballcontrol_gold, selectedPosition.ps_ballcontrol_silver) &&
                   !hasPlayStyles(selectedPosition.ps_defending_gold, selectedPosition.ps_defending_silver) &&
                   !hasPlayStyles(selectedPosition.ps_passing_gold, selectedPosition.ps_passing_silver) &&
@@ -167,9 +167,13 @@ export default function BuildYourProGkV4Page() {
                   <div className="row">
                     <div className="col">No PlayStyles allowed.</div>
                   </div>
-                  : <div className="row">
-                    <div className="col">
-                      Choose from the following:
+                  :
+                  <div className="row">
+                    <div className="col-10">Max PlayStyles</div>
+                    <div className="col text-end">
+                      <span className="badge text-bg-primary">
+                        {selectedPosition.ps_max}
+                      </span>
                     </div>
                   </div>
                 }
@@ -418,18 +422,6 @@ function SectionHeader({ title }: SectionHeaderProps) {
     <div className="row">
       <div className="col-8">
         <h3>{title}</h3>
-      </div>
-    </div>
-  )
-}
-
-function PlayStylesHeader() {
-  return (
-    <div className="row">
-      <div className="col">
-        <h3>
-          PlayStyles
-        </h3>
       </div>
     </div>
   )

@@ -142,6 +142,7 @@ export type ProfileV4 = {
   gk_positioning: number;
   gk_reflexes: number;
   pts_max: number;
+  ps_max: number;
   ps_ballcontrol_gold?: string[];
   ps_ballcontrol_silver?: string[];
   ps_defending_gold?: string[];
