@@ -58,8 +58,9 @@ export default function BuildYourProGkV4Page() {
                 <div className="modal-body">
                   {changelogData?.map((changelog, index) =>
                     <div key={index}>
-                      <h4>{changelog.date} - {changelog.type}</h4>
-                      <p>{changelog.detail}</p>
+                      <h4>{changelog.version}</h4>
+                      <p>{changelog.date}</p>
+                      <p>{changelog.detail.split('|').map(detail => <>{detail}<br /></>)}</p>
                     </div>
                   )}
                 </div>
