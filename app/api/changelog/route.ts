@@ -18,9 +18,7 @@ export async function GET(request: Request) {
   const data = rows.map((row) => {
     return {
       date: row.get("date"),
-      type: row.get("type"),
       detail: row.get("detail"),
-      explanation: row.get("explanation"),
       version: row.get("version"),
     };
   });
