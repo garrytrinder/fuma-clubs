@@ -41,10 +41,14 @@ export default function BuildYourProGkV4Page() {
         <p>Loading...</p>
       </div>) : (
         <>
-          <div className="row">
+          <div className="row gx-5">
             <div className="col">
               <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changelogV4Modal">
                 {changelogData ? `${changelogData[0].version} (${changelogData[0].date})` : null}
+              </button>
+              {' '}
+              <button type="button" className="btn btn-info" data-bs-toggle="modal" data-bs-target="#howToUseModal">
+                How to use
               </button>
             </div>
           </div>
@@ -57,12 +61,32 @@ export default function BuildYourProGkV4Page() {
                 </div>
                 <div className="modal-body">
                   {changelogData?.map((changelog, index) =>
-                    <div key={index}>
+                    <div key={`cl${index}`}>
                       <h4>{changelog.version}</h4>
                       <p>{changelog.date}</p>
                       <p>{changelog.detail.split('|').map(detail => <>{detail}<br /></>)}</p>
                     </div>
                   )}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal fade" id="howToUseModal" tabIndex={-1} aria-labelledby="howToUseModal" aria-hidden="true">
+            <div className="modal-dialog modal-fullscreen">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5" id="howToUseModal">How to use</h1>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                  <ol className="list-group list-group-numbered list-group-flush mt-3">
+                    <li className="list-group-item" key={'ht1'}>On the app, select the position type you are going to play, this shows you what changes you can make to your pro.</li>
+                    <li className="list-group-item" key={'ht2'}>In the game, change your pro base position to GK, remove all PlayStyles and skill points.</li>
+                    <li className="list-group-item" key={'ht3'}>In the game, change the height and weight of your pro to be within the minimum and maximum ranges shown in the General section.</li>
+                    <li className="list-group-item" key={'ht4'}>In the game, add skill points to your pro upto the maximum number shown in the General section. You cannot add points to any attribute marked with red square. You can only increase attributes up to the value shown in green.</li>
+                    <li className="list-group-item" key={'ht5'}>In the game, add PlayStyles to your pro. You can only choose a maximum of PlayStyles as shown in the PlayStyles section. You can only choose PlayStyles shown in the app.</li>
+                    <li className="list-group-item" key={'ht6'}>Your pro is complete! Good luck out on the pitch 💪</li>
+                  </ol>
                 </div>
               </div>
             </div>
@@ -86,7 +110,7 @@ export default function BuildYourProGkV4Page() {
                   <option></option>
                   {positions.map((position: string, index: number) => {
                     return (
-                      <option key={index} value={position}>
+                      <option key={`ps${index}`} value={position}>
                         {position}
                       </option>
                     );
@@ -385,7 +409,7 @@ function Rating({ value }: RatingProps) {
 
   for (let i = 0; i < 5; i++) {
     const colour = value > i ? 'text-warning' : 'text-secondary';
-    stars.push(<i key={i} className={`bi-star-fill ${colour}`}></i>);
+    stars.push(<i key={`rt${i}`} className={`bi-star-fill ${colour}`}></i>);
   }
   return <>{stars.reverse()}</>;
 }
