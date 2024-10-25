@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: "FUMA Clubs Community",
-  description: "Full Manual EA Sports FC 24 Pro Clubs League",
+  description: "Full Manual EA Sports FC 25 Pro Clubs League",
 };
 
 export default function RootLayout({
