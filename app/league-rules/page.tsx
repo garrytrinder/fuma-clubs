@@ -3,30 +3,18 @@ import Link from "next/link";
 export default function RulesPage() {
   return <>
     <h1 className="text-primary">League Rules</h1>
-    <h2 className="text-secondary">A. REGISTERED TEAMS</h2>
+    <h2 className="text-secondary">EQUITY RULES</h2>
     <ul>
-      <li><Link href="/teams/manual-11">Manual 11</Link></li>
-      <li><Link href="/teams/innocent-manual">Innocent Manual</Link></li>
-      <li><Link href="/teams/proevonetwork">ProEvoNetwork</Link></li>
-      <li><Link href="/teams/weunited">WEunited</Link></li>
-      <li><Link href="/teams/scoop-turn-fc">Scoop Turn FC</Link></li>
-      <li><Link href="/teams/passandmoveea">Pass&Move</Link></li>
-      <li><Link href="/teams/toho-spain">Toho Spain</Link></li>
-      <li><Link href="/teams/phase3-esfc">PHASE3 ESFC</Link></li>
-      <li><Link href="teams/fc-jogo-bonito">FC Jogo Bonito</Link></li>
-    </ul>
-    <h2 className="text-secondary">B. EQUITY RULES (FUMA SETTINGS / BUILD YOUR PRO)</h2>
-    <ul>
-      <li><b className="text-primary">All players must record the game and display, before the kick-off, their manual settings and the statistics of their pro</b> (<Link href="/build-your-pro-gk">Controller Settings</Link>)</li>
+      <li><b className="text-primary">All players must record the game and display, before the kick-off, their manual settings and the statistics of their pro</b> (<Link href="/controller-settings">Controller Settings</Link>)</li>
+      <li>Lobbed through ball (LB + Y / L1 + Triangle) is prohibited. See <Link href="https://answers.ea.com/t5/Bug-Reports/Master-Switch-overwriting-Manual-Lob-Through-Passes-to-Assisted/m-p/14072149#M1073">Master Switch overwriting Manual Lob Through Passes to Assisted</Link>.</li>
       <li>At least <b className="text-primary">one player per team</b> must stream and sharing the game to promote our community to others.</li>
-      <li>In case of doubt (based on the stream), the captains <b className="text-primary">can request</b> the recording of a player. If this one is not able to provide it in the week, this player and his team will be sanctioned.</li>
+      <li>In case of doubt (based on the stream), the captains <b className="text-primary">can request</b> the recording of a player. If recording is not provided in 7 days, the player and his team will be sanctioned.</li>
     </ul>
-    <h2 className="text-secondary">C. LEAGUE FORMAT</h2>
+    <h2 className="text-secondary">LEAGUE FORMAT</h2>
     <ul>
       <li><b className="text-primary">1 matchday / week</b> =&gt; 2 games against the same team (Home/Away).</li>
-      <li><b className="text-primary">The captains</b> agree on the day and time of the matches.
-      </li>
-      <li><b className="text-primary">Minimum 9 players</b> required to play the league + <b className="text-primary">One player must take ANY</b></li>
+      <li><b className="text-primary">The captains</b> agree on the day and time of the matches.</li>
+      <li><b className="text-primary">Minimum 10 players</b> required to play the league.</li>
       <li>W = 3pts; D = 1pts ; L = 0pts / No extra-time</li>
       <li>In case of equality of points, the leaderboard shall follow this order:</li>
 
@@ -42,16 +30,15 @@ export default function RulesPage() {
       <li><b className="text-primary">RED CARD = 1 BAN MATCH</b></li>
       <li>One break week in the middle of the season.</li>
     </ul>
-    <h2 className="text-secondary">D. PLAYER CREATION</h2>
+    <h2 className="text-secondary">PLAYER CREATION</h2>
     <ul>
-      <li><Link href="/build-your-pro-gk">V1 system</Link> (work in progress)</li>
-      <li>Each player must use his pro in their own position (e.g. no using RB as CDM)</li>
-      <li>Men and women allowed</li>
-      <li>Accessories allowed</li>
-      <li>The pro of each player must be validated by the captain before the matchday</li>
-      <li>The captain must complete a provided Google Sheet of his team with the position/height/weight/profile from each of his players before the matchday in order to facilitate the verification.</li>
+      <li>All players must use GK position.</li>
+      <li>No restrictions on PlayStyles.</li>
+      <li>No restructions on skill points.</li>
+      <li>Men and women allowed.</li>
+      <li>Accessories allowed.</li>
     </ul>
-    <h2 className="text-secondary">E. LEADERBOARD / PLAYER STATS</h2>
+    <h2 className="text-secondary">LEADERBOARD / PLAYER STATS</h2>
     <p>DATA to enter by captains for each match:</p>
     <ul>
       <li>Rating</li>
@@ -62,12 +49,12 @@ export default function RulesPage() {
       <li>Red cards system (<b className="text-primary">1 red card = 1 match ban</b>)</li>
     </ul>
     <p>In addition to the team ranking, we will find a personalized ranking for each of these elements (with the exception of the ranking for red cards).</p>
-    <h2 className="text-secondary">F. FREE PLAYERS CONTRIBUTION</h2>
+    <h2 className="text-secondary">FREE PLAYERS CONTRIBUTION</h2>
     <ul>
       <li>Free players can join a team in order to play in the league at any time but must be transferred before.</li>
       <li>Once transferred, a player cannot play for another team until the transfer window.</li>
     </ul>
-    <h2 className="text-secondary">G. TRANSFER WINDOW</h2>
+    <h2 className="text-secondary">TRANSFER WINDOW</h2>
     <ul>
       <li>The transfer period is open between each season.</li>
       <li>Each club can register max. 17 players</li>
@@ -75,7 +62,7 @@ export default function RulesPage() {
       <li><b className="text-primary">No player can play for two teams during the same season.</b></li>
       <li>All transfers and status change have to be reported by captains in <Link href="https://discord.com/channels/882539898953949204/1064517191661256716">transfer-news</Link> channel on Discord</li>
     </ul>
-    <h2 className="text-secondary">H. MAIN ISSUES AND CONSEQUENCES</h2>
+    <h2 className="text-secondary">MAIN ISSUES AND CONSEQUENCES</h2>
     <p><b className="text-primary">Each situation is unique but you will find here the generic consequences (the most serious) in the case where an admin has to make a decision. No admin will intervene if the captains manage to find an arrangement between themselves:</b></p>
     <h3>1) Disconnection</h3>
     <p>If a player is disconnected during an official game (voluntarily or not), the game shall continue playing to its end except if 2 captains are agree to restart and only if the disconnection takes place during the first half and there is no goal.</p>

@@ -27,11 +27,6 @@ export const Nav = () => {
               <Link className={`nav-link ${pathname === '/' ? 'active' : ''}`} href="/" onClick={() => { setShow(false) }}>Home</Link>
             </li>
             <hr />
-            <h5 className="offcanvas-title">Preseason</h5>
-            <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/pre-season/table' ? 'active' : ''}`} href="/pre-season/table" onClick={() => { setShow(false) }}>Table</Link>
-            </li>
-            <hr />
             <h5 className="offcanvas-title">Season One</h5>
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/season-one/table' ? 'active' : ''}`} href="/season-one/table" onClick={() => { setShow(false) }}>Table</Link>
@@ -46,19 +41,12 @@ export const Nav = () => {
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/teams' ? 'active' : ''}`} href="/teams" onClick={() => { setShow(false) }}>Teams</Link>
             </li>
-            <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/free-players' ? 'active' : ''}`} href="/free-players" onClick={() => { setShow(false) }}>Free players</Link>
-            </li>
             <hr />
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/league-rules' ? 'active' : ''}`} href="/league-rules" onClick={() => { setShow(false) }}>League Rules</Link>
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/controller-settings' ? 'active' : ''}`} href="/controller-settings" onClick={() => { setShow(false) }}>Controller Settings</Link>
-            </li>
-            <hr />
-            <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/build-your-pro-gk-v4' ? 'active' : ''}`} href="/build-your-pro-gk-v4" onClick={() => { setShow(false) }}>Build your pro</Link>
             </li>
           </ul>
         </div>
