@@ -1,4 +1,6 @@
-export default function HomePage() {
+import Link from "next/link";
+
+export default async function HomePage() {
   return <>
     <div className="px-4 py-5 text-center">
       <h1 className="display-5 fw-bold text-primary">Full Manual<br />EA Sports FC<br />Pro Clubs League</h1>
@@ -12,7 +14,21 @@ export default function HomePage() {
     <section className="col-xxl-8 mx-auto p-4 my-3 rounded-3 border shadow-lg">
       <div className="row flex-lg-row-reverse align-items-center g-5">
         <div className="col-lg-12">
-          <h2 className="display-5 fw-bold text-primary lh-1 mb-3 text-center"></h2>
+          <h2 className="display-5 fw-bold text-primary lh-1 mb-3 text-center">Season Two</h2>
+          <p className="lead">
+            Season Two is under way and teams are competing for the title of FUMA Clubs champions. Check out the latest table and results!
+          </p>
+          <div className="d-gri`d gap-2 d-md-flex justify-content-center">
+            <Link className="btn btn-primary btn-lg px-4 me-md-2" href="/tournament/1">Table and results</Link>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div className="divider"></div>
+    <section className="col-xxl-8 mx-auto p-4 my-3 rounded-3 border shadow-lg">
+      <div className="row flex-lg-row-reverse align-items-center g-5">
+        <div className="col-lg-12">
+          <h2 className="display-5 fw-bold text-primary lh-1 mb-3 text-center">Take part!</h2>
           <p className="lead">
             Do you want to experience the thrill of playing in a competitive league with like-minded players? Do you want to test your skills against the best full manual Pro Clubs teams in the world? Then FUMA Clubs is the place for you!
           </p>
@@ -28,6 +44,5 @@ export default function HomePage() {
         </div>
       </div>
     </section>
-    <div className="divider"></div>
   </>
 }

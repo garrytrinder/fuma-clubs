@@ -1,5 +1,5 @@
 import { GoogleSpreadsheetRow } from "google-spreadsheet";
-import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../data/google-sheets";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../lib/google-sheets";
 
 export const dynamic = 'force-dynamic';
 
@@ -13,7 +13,7 @@ export default async function SeasonOneScoresFixturesPage() {
   });
 
   return <>
-    <h1 className="text-primary">Scores &amp; Fixtures</h1>
+    <h1 className="text-primary">Season One Scores &amp; Fixtures</h1>
     {matchdays && matchdays.map((matchday, index) => {
       const matchdayGames = allRows.filter((row) => { return row.get("MATCHDAY") === matchday });
       return (

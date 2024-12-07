@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../data/google-sheets";
-import { convertTeamNameToUrl } from "../../components/helpers";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../lib/google-sheets";
 
 export const dynamic = 'force-dynamic';
 
@@ -11,7 +10,7 @@ export default async function SeasonOneTablePage() {
   const rows = await sheet.getRows();
 
   return <>
-    <h1 className="text-primary">Table</h1>
+    <h1 className="text-primary">Season One Table</h1>
     <table className="table table-hover">
       <thead>
         <tr>
@@ -34,7 +33,7 @@ export default async function SeasonOneTablePage() {
           return isFirst ? (
             <tr key={index + 1}>
               <td className="text-center text-primary">{index + 1}</td>
-              <td className="text-primary"><Link href={`/teams/${convertTeamNameToUrl(row.get("TEAMS"))}`}>{row.get("TEAMS")}</Link></td>
+              <td className="text-primary">{row.get("TEAMS")}</td>
               <td className="text-center text-primary">{row.get("P")}</td>
               <td className="text-center text-primary">{row.get("W")}</td>
               <td className="text-center text-primary">{row.get("D")}</td>
@@ -47,7 +46,7 @@ export default async function SeasonOneTablePage() {
           ) : (
             <tr key={index + 1}>
               <td className="text-center">{index + 1}</td>
-              <td className="text-start"><Link href={`/teams/${convertTeamNameToUrl(row.get("TEAMS"))}`}>{row.get("TEAMS")}</Link></td>
+              <td className="text-start">{row.get("TEAMS")}</td>
               <td className="text-center">{row.get("P")}</td>
               <td className="text-center">{row.get("W")}</td>
               <td className="text-center">{row.get("D")}</td>

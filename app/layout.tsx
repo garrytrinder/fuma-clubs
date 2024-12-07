@@ -1,7 +1,7 @@
 import './globals.scss';
 
 import type { Metadata } from "next";
-import BootstrapClient from "./components/bootstrapClient";
+import BootstrapClient from "./components/bootstrap";
 import { Nav } from "./components/nav";
 import { Analytics } from '@vercel/analytics/react';
 
