@@ -7,76 +7,264 @@ datasource db {
   url      = env("POSTGRES_PRISMA_URL")
 }
 
-model fixtures {
-  fixture_id                         Int         @id @default(autoincrement())
-  home_team_id                       Int
-  away_team_id                       Int
-  tournament_id                      Int
-  tournament_round_id                Int
-  teams_fixtures_away_team_idToteams teams       @relation("fixtures_away_team_idToteams", fields: [away_team_id], references: [team_id], onDelete: NoAction, onUpdate: NoAction)
-  teams_fixtures_home_team_idToteams teams       @relation("fixtures_home_team_idToteams", fields: [home_team_id], references: [team_id], onDelete: NoAction, onUpdate: NoAction)
-  tournaments                        tournaments @relation(fields: [tournament_id], references: [tournament_id], onDelete: NoAction, onUpdate: NoAction)
-  results                            results[]
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model match_event_types {
-  match_event_type_id Int    @id @default(autoincrement())
-  match_event_type    String @db.VarChar(50)
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
 }
 
-model platforms {
-  platform_id   Int       @id @default(autoincrement())
-  platform_name String    @db.VarChar(255)
-  players       players[]
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model players {
-  player_id         Int        @id @default(autoincrement())
-  team_id           Int?
-  discord_id        String     @db.VarChar(255)
-  discord_username  String     @db.VarChar(255)
-  platform_username String?    @db.VarChar(255)
-  platform_id       Int?
-  country           String?    @db.VarChar(255)
-  platforms         platforms? @relation(fields: [platform_id], references: [platform_id], onDelete: NoAction, onUpdate: NoAction)
-  teams             teams?     @relation(fields: [team_id], references: [team_id], onDelete: NoAction, onUpdate: NoAction)
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
 }
 
-model results {
-  result_id           Int      @id @default(autoincrement())
-  fixture_id          Int
-  home_team_score     Int
-  away_team_score     Int
-  after_extra_time    Boolean? @default(false)
-  penalties           Boolean? @default(false)
-  home_team_penalties Int?
-  away_team_penalties Int?
-  youtube_link        String?  @db.VarChar(255)
-  twitch_link         String?  @db.VarChar(255)
-  fixtures            fixtures @relation(fields: [fixture_id], references: [fixture_id], onDelete: NoAction, onUpdate: NoAction)
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String
+  shortName String
+  players   Player[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  homeTeamFixtures        Fixture[]                 @relation("homeTeam")
+  awayTeamFixtures        Fixture[]                 @relation("awayTeam")
+  ResultPlayerPerformance ResultPlayerPerformance[]
+  ResultEvent             ResultEvent[]
+  ResultMatchStat         ResultMatchStat[]
 }
 
-model teams {
-  team_id                               Int        @id @default(autoincrement())
-  team_name                             String     @db.VarChar(255)
-  team_code                             String     @db.VarChar(255)
-  fixtures_fixtures_away_team_idToteams fixtures[] @relation("fixtures_away_team_idToteams")
-  fixtures_fixtures_home_team_idToteams fixtures[] @relation("fixtures_home_team_idToteams")
-  players                               players[]
+model Player {
+  id Int @id @default(autoincrement())
+
+  discordId       String    @unique
+  discordUsername String    @unique @default("")
+  platform        Platform? @relation(fields: [platformId], references: [id])
+  platformId      Int?
+  gamertag        String?   @unique
+  eaId            String?   @unique
+
+  team Team? @relation(fields: [teamId], references: [id])
+
+  country Country? @relation(fields: [countryId], references: [id])
+
+  youtube String?
+  twitch  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  teamId    Int?
+  countryId Int?
+
+  ResultEvent             ResultEvent[]
+  ResultPlayerPerformance ResultPlayerPerformance[]
 }
 
-model tournament_rounds {
-  tournament_round_id Int         @id @default(autoincrement())
-  tournament_id       Int
-  round_start_date    DateTime    @db.Date
-  round_end_date      DateTime    @db.Date
-  round_number        Int
-  tournaments         tournaments @relation(fields: [tournament_id], references: [tournament_id], onDelete: NoAction, onUpdate: NoAction)
+model Platform {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Player    Player[]
 }
 
-model tournaments {
-  tournament_id     Int                 @id @default(autoincrement())
-  tournament_name   String              @db.VarChar(255)
-  fixtures          fixtures[]
-  tournament_rounds tournament_rounds[]
+model Country {
+  id    Int    @id @default(autoincrement())
+  name  String
+  emoji String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Player    Player[]
+}
+
+model Tournament {
+  id       Int       @id @default(autoincrement())
+  name     String
+  rounds   Round[]
+  fixtures Fixture[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Round {
+  id    Int      @id @default(autoincrement())
+  start DateTime
+  end   DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tournaments Tournament[]
+  fixtures    Fixture[]
+}
+
+model Fixture {
+  id Int @id @default(autoincrement())
+
+  homeTeam   Team @relation("homeTeam", fields: [homeTeamId], references: [id])
+  homeTeamId Int
+
+  awayTeam   Team @relation("awayTeam", fields: [awayTeamId], references: [id])
+  awayTeamId Int
+
+  tournament   Tournament? @relation(fields: [tournamentId], references: [id])
+  tournamentId Int?
+
+  round   Round? @relation(fields: [roundId], references: [id])
+  roundId Int
+
+  result   Result? @relation(fields: [resultid], references: [id])
+  resultid Int?
+}
+
+model Result {
+  id Int @id @default(autoincrement())
+
+  homeTeamScore Int
+  awayTeamScore Int
+
+  afterExtraTime Boolean @default(false)
+  penalties      Boolean @default(false)
+
+  homeTeamPenalties Int?
+  awayTeamPenalties Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  youtubeLink String?
+  twitchLink  String?
+
+  Fixture                 Fixture[]
+  ResultEvent             ResultEvent[]
+  ResultPlayerPerformance ResultPlayerPerformance[]
+  ResultMatchStat         ResultMatchStat[]
+}
+
+model ResultMatchStat {
+  id Int @id @default(autoincrement())
+
+  result   Result @relation(fields: [resultId], references: [id])
+  resultId Int
+
+  team   Team @relation(fields: [teamId], references: [id])
+  teamId Int
+
+  posession        Int
+  ballRecoveryTime Int
+  shots            Int
+  expectedGoals    Float
+  passes           Int
+  tackles          Int
+  tacklesWon       Int
+  interceptions    Int
+  saves            Int
+  foulsCommitted   Int
+  offsides         Int
+  corners          Int
+  freeKicks        Int
+  dribbleSuccess   Int
+  shotAccuracy     Int
+  passAccuracy     Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ResultEvent {
+  id Int @id @default(autoincrement())
+
+  type   ResultEventType
+  minute Int
+
+  player   Player @relation(fields: [playerId], references: [id])
+  playerId Int
+
+  team   Team @relation(fields: [teamId], references: [id])
+  teamId Int
+
+  result   Result @relation(fields: [resultId], references: [id])
+  resultId Int
+
+  youtube String?
+  twitch  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum ResultEventType {
+  Goal
+  OwnGoal
+  PenaltyScore
+  PenaltyMiss
+  Injury
+}
+
+model ResultPlayerPerformance {
+  id Int @id @default(autoincrement())
+
+  player   Player @relation(fields: [playerId], references: [id])
+  playerId Int
+
+  team   Team @relation(fields: [teamId], references: [id])
+  teamId Int
+
+  result   Result @relation(fields: [resultId], references: [id])
+  resultId Int
+
+  rating  Float
+  goals   Int
+  assists Int
+
+  manOfTheMatch Boolean @default(false)
+  yellowCard    Boolean @default(false)
+  redCard       Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

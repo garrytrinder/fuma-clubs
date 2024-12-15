@@ -3,7 +3,7 @@ import './globals.scss';
 import type { Metadata } from "next";
 import BootstrapClient from "./components/bootstrap";
 import { Nav } from "./components/nav";
-import { Analytics } from '@vercel/analytics/react';
+import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   title: "FUMA Clubs Community",
@@ -18,12 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en" data-bs-theme="dark">
       <body>
-        <Nav />
+        <SessionProvider>
+          <Nav />
+        </SessionProvider>
         <main className="container my-3">
           {children}
         </main>
         <BootstrapClient />
-        <Analytics />
       </body>
     </html>
   );

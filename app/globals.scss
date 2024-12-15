@@ -16,13 +16,23 @@ a.navbar-brand:hover {
   color: #000 !important;
 }
 
-li.nav-item > a.nav-link.active {
+li.nav-item>a.nav-link.active {
   color: $primary;
   font-weight: bold;
 }
 
 button.navbar-toggler {
   border: solid 1px rgba(#000, 0.55);
+}
+
+a.dropdown-toggle,
+a.dropdown-toggle:hover,
+a.dropdown-toggle:focus {
+  color: #000 !important;
+}
+
+.table-divider {
+  border-bottom: 3px solid;
 }
 
 // Import Bootstrap and Bootstrap Icons
