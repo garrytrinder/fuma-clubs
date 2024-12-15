@@ -1,25 +1,27 @@
-import { sql } from "@vercel/postgres";
+import { PrismaClient } from "@prisma/client";
 import { ScoreFixtureRow, TableRow, TournamentRow } from "./types";
+
+const prisma = new PrismaClient();
 
 export const dynamic = "force-dynamic";
 
 export async function getTournamentInfo(tournament_id: number) {
-  const { rows } = await sql<TournamentRow>`
-    SELECT tournament_name FROM tournaments WHERE tournament_id = ${tournament_id};
-  `;
-  const tournamentInfo = rows[0] as TournamentRow;
-  return tournamentInfo;
+  const tournamentInfo = await prisma.tournaments.findUnique({
+    where: { tournament_id: tournament_id },
+    select: { tournament_name: true },
+  });
+  return tournamentInfo as TournamentRow;
 }
 
 export async function getTournamentTable(tournament_id: number) {
-  const { rows } = await sql<TableRow>`
-    SELECT * FROM get_tournament_table(${tournament_id});
+  const tableRows = await prisma.$queryRaw<TableRow[]>`
+    SELECT * FROM get_tournament_table(${tournament_id}::integer);
   `;
-  return rows;
+  return tableRows;
 }
 
 export async function getTournamentScoresAndFixtures(tournament_id: number) {
-  const { rows } = await sql<ScoreFixtureRow>`
+  const fixtureRows = await prisma.$queryRaw<ScoreFixtureRow[]>`
     SELECT
       round_number,
       home_team,
@@ -27,9 +29,9 @@ export async function getTournamentScoresAndFixtures(tournament_id: number) {
       away_team_score,
       away_team
     FROM
-      get_tournament_scores_fixtures (${tournament_id});
+      get_tournament_scores_fixtures (${tournament_id}::integer);
   `;
-  return rows;
+  return fixtureRows;
 }
 
 export async function fetchTournamentData(id: number) {
@@ -59,27 +61,15 @@ export async function fetchTournamentData(id: number) {
 }
 
 export async function getTournamentFixtures(tournament_id: number) {
-  const { rows } = await sql<ScoreFixtureRow>`
-    SELECT * FROM fixtures WHERE tournament_id = ${tournament_id};
-  `;
-  return rows;
+  const fixtureRows = await prisma.fixtures.findMany({
+    where: { tournament_id },
+  });
+  return fixtureRows;
 }
 
 export async function getFixtureById(fixture_id: number) {
-  const { rows } = await sql<ScoreFixtureRow>`
-    SELECT * FROM fixtures WHERE id = ${fixture_id};
-  `;
-  return rows[0];
-}
-
-export async function updateFixture(
-  fixture_id: number,
-  home_team_score: number,
-  away_team_score: number
-) {
-  await sql`
-    UPDATE fixtures
-    SET home_team_score = ${home_team_score}, away_team_score = ${away_team_score}
-    WHERE id = ${fixture_id};
-  `;
+  const fixture = await prisma.fixtures.findUnique({
+    where: { fixture_id: fixture_id },
+  });
+  return fixture;
 }

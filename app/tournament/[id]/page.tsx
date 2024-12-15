@@ -5,9 +5,9 @@ import { fetchTournamentData } from "@/app/lib/data";
 export default async function TournamentPage({
   params,
 }: {
-  params: Promise<{ id: number }>
+  params: { id: string }
 }) {
-  const id = (await params).id;
+  const id = parseInt(params.id, 10);
 
   const { tournamentInfo, tableRows, fixturesByRound } = await fetchTournamentData(id);
 
