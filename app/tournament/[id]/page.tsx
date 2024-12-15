@@ -2,12 +2,16 @@ import FixturesByRound from "@/app/components/fixturesByRound";
 import TournamentTable from "@/app/components/tournamentTable";
 import { fetchTournamentData } from "@/app/lib/data";
 
+interface PageProps {
+    id: string;
+}
+
 export default async function TournamentPage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<PageProps>
 }) {
-  const id = parseInt(params.id, 10);
+  const id = parseInt((await params).id, 10);
 
   const { tournamentInfo, tableRows, fixturesByRound } = await fetchTournamentData(id);
 
