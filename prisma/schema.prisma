@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model fixtures {
+  fixture_id                         Int         @id @default(autoincrement())
+  home_team_id                       Int
+  away_team_id                       Int
+  tournament_id                      Int
+  tournament_round_id                Int
+  teams_fixtures_away_team_idToteams teams       @relation("fixtures_away_team_idToteams", fields: [away_team_id], references: [team_id], onDelete: NoAction, onUpdate: NoAction)
+  teams_fixtures_home_team_idToteams teams       @relation("fixtures_home_team_idToteams", fields: [home_team_id], references: [team_id], onDelete: NoAction, onUpdate: NoAction)
+  tournaments                        tournaments @relation(fields: [tournament_id], references: [tournament_id], onDelete: NoAction, onUpdate: NoAction)
+  results                            results[]
+}
+
+model match_event_types {
+  match_event_type_id Int    @id @default(autoincrement())
+  match_event_type    String @db.VarChar(50)
+}
+
+model platforms {
+  platform_id   Int       @id @default(autoincrement())
+  platform_name String    @db.VarChar(255)
+  players       players[]
+}
+
+model players {
+  player_id         Int        @id @default(autoincrement())
+  team_id           Int?
+  discord_id        String     @db.VarChar(255)
+  discord_username  String     @db.VarChar(255)
+  platform_username String?    @db.VarChar(255)
+  platform_id       Int?
+  country           String?    @db.VarChar(255)
+  platforms         platforms? @relation(fields: [platform_id], references: [platform_id], onDelete: NoAction, onUpdate: NoAction)
+  teams             teams?     @relation(fields: [team_id], references: [team_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model results {
+  result_id           Int      @id @default(autoincrement())
+  fixture_id          Int
+  home_team_score     Int
+  away_team_score     Int
+  after_extra_time    Boolean? @default(false)
+  penalties           Boolean? @default(false)
+  home_team_penalties Int?
+  away_team_penalties Int?
+  youtube_link        String?  @db.VarChar(255)
+  twitch_link         String?  @db.VarChar(255)
+  fixtures            fixtures @relation(fields: [fixture_id], references: [fixture_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model teams {
+  team_id                               Int        @id @default(autoincrement())
+  team_name                             String     @db.VarChar(255)
+  team_code                             String     @db.VarChar(255)
+  fixtures_fixtures_away_team_idToteams fixtures[] @relation("fixtures_away_team_idToteams")
+  fixtures_fixtures_home_team_idToteams fixtures[] @relation("fixtures_home_team_idToteams")
+  players                               players[]
+}
+
+model tournament_rounds {
+  tournament_round_id Int         @id @default(autoincrement())
+  tournament_id       Int
+  round_start_date    DateTime    @db.Date
+  round_end_date      DateTime    @db.Date
+  round_number        Int
+  tournaments         tournaments @relation(fields: [tournament_id], references: [tournament_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model tournaments {
+  tournament_id     Int                 @id @default(autoincrement())
+  tournament_name   String              @db.VarChar(255)
+  fixtures          fixtures[]
+  tournament_rounds tournament_rounds[]
+}
