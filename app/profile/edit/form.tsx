@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import { useFormStatus } from "react-dom";
 
 const gamertagCheck = (gamertag: string | null) => {
     return gamertag ? gamertag.length > 3 && gamertag.length < 12 : false
@@ -18,6 +19,7 @@ export function ProfileEditForm(
 
     const [gamertag, setGamertag] = useState(player.gamertag);
     const isGamertagValid = gamertagCheck(gamertag);
+    const { pending } = useFormStatus();
 
     return (
         <form action={updateProfile}>
@@ -102,7 +104,14 @@ export function ProfileEditForm(
                 <div id="countryHelp" className="form-text"></div>
             </div>
             <div className="mb-3">
-                <button type="submit" className={`btn ${gamertag ? "btn-primary" : "btn-secondary"}`} disabled={!gamertag ? true : false}>Save</button>
+                <button type="submit" className="btn btn-primary" disabled={!isGamertagValid || pending}>
+                    {pending ? (
+                        <>
+                            <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Saving...</span>
+                        </>
+                    ) : "Save"}
+                </button>
                 &nbsp;
                 <button type="button" className="btn btn-secondary" onClick={(e) => redirect("/profile")}>Cancel</button>
             </div>

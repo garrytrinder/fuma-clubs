@@ -24,6 +24,9 @@ export default function RootLayout({
         <main className="container my-3">
           {children}
         </main>
+        <footer className="py-3 my-4">
+          <p className="text-center text-body-secondary">© {new Date().getFullYear()} FUMA Clubs</p>
+        </footer>
         <BootstrapClient />
       </body>
     </html>
