@@ -218,8 +218,8 @@ model ResultMatchStat {
 model ResultEvent {
   id Int @id @default(autoincrement())
 
-  type   ResultEventType
-  minute Int
+  eventType EventType @relation(fields: [eventTypeId], references: [id])
+  minute    Int?
 
   player   Player @relation(fields: [playerId], references: [id])
   playerId Int
@@ -233,16 +233,18 @@ model ResultEvent {
   youtube String?
   twitch  String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  eventTypeId Int
 }
 
-enum ResultEventType {
-  Goal
-  OwnGoal
-  PenaltyScore
-  PenaltyMiss
-  Injury
+model EventType {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  ResultEvent ResultEvent[]
 }
 
 model ResultPlayerPerformance {
