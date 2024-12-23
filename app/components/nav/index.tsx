@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './nav.scss';
 import { signIn, signOut, useSession } from "next-auth/react";
 
@@ -26,7 +26,14 @@ export const Nav = () => {
   const title = "FUMA Clubs";
   const [show, setShow] = useState(false);
   const pathname = usePathname();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (status !== "loading") {
+      setLoading(false);
+    }
+  }, [status]);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -39,7 +46,12 @@ export const Nav = () => {
       <div className="container-fluid">
 
         <div className="flex-shrink-0 dropdown">
-          {session && session.user && session.user.image ? (<>
+          {loading ? (
+            <button className="btn btn-secondary" disabled>
+              <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+              <span className="visually-hidden" role="status">Loading...</span>
+            </button>
+          ) : session && session.user && session.user.image ? (<>
             <a href="#" className="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <Image src={session.user?.image} alt="mdo" width="32" height="32" className="rounded-circle" />
             </a>
