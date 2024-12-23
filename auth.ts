@@ -7,8 +7,8 @@ import { Guild } from "discord.js";
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
     providers: [Discord({
-        authorization: "https://discord.com/api/oauth2/authorize?scope=email+guilds+guilds.members.read",
-        issuer: "https://discord.com"
+        authorization: "https://discord.com/api/oauth2/authorize?scope=identity+email+guilds+guilds.members.read",
+        issuer: "https://discord.com",
     })],
     callbacks: {
         signIn: async ({ user, account, profile }) => {
