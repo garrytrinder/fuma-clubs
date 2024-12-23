@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useFormStatus } from "react-dom";
 
 const gamertagCheck = (gamertag: string | null) => {
-    return gamertag ? gamertag.length > 3 && gamertag.length < 12 : false
+    return gamertag ? gamertag.length > 3 : false
 }
 
 export function ProfileEditForm(
