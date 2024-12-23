@@ -2,8 +2,6 @@ import { auth } from "@/auth"
 import { prisma } from "@/app/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
-import { editProfile } from "../lib/actions";
-import { useFormStatus } from "react-dom";
 import EditProfileButton from "./ui/edit-profile-button";
 
 export default async function ProfilePage() {
@@ -106,9 +104,7 @@ export default async function ProfilePage() {
                     <div id="countryHelp" className="form-text"></div>
                 </div>
                 <div className="mb-3">
-                    <form action={editProfile}>
-                        <EditProfileButton />
-                    </form>
+                    <EditProfileButton />
                 </div>
             </div>
         </>

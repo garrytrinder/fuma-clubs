@@ -34,7 +34,3 @@ export async function updateProfile(formData: FormData) {
     revalidatePath('/profile');
     redirect('/profile');
 }
-
-export async function editProfile() {
-    redirect('/profile/edit');
-}

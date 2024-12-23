@@ -1,20 +1,12 @@
-"use client"
+"use client";
 
-import { useFormStatus } from "react-dom";
+import { useRouter } from "next/navigation";
 
 export default function EditProfileButton() {
 
-    const { pending } = useFormStatus();
+    const router = useRouter();
 
     return (
-        <button type="submit" className="btn btn-primary" disabled={pending}>
-            {!pending ?
-                "Edit" :
-                <>
-                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span className="visually-hidden" role="status">Loading...</span>
-                </>
-            }
-        </button>
+        <button type="button" className="btn btn-primary" onClick={() => router.push("/profile/edit")}>Edit</button>
     );
 }

@@ -3,11 +3,11 @@
 import { updateProfile } from "@/app/lib/actions"
 import { Country, Platform, Player, Team } from "@prisma/client";
 
+import Form from 'next/form';
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
-import { useFormStatus } from "react-dom";
 import SaveProfileButton from "./ui/save-profile-button";
 
 const gamertagCheck = (gamertag: string | null) => {
@@ -20,10 +20,9 @@ export function ProfileEditForm(
 
     const [gamertag, setGamertag] = useState(player.gamertag);
     const isGamertagValid = gamertagCheck(gamertag);
-    const { pending } = useFormStatus();
 
     return (
-        <form action={updateProfile}>
+        <Form action={updateProfile}>
             <div className="mb-3">
                 <div className="text-center">
                     <Image src={image || ""} alt={player.gamertag || player.discordUsername} width={100} height={100} className="rounded-circle text-center" />
@@ -109,6 +108,6 @@ export function ProfileEditForm(
                 &nbsp;
                 <button type="button" className="btn btn-secondary" onClick={(e) => redirect("/profile")}>Cancel</button>
             </div>
-        </form>
+        </Form>
     )
 }
