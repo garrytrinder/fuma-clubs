@@ -6,7 +6,10 @@ import { Guild } from "discord.js";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
-    providers: [Discord],
+    providers: [Discord({
+        authorization: "https://discord.com/api/oauth2/authorize?scope=email+guilds+guilds.members.read",
+        issuer: "https://discord.com"
+    })],
     callbacks: {
         signIn: async ({ user, account, profile }) => {
             const guilds: Guild[] = await fetch("https://discord.com/api/users/@me/guilds", {
