@@ -2,10 +2,13 @@ import { auth } from "@/auth"
 import { prisma } from "@/app/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
+import { editProfile } from "../lib/actions";
+import { useFormStatus } from "react-dom";
+import EditProfileButton from "./ui/edit-profile-button";
 
 export default async function ProfilePage() {
     const session = await auth();
-    if (!session || !session.user) return <div>Not authenticated</div>
+    if (!session || !session.user) return <div>Not authenticated</div>;
 
     const user = await prisma.user.findUnique({
         where: {
@@ -103,7 +106,9 @@ export default async function ProfilePage() {
                     <div id="countryHelp" className="form-text"></div>
                 </div>
                 <div className="mb-3">
-                    <Link className="btn btn-primary" href="/profile/edit" role="button">Edit</Link>
+                    <form action={editProfile}>
+                        <EditProfileButton />
+                    </form>
                 </div>
             </div>
         </>
