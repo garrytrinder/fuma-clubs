@@ -6,7 +6,7 @@ import { Country, Platform, Player, Team } from "@prisma/client";
 import Form from 'next/form';
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import SaveProfileButton from "./ui/save-profile-button";
 
@@ -20,6 +20,13 @@ export function ProfileEditForm(
 
     const [gamertag, setGamertag] = useState(player.gamertag);
     const isGamertagValid = gamertagCheck(gamertag);
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
+
+    const handleCancel = () => {
+        setLoading(true);
+        router.push("/profile");
+    };
 
     return (
         <Form action={updateProfile}>
@@ -106,7 +113,16 @@ export function ProfileEditForm(
             <div className="mb-3">
                 <SaveProfileButton isGamertagValid={isGamertagValid} />
                 &nbsp;
-                <button type="button" className="btn btn-secondary" onClick={(e) => redirect("/profile")}>Cancel</button>
+                <button type="button" className="btn btn-secondary" onClick={handleCancel} disabled={loading}>
+                    {loading ? (
+                        <>
+                            <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span className="visually-hidden" role="status">Loading...</span>
+                        </>
+                    ) : (
+                        "Cancel"
+                    )}
+                </button>
             </div>
         </Form>
     )
