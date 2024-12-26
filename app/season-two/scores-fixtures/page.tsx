@@ -1,5 +1,4 @@
 import { prisma } from "@/app/lib/prisma";
-import { string } from "zod";
 
 export const dynamic = 'force-dynamic';
 
@@ -47,7 +46,7 @@ export default async function SeasonTwoScoresFixturesPage() {
     return <>
         <h1 className="text-primary">{tournament?.name}</h1>
         <h2 className="text-secondary">Scores and fixtures</h2>
-
+        
         {tournament?.rounds.map((round, index) => (
             <div className="py-2" key={round.id}>
                 <h3 className="text-primary text-center">Round {index + 1}</h3>
