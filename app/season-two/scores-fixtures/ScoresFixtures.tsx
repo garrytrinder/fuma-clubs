@@ -119,7 +119,7 @@ const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
         <>
             <h1 className="text-primary">{tournament?.name}</h1>
             <h2 className="text-secondary">Scores and fixtures</h2>
-            <div>
+            <div className="text-end">
                 <button className="btn btn-primary" onClick={() => setShowScorers(!showScorers)}>
                     {showScorers ? 'Hide scorers' : 'Show scorers'}
                 </button>
