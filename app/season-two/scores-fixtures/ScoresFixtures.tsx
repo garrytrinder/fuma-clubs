@@ -126,8 +126,8 @@ const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
             </div>
 
             {tournament?.rounds.map((round, index) => (
-                <div className="py-2">
-                    <div className="card" key={round.id}>
+                <div className="py-2" key={round.id}>
+                    <div className="card">
                         <div className="card-header">
                             <div className="text-primary text-center">Round {index + 1} </div>
                             <div className="text-secondary text-center">{round.start.toLocaleDateString()} - {round.end.toLocaleDateString()}</div>
