@@ -16,7 +16,7 @@ export default async function HomePage() {
             Season Two is under way and teams are competing for the title of FUMA Clubs champions. Check out the latest table and results!
           </p>
           <div className="d-gri`d gap-2 d-md-flex justify-content-center">
-            <Link className="btn btn-primary btn-lg px-4 me-md-2" href="/tournament/1">Table and results</Link>
+            <Link className="btn btn-primary btn-lg px-4 me-md-2" href="/season-two/table">Table and results</Link>
           </div>
         </div>
       </div>
