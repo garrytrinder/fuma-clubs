@@ -31,7 +31,7 @@ export default async function TeamPage({
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb p-3 bg-body-tertiary rounded-3">
                     <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-                    <li className="breadcrumb-item"><Link href="/teams">Teams</Link></li>
+                    <li className="breadcrumb-item"><Link href="/team">Teams</Link></li>
                     <li className="breadcrumb-item active" aria-current="page">{team.name}</li>
                 </ol>
             </nav>
