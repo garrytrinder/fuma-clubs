@@ -17,9 +17,12 @@ export default async function TeamPage({
                 include: {
                     country: true,
                     platform: true
+                },
+                orderBy: {
+                    gamertag: 'asc'
                 }
             }
-        }
+        },
     });
 
     if (!team) {
@@ -37,26 +40,26 @@ export default async function TeamPage({
             </nav>
             <h1 className="text-primary">{team.name}</h1>
             <h2 className="text-secondary">Players</h2>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Gamertag</th>
-                        <th>Discord</th>
-                        <th>Platform</th>
-                        <th>Country</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {team.players.map((player, index) => (
-                        <tr key={index}>
-                            <td>{player.gamertag}</td>
-                            <td>{player.discordUsername}</td>
-                            <td>{player.platform?.name || 'Unknown'}</td>
-                            <td>{player.country ? `${player.country.name} ${player.country.emoji}` : 'Unknown'} </td>
+            <div className="table-responsive">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Gamertag</th>
+                            <th>Platform</th>
+                            <th>Country</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {team.players.map((player, index) => (
+                            <tr key={index}>
+                                <td>{player.gamertag}</td>
+                                <td>{player.platform?.name || ''}</td>
+                                <td>{player.country ? `${player.country.name} ${player.country.emoji}` : ''} </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </>
     );
 }
