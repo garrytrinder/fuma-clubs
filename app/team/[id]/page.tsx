@@ -1,0 +1,62 @@
+import { prisma } from "@/app/lib/prisma";
+import Link from "next/link";
+
+export default async function TeamPage({
+    params,
+}: {
+    params: Promise<{ id: string }>
+}) {
+    const id = (await params).id;
+
+    const team = await prisma.team.findUnique({
+        where: {
+            id: parseInt(id)
+        },
+        include: {
+            players: {
+                include: {
+                    country: true,
+                    platform: true
+                }
+            }
+        }
+    });
+
+    if (!team) {
+        return <div>Team not found</div>;
+    }
+
+    return (
+        <>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb p-3 bg-body-tertiary rounded-3">
+                    <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+                    <li className="breadcrumb-item"><Link href="/teams">Teams</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">{team.name}</li>
+                </ol>
+            </nav>
+            <h1 className="text-primary">{team.name}</h1>
+            <h2 className="text-secondary">Players</h2>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Gamertag</th>
+                        <th>Discord</th>
+                        <th>Platform</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {team.players.map((player, index) => (
+                        <tr key={index}>
+                            <td>{player.gamertag}</td>
+                            <td>{player.discordUsername}</td>
+                            <td>{player.platform?.name || 'Unknown'}</td>
+                            <td>{player.country ? `${player.country.name} ${player.country.emoji}` : 'Unknown'} </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </>
+    );
+}

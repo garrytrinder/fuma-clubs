@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import './nav.scss';
 import { signIn, signOut, useSession } from "next-auth/react";
+import { hrtime } from "process";
 
 interface NavLinkProps {
   href: string;
@@ -37,6 +38,7 @@ export const Nav = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/team", label: "Teams" },
     { href: "/league-rules", label: "League Rules" },
     { href: "/controller-settings", label: "Controller Settings" },
   ];
