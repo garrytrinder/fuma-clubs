@@ -32,9 +32,13 @@ export default function RulesPage() {
     </ul>
     <h2 className="text-secondary">PLAYER CREATION</h2>
     <ul>
-      <li>All players must use GK position.</li>
-      <li>No restrictions on PlayStyles.</li>
-      <li>No restructions on skill points.</li>
+      <li>All outfield players must use GK position.</li>
+      <li>No restrictions on skill points or PlayStyles for outfield players.</li>
+      <li>Real goalkeepers are 80 rated with no additional skill points or PlayStyles.</li>
+      <li>Max height: 6ft 2/ 189cm</li>
+      <li>Max weight: 88kg / 194lbs</li>
+      <li>Min height: 5ft 5 / 167cm</li>
+      <li>Min weight: 69kg / 159lbs</li>
       <li>Men and women allowed.</li>
       <li>Accessories allowed.</li>
     </ul>
