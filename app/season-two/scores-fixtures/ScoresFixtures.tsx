@@ -134,7 +134,7 @@ const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
                         </div>
                         <ul className="list-group list-group-flush" key={round.id}>
                             {round.fixtures.map((fixture, index) =>
-                                <li className="list-group-item" key={index}>
+                                <li className="list-group-item" key={index} id={`fixture-${fixture.id}`}>
                                     <div className="row py-2 align-items-center">
                                         <div className="col p-0 text-end">
                                             {fixture.homeTeam.name}
