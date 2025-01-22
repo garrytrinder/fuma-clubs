@@ -60,9 +60,18 @@ interface ScoresFixturesProps {
 }
 
 const EventList: React.FC<{ events: ResultEvent[], teamId: number, isHomeTeam: boolean }> = ({ events, teamId, isHomeTeam }) => {
+    const eventCounts = events.reduce((acc, event) => {
+        const key = `${event.player.gamertag}-${event.eventType.name}-${event.teamId}`;
+        if (!acc[key]) {
+            acc[key] = { ...event, count: 0 };
+        }
+        acc[key].count += 1;
+        return acc;
+    }, {} as Record<string, ResultEvent & { count: number }>);
+
     return (
         <ul className="list-unstyled">
-            {events.map((event, index) => {
+            {Object.values(eventCounts).map((event, index) => {
                 let displayOnTeam = event.teamId === teamId;
                 let icon = '';
                 switch (event.eventType.name) {
@@ -92,7 +101,8 @@ const EventList: React.FC<{ events: ResultEvent[], teamId: number, isHomeTeam: b
                         break;
                 }
                 if (displayOnTeam) {
-                    return <li key={`${event.player.gamertag}-${index}`}>{isHomeTeam ? event.player.gamertag + ' ' + icon : icon + ' ' + event.player.gamertag}</li>;
+                    const icons = icon.repeat(event.count);
+                    return <li key={`${event.player.gamertag}-${index}`}>{isHomeTeam ? event.player.gamertag + ' ' + icons : icons + ' ' + event.player.gamertag}</li>;
                 }
                 return null;
             })}
