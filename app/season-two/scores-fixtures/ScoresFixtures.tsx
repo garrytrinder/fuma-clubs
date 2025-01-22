@@ -63,33 +63,35 @@ const EventList: React.FC<{ events: ResultEvent[], teamId: number, isHomeTeam: b
     return (
         <ul className="list-unstyled">
             {events.map((event, index) => {
-                if (event.teamId === teamId) {
-                    let icon = '';
-                    switch (event.eventType.name) {
-                        case 'Goal':
-                            icon = '⚽️';
-                            break;
-                        case 'Goal (penalty)':
-                            icon = '⚽️ (pen)';
-                            break;
-                        case 'Own goal':
-                            icon = '⚽️ (og)';
-                            break;
-                        case 'Penalty miss':
-                            icon = '❌ (pen)';
-                            break;
-                        case 'Assist':
-                            icon = '🅰️';
-                            break;
-                        case 'Yellow Card':
-                            icon = '🟨';
-                            break;
-                        case 'Red Card':
-                            icon = '🟥';
-                            break;
-                        default:
-                            break;
-                    }
+                let displayOnTeam = event.teamId === teamId;
+                let icon = '';
+                switch (event.eventType.name) {
+                    case 'Goal':
+                        icon = '⚽️';
+                        break;
+                    case 'Goal (penalty)':
+                        icon = '⚽️ (pen)';
+                        break;
+                    case 'Own goal':
+                        icon = '⚽️ (og)';
+                        displayOnTeam = !displayOnTeam;
+                        break;
+                    case 'Penalty miss':
+                        icon = '❌ (pen)';
+                        break;
+                    case 'Assist':
+                        icon = '🅰️';
+                        break;
+                    case 'Yellow Card':
+                        icon = '🟨';
+                        break;
+                    case 'Red Card':
+                        icon = '🟥';
+                        break;
+                    default:
+                        break;
+                }
+                if (displayOnTeam) {
                     return <li key={`${event.player.gamertag}-${index}`}>{isHomeTeam ? event.player.gamertag + ' ' + icon : icon + ' ' + event.player.gamertag}</li>;
                 }
                 return null;
