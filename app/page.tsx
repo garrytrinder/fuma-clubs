@@ -40,7 +40,7 @@ export default async function HomePage() {
           <p>
             We are a community of players who love to play Pro Clubs on full manual settings. We are looking for players who share our passion for the game and want to play in a competitive and fair environment.
           </p>
-          <div className="d-gri`d gap-2 d-md-flex justify-content-center">
+          <div className="d-grid gap-2 d-md-flex justify-content-center">
             <a className="btn btn-primary btn-lg px-4 me-md-2" href="https://discord.gg/5qWVPBWmzQ" target="_blank">Join today!</a>
           </div>
         </div>
