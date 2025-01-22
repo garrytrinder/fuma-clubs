@@ -11,12 +11,16 @@ export default async function HomePage() {
     <section className="col-xxl-8 mx-auto p-4 my-3 rounded-3 border shadow-lg">
       <div className="row flex-lg-row-reverse align-items-center g-5">
         <div className="col-lg-12">
-          <h2 className="display-5 fw-bold text-primary lh-1 mb-3 text-center">🏆 WAP Phoenix Win 🏆 </h2>
-          <p className="lead text-center">
-            Congratulations to our Season Two champions, WAP Phoenix 👏
+          <h2 className="display-5 fw-bold text-primary lh-1 mb-3 text-center">Season Two</h2>
+          <p className="text-center">Congratulations to our champions! </p>
+          <p className="lead text-center text-primary fs-2 fw-bold">
+            🏆 WAP Phoenix 🏆
           </p>
           <p>
-            Thank you to all the players and teams that took part, we are already looking forward to the next season with new players and an expanded league. If you want to take part, join our Discord server and get involved in the community.
+            Thank you to all the players and teams that took part, we are already looking forward to the next season with new players and an expanded league.
+          </p>
+          <p>
+            If you want to take part, join our Discord server and get involved in the community.
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-center">
             <Link className="btn btn-primary btn-lg px-4 me-md-2" href="/season-two/table">Final table</Link>
