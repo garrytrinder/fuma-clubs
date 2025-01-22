@@ -98,12 +98,24 @@ const EventList: React.FC<{ events: ResultEvent[], teamId: number, isHomeTeam: b
     );
 };
 
-const PerformanceList: React.FC<{ performances: ResultPlayerPerformance[], teamId: number }> = ({ performances, teamId }) => {
+const PerformanceList: React.FC<{ performances: ResultPlayerPerformance[], teamId: number, isHomeTeam: boolean }> = ({ performances, teamId, isHomeTeam }) => {
     return (
         <ul className="list-unstyled">
             {performances.map((performance, index) => {
                 if (performance.teamId === teamId && performance.manOfTheMatch) {
-                    return <li key={`${performance.player.gamertag}-${index}`}>{performance.player.gamertag}{performance.rating !== 0 ? ` (${performance.rating})` : null} 🥇</li>;
+                    return (
+                        <li key={`${performance.player.gamertag}-${index}`}>
+                            {isHomeTeam ? (
+                                <>
+                                    {performance.player.gamertag}{performance.rating !== 0 ? ` (${performance.rating})` : null} 🥇
+                                </>
+                            ) : (
+                                <>
+                                    🥇 {performance.player.gamertag}{performance.rating !== 0 ? ` (${performance.rating})` : null}
+                                </>
+                            )}
+                        </li>
+                    );
                 }
                 return null;
             })}
@@ -160,13 +172,13 @@ const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
                                         <div className="row fw-medium">
                                             <div className="col p-0 text-end">
                                                 <EventList events={fixture.result.ResultEvent} teamId={fixture.homeTeam.id} isHomeTeam={true} />
-                                                <PerformanceList performances={fixture.result.ResultPlayerPerformance} teamId={fixture.homeTeam.id} />
+                                                <PerformanceList performances={fixture.result.ResultPlayerPerformance} teamId={fixture.homeTeam.id} isHomeTeam={true} />
                                             </div>
                                             <div className="col-2 p-0 text-center">
                                             </div>
                                             <div className="col p-0 text-start">
                                                 <EventList events={fixture.result.ResultEvent} teamId={fixture.awayTeam.id} isHomeTeam={false} />
-                                                <PerformanceList performances={fixture.result.ResultPlayerPerformance} teamId={fixture.awayTeam.id} />
+                                                <PerformanceList performances={fixture.result.ResultPlayerPerformance} teamId={fixture.awayTeam.id} isHomeTeam={false} />
                                             </div>
                                         </div>
                                     }
