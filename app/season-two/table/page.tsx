@@ -109,9 +109,8 @@ export default async function SeasonTwoTablePage() {
             </thead>
             <tbody>
                 {sortedTableData.map((team, index) => {
-                    const isHalfway = index === Math.floor(sortedTableData.length / 2) - 1;
                     return (
-                        <tr key={team.name} className={`${index === 0 ? "text-primary" : ""} ${isHalfway ? "table-divider" : ""}`}>
+                        <tr key={team.name} className={`${index === 0 ? "text-primary" : ""}`}>
                             <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{index + 1}</td>
                             <td className={index === 0 ? "text-primary" : ""}>{team.name}</td>
                             <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.played}</td>
@@ -127,15 +126,5 @@ export default async function SeasonTwoTablePage() {
                 })}
             </tbody>
         </table>
-
-        <div className="card text-bg-secondary mb-3">
-            <div className="card-header">Key</div>
-            <div className="card-body">
-                <ul>
-                    <li>Position <b>1-3 : 🏆 Championship Round</b></li>
-                    <li>Position <b>4-6 : 🛡️ Shield Round</b></li>
-                </ul>
-            </div>
-        </div>
     </>
 }
