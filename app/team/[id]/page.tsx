@@ -13,6 +13,11 @@ export default async function TeamPage({
             id: parseInt(id)
         },
         include: {
+            captains: {
+                include: {
+                    player: true
+                }
+            },
             players: {
                 include: {
                     country: true,
@@ -39,7 +44,7 @@ export default async function TeamPage({
                 </ol>
             </nav>
             <h1 className="text-primary">{team.name}</h1>
-            <h2 className="text-secondary">Players</h2>
+            <h2 className="text-secondary">Squad</h2>
             <div className="table-responsive">
                 <table className="table">
                     <thead>
@@ -50,13 +55,21 @@ export default async function TeamPage({
                         </tr>
                     </thead>
                     <tbody>
-                        {team.players.map((player, index) => (
-                            <tr key={index}>
-                                <td>{player.gamertag}</td>
-                                <td>{player.platform?.name || ''}</td>
-                                <td>{player.country ? `${player.country.name} ${player.country.emoji}` : ''} </td>
-                            </tr>
-                        ))}
+                        {team.players.map((player, index) => {
+                            const captain = team.captains.filter(captain => captain.playerId === player.id);
+                            const isClubCaptain = captain.length > 0 && captain[0].isClubCaptain;
+                            const isCoCaptain = captain.length > 0 && !captain[0].isClubCaptain;
+
+                            return (
+                                <tr key={index}>
+                                    <td>
+                                        {player.gamertag} {isClubCaptain ? "(Captain)" : ''} {isCoCaptain ? "(Co-Captain)" : ''}
+                                    </td>
+                                    <td>{player.platform ? <i className={`bi bi-${player.platform.iconClass}`} title={player.platform.name}></i> : ''}</td>
+                                    <td>{player.country ? `${player.country.emoji} ${player.country.name}` : ''} </td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
             </div>
