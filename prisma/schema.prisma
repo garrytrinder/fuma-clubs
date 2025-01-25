@@ -94,11 +94,12 @@ model Player {
 }
 
 model Platform {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Player    Player[]
+  id           Int      @id @default(autoincrement())
+  name         String
+  discordEmoji String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  Player       Player[]
 }
 
 model Country {
