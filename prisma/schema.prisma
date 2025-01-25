@@ -83,7 +83,7 @@ model Player {
   platform        Platform? @relation(fields: [platformId], references: [id])
   platformId      Int?
   gamertag        String?   @unique
-  eaId            String?   @unique
+  eaId            String?
 
   team Team? @relation(fields: [teamId], references: [id])
 
