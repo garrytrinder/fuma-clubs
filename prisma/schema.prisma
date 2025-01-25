@@ -138,10 +138,10 @@ model Fixture {
   awayTeamId   Int
   tournamentId Int?
   roundId      Int
-  resultid     Int?
+  resultId     Int?        @unique
   awayTeam     Team        @relation("awayTeam", fields: [awayTeamId], references: [id])
   homeTeam     Team        @relation("homeTeam", fields: [homeTeamId], references: [id])
-  result       Result?     @relation(fields: [resultid], references: [id])
+  result       Result?     @relation(fields: [resultId], references: [id])
   round        Round       @relation(fields: [roundId], references: [id])
   tournament   Tournament? @relation(fields: [tournamentId], references: [id])
 }
@@ -158,7 +158,7 @@ model Result {
   updatedAt               DateTime                  @updatedAt
   youtubeLink             String?
   twitchLink              String?
-  Fixture                 Fixture[]
+  Fixture                 Fixture?
   ResultEvent             ResultEvent[]
   ResultMatchStat         ResultMatchStat[]
   ResultPlayerPerformance ResultPlayerPerformance[]
