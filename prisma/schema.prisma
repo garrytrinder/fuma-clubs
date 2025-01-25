@@ -61,6 +61,7 @@ model Team {
   shortName               String
   active                  Boolean                   @default(true)
   recruiting              Boolean                   @default(false)
+  discordRole             String                    @default("")
   createdAt               DateTime                  @default(now())
   updatedAt               DateTime                  @updatedAt
   awayTeamFixtures        Fixture[]                 @relation("awayTeam")
@@ -232,12 +233,13 @@ model ResultPlayerPerformance {
 }
 
 model TeamCaptain {
-  id            Int      @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   teamId        Int
-  playerId      Int      @unique
-  isClubCaptain Boolean  @default(false)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  team          Team     @relation(fields: [teamId], references: [id])
-  player        Player   @relation(fields: [playerId], references: [id])
+  playerId      Int     @unique
+  isClubCaptain Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  team      Team     @relation(fields: [teamId], references: [id])
+  player    Player   @relation(fields: [playerId], references: [id])
 }
