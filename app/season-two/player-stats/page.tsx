@@ -11,9 +11,7 @@ export default async function SeasonTwoTopScorersPage() {
                 },
                 result: {
                     Fixture: {
-                        every: {
-                            tournamentId: 1
-                        }
+                        tournamentId: 1
                     }
                 }
             },
@@ -34,9 +32,7 @@ export default async function SeasonTwoTopScorersPage() {
                 },
                 result: {
                     Fixture: {
-                        every: {
-                            tournamentId: 1
-                        }
+                        tournamentId: 1
                     }
                 }
             },
@@ -55,9 +51,7 @@ export default async function SeasonTwoTopScorersPage() {
                 manOfTheMatch: true,
                 result: {
                     Fixture: {
-                        every: {
-                            tournamentId: 1
-                        }
+                        tournamentId: 1
                     }
                 }
             },
