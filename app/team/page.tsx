@@ -23,6 +23,8 @@ export default async function TeamLandingPage() {
                     <tr>
                         <th>Name</th>
                         <th></th>
+                        <th>Active</th>
+                        <th>Recuiting</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +32,8 @@ export default async function TeamLandingPage() {
                         <tr key={index}>
                             <td><Link href={`team/${team.id}`} >{team.name}</Link></td>
                             <td>{team.shortName}</td>
+                            <td>{team.active ? 'Yes' : 'No'}</td>
+                            <td>{team.recruiting ? 'Yes' : 'No'}</td>
                         </tr>
                     ))}
                 </tbody>
