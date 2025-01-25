@@ -64,6 +64,7 @@ model Team {
   awayTeamFixtures        Fixture[]                 @relation("awayTeam")
   homeTeamFixtures        Fixture[]                 @relation("homeTeam")
   players                 Player[]
+  captains                TeamCaptain[]
   ResultEvent             ResultEvent[]
   ResultMatchStat         ResultMatchStat[]
   ResultPlayerPerformance ResultPlayerPerformance[]
@@ -85,6 +86,7 @@ model Player {
   country                 Country?                  @relation(fields: [countryId], references: [id])
   platform                Platform?                 @relation(fields: [platformId], references: [id])
   team                    Team?                     @relation(fields: [teamId], references: [id])
+  teamCaptain             TeamCaptain?
   ResultEvent             ResultEvent[]
   ResultPlayerPerformance ResultPlayerPerformance[]
 }
@@ -224,4 +226,15 @@ model ResultPlayerPerformance {
   player        Player   @relation(fields: [playerId], references: [id])
   result        Result   @relation(fields: [resultId], references: [id])
   team          Team     @relation(fields: [teamId], references: [id])
+}
+
+model TeamCaptain {
+  id            Int      @id @default(autoincrement())
+  teamId        Int
+  playerId      Int      @unique
+  isClubCaptain Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  team          Team     @relation(fields: [teamId], references: [id])
+  player        Player   @relation(fields: [playerId], references: [id])
 }
