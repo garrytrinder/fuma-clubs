@@ -219,21 +219,35 @@ model EventType {
 }
 
 model ResultPlayerPerformance {
-  id            Int      @id @default(autoincrement())
-  playerId      Int
-  teamId        Int
-  resultId      Int
-  rating        Float
-  goals         Int
-  assists       Int
-  manOfTheMatch Boolean  @default(false)
-  yellowCard    Boolean  @default(false)
-  redCard       Boolean  @default(false)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  player        Player   @relation(fields: [playerId], references: [id])
-  result        Result   @relation(fields: [resultId], references: [id])
-  team          Team     @relation(fields: [teamId], references: [id])
+  id               Int      @id @default(autoincrement())
+  playerId         Int
+  teamId           Int
+  resultId         Int
+  rating           Float?
+  goals            Int?
+  assists          Int?
+  manOfTheMatch    Boolean  @default(false)
+  yellowCard       Boolean  @default(false)
+  redCard          Boolean  @default(false)
+  shots            Int?
+  shotAccuracy     Int?
+  passes           Int?
+  passAccuracy     Int?
+  dribbles         Int?
+  dribbleSuccess   Int?
+  tackles          Int?
+  tackleSuccess    Int?
+  offsides         Int?
+  fouls            Int?
+  possessionWon    Int?
+  possessionLost   Int?
+  distanceCovered  Float?
+  distanceSprinted Float?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  player           Player   @relation(fields: [playerId], references: [id])
+  result           Result   @relation(fields: [resultId], references: [id])
+  team             Team     @relation(fields: [teamId], references: [id])
 }
 
 model TeamCaptain {

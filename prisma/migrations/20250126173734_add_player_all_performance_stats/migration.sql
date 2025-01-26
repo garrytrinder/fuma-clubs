@@ -1,0 +1,18 @@
+-- AlterTable
+ALTER TABLE "ResultPlayerPerformance" ADD COLUMN     "distanceCovered" DOUBLE PRECISION,
+ADD COLUMN     "distanceSprinted" DOUBLE PRECISION,
+ADD COLUMN     "dribbleSuccess" INTEGER,
+ADD COLUMN     "dribbles" INTEGER,
+ADD COLUMN     "fouls" INTEGER,
+ADD COLUMN     "offsides" INTEGER,
+ADD COLUMN     "passAccuracy" INTEGER,
+ADD COLUMN     "passes" INTEGER,
+ADD COLUMN     "possessionLost" INTEGER,
+ADD COLUMN     "possessionWon" INTEGER,
+ADD COLUMN     "shotAccuracy" INTEGER,
+ADD COLUMN     "shots" INTEGER,
+ADD COLUMN     "tackleSuccess" INTEGER,
+ADD COLUMN     "tackles" INTEGER,
+ALTER COLUMN "rating" DROP NOT NULL,
+ALTER COLUMN "goals" DROP NOT NULL,
+ALTER COLUMN "assists" DROP NOT NULL;
