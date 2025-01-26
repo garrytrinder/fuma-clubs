@@ -92,6 +92,7 @@ model Player {
   teamCaptain             TeamCaptain?
   ResultEvent             ResultEvent[]
   ResultPlayerPerformance ResultPlayerPerformance[]
+  PlayerPosition          PlayerPosition[]
 }
 
 model Platform {
@@ -243,4 +244,26 @@ model TeamCaptain {
   updatedAt DateTime @updatedAt
   team      Team     @relation(fields: [teamId], references: [id])
   player    Player   @relation(fields: [playerId], references: [id])
+}
+
+model PlayerPosition {
+  playerId   Int
+  positionId Int
+  isPrimary  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  player     Player   @relation(fields: [playerId], references: [id])
+  position   Position @relation(fields: [positionId], references: [id])
+
+  @@id([playerId, positionId])
+}
+
+model Position {
+  id        Int      @id @default(autoincrement())
+  name      String
+  shortName String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  PlayerPosition PlayerPosition[]
 }
