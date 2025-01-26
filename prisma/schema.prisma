@@ -62,6 +62,8 @@ model Team {
   active                  Boolean                   @default(true)
   recruiting              Boolean                   @default(false)
   discordRoleId           String                    @default("")
+  badgeUrl                String?
+  description             String?
   createdAt               DateTime                  @default(now())
   updatedAt               DateTime                  @updatedAt
   awayTeamFixtures        Fixture[]                 @relation("awayTeam")
