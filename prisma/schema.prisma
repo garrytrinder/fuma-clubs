@@ -88,6 +88,7 @@ model Player {
   countryId               Int?
   discordUsername         String                    @unique @default("")
   platformId              Int?
+  pictureUrl              String?
   country                 Country?                  @relation(fields: [countryId], references: [id])
   platform                Platform?                 @relation(fields: [platformId], references: [id])
   team                    Team?                     @relation(fields: [teamId], references: [id])
@@ -275,11 +276,19 @@ model PlayerPosition {
 }
 
 model Position {
-  id        Int      @id @default(autoincrement())
+  id        Int               @id @default(autoincrement())
   name      String
   shortName String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  category  PositionCategory?
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
 
   PlayerPosition PlayerPosition[]
+}
+
+enum PositionCategory {
+  Goalkeeper
+  Defender
+  Midfielder
+  Forward
 }
