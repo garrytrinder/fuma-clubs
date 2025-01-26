@@ -279,6 +279,7 @@ model Position {
   id        Int               @id @default(autoincrement())
   name      String
   shortName String
+  order     Int?
   category  PositionCategory?
   createdAt DateTime          @default(now())
   updatedAt DateTime          @updatedAt
