@@ -10,11 +10,17 @@ export default async function TeamLandingPage() {
                 include: {
                     player: true
                 }
-            }
+            },
+            players: true
         },
-        orderBy: {
-            name: 'asc'
-        }
+        orderBy: [
+            {
+                active: 'desc'
+            },
+            {
+                name: 'asc'
+            }
+        ]
     });
 
     return (
@@ -26,14 +32,40 @@ export default async function TeamLandingPage() {
                 </ol>
             </nav>
             <h1 className="text-primary">Teams</h1>
-            <ul className="list-group">
-                {teams.map((team, index) => (
-                    <li className="list-group-item d-flex justify-content-between align-items-center" key={`team-${index}`}>
-                        <Link key={`team-${team.id}`} href={`team/${team.id}`}>{team.name}</Link>
-                        <Image src={team.badgeUrl ? team.badgeUrl : '/badge.svg'} alt={team.name} width={35} height={35} />
-                    </li>
-                ))}
-            </ul>
+            <div className="list-group">
+                {teams.map((team, index) => {
+                    const playerCount = team.players.length;
+                    const captain = team.captains.find(captain => captain.isClubCaptain === true && captain.teamId === team.id);
+
+                    return (
+                        <Link key={`team-${team.id}`} href={`team/${team.id}`} className={`list-group-item list-group-item-action ${!team.active ? 'disabled' : ''}`}>
+                            <div className="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">{team.name}</h5>
+                                <Image src={team.badgeUrl ? team.badgeUrl : '/badge.svg'} alt={team.name} width={35} height={35} />
+                            </div>
+                            <div className="d-flex gap-1">
+                                {team.active
+                                    ? <span className="badge rounded-pill bg-success">Active</span>
+                                    : <span className="badge rounded-pill bg-danger">Inactive</span>
+                                }
+                                {team.recruiting
+                                    ? <span className="badge rounded-pill bg-info">Recruiting</span>
+                                    : null
+                                }
+                            </div>
+                            <div className="d-flex gap-1">
+                                <small className="text-body-secondary">{playerCount} players</small>
+                            </div>
+                            {captain
+                                ? <div className="d-flex gap-1">
+                                    <small className="text-body-secondary">Club captain: {captain.player.gamertag}</small>
+                                </div>
+                                : null
+                            }
+                        </Link>
+                    )
+                })}
+            </div>
         </>
     );
 }
