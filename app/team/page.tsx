@@ -1,9 +1,17 @@
 import Link from "next/link";
+import Image from 'next/image';
 import { prisma } from "../lib/prisma";
 
 export default async function TeamLandingPage() {
 
     const teams = await prisma.team.findMany({
+        include: {
+            captains: {
+                include: {
+                    player: true
+                }
+            }
+        },
         orderBy: {
             name: 'asc'
         }
@@ -18,26 +26,14 @@ export default async function TeamLandingPage() {
                 </ol>
             </nav>
             <h1 className="text-primary">Teams</h1>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th></th>
-                        <th>Active</th>
-                        <th>Recuiting</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {teams.map((team, index) => (
-                        <tr key={index}>
-                            <td><Link href={`team/${team.id}`} >{team.name}</Link></td>
-                            <td>{team.shortName}</td>
-                            <td>{team.active ? 'Yes' : 'No'}</td>
-                            <td>{team.recruiting ? 'Yes' : 'No'}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <ul className="list-group">
+                {teams.map((team, index) => (
+                    <li className="list-group-item d-flex justify-content-between align-items-center" key={`team-${index}`}>
+                        <Link key={`team-${team.id}`} href={`team/${team.id}`}>{team.name}</Link>
+                        <Image src={team.badgeUrl ? team.badgeUrl : '/badge.svg'} alt={team.name} width={30} height={30} />
+                    </li>
+                ))}
+            </ul>
         </>
     );
 }
