@@ -13,19 +13,22 @@ export default async function TeamPage({
             id: parseInt(id)
         },
         include: {
-            captains: {
-                include: {
-                    player: true
-                }
-            },
             players: {
                 include: {
                     country: true,
-                    platform: true
+                    platform: true,
+                    teamCaptain: true
                 },
-                orderBy: {
-                    gamertag: 'asc'
-                }
+                orderBy: [
+                    {
+                        teamCaptain: {
+                            isClubCaptain: 'asc',
+                        }
+                    },
+                    {
+                        gamertag: 'asc'
+                    }
+                ]
             }
         },
     });
@@ -45,34 +48,26 @@ export default async function TeamPage({
             </nav>
             <h1 className="text-primary">{team.name}</h1>
             <h2 className="text-secondary">Squad</h2>
-            <div className="table-responsive">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Gamertag</th>
-                            <th>Platform</th>
-                            <th>Country</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {team.players.map((player, index) => {
-                            const captain = team.captains.filter(captain => captain.playerId === player.id);
-                            const isClubCaptain = captain.length > 0 && captain[0].isClubCaptain;
-                            const isCoCaptain = captain.length > 0 && !captain[0].isClubCaptain;
+            <ul className="list-group">
+                {team.players
+                    .map((player, index) => {
+                        return (
+                            <li className="list-group-item d-flex justify-content-between align-items-center" key={`player-${index}`}>
+                                {player.gamertag}
+                                <span className="w-30 d-flex justify-content-around gap-1">
+                                    {player.teamCaptain && <span className="fs-5 badge text-bg-primary" title="Captain">C</span>}
+                                    {player.platform
+                                        ? <span className="fs-5 badge text-bg-secondary"><i className={`bi bi-${player.platform.iconClass}`} title={player.platform.name}></i></span>
+                                        : <span className="fs-5 badge text-bg-secondary"></span>}
 
-                            return (
-                                <tr key={index}>
-                                    <td>
-                                        {player.gamertag} {isClubCaptain ? "(Captain)" : ''} {isCoCaptain ? "(Co-Captain)" : ''}
-                                    </td>
-                                    <td>{player.platform ? <i className={`bi bi-${player.platform.iconClass}`} title={player.platform.name}></i> : ''}</td>
-                                    <td>{player.country ? `${player.country.emoji} ${player.country.name}` : ''} </td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            </div>
+                                    {player.country
+                                        ? <span className="fs-5 badge text-bg-secondary" title={player.country?.name}>{player.country.emoji}</span>
+                                        : <span className="fs-5 badge text-bg-secondary" title="World">🌐</span>}
+                                </span>
+                            </li>
+                        );
+                    })}
+            </ul >
         </>
     );
 }
