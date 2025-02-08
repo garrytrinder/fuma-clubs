@@ -21,12 +21,12 @@ export default async function TeamPage({
                 },
                 orderBy: [
                     {
+                        gamertag: 'asc'
+                    },
+                    {
                         teamCaptain: {
                             isClubCaptain: 'asc',
                         }
-                    },
-                    {
-                        gamertag: 'asc'
                     }
                 ]
             }
@@ -55,7 +55,8 @@ export default async function TeamPage({
                             <li className="list-group-item d-flex justify-content-between align-items-center" key={`player-${index}`}>
                                 {player.gamertag}
                                 <span className="w-30 d-flex justify-content-around gap-1">
-                                    {player.teamCaptain && <span className="fs-5 badge text-bg-primary" title="Captain">C</span>}
+                                    {player.teamCaptain && player.teamCaptain.isClubCaptain === true && <span className={`fs-5 badge text-bg-primary`} title="Captain">C</span>}
+                                    {player.teamCaptain && player.teamCaptain.isClubCaptain === false && <span className={`fs-5 badge text-bg-secondary`} title="Co-Captain">C</span>}
                                     {player.platform
                                         ? <span className="fs-5 badge text-bg-secondary"><i className={`bi bi-${player.platform.iconClass}`} title={player.platform.name}></i></span>
                                         : <span className="fs-5 badge text-bg-secondary"></span>}
