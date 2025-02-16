@@ -141,12 +141,12 @@ model Fixture {
   homeTeamId   Int
   awayTeamId   Int
   tournamentId Int?
-  roundId      Int
+  roundId      Int?
   resultId     Int?        @unique
   awayTeam     Team        @relation("awayTeam", fields: [awayTeamId], references: [id])
   homeTeam     Team        @relation("homeTeam", fields: [homeTeamId], references: [id])
   result       Result?     @relation(fields: [resultId], references: [id])
-  round        Round       @relation(fields: [roundId], references: [id])
+  round        Round?      @relation(fields: [roundId], references: [id])
   tournament   Tournament? @relation(fields: [tournamentId], references: [id])
 }
 
@@ -285,7 +285,7 @@ model Position {
   updatedAt DateTime          @updatedAt
 
   PlayerPosition PlayerPosition[]
-  Formation Formation[]
+  Formation      Formation[]
 }
 
 enum PositionCategory {
