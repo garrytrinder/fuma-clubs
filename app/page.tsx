@@ -8,7 +8,7 @@ export default async function HomePage() {
         <p className="lead mb-4">Join us and take part in the experience!</p>
       </div>
     </div>
-    <section className="col-xxl-8 mx-auto p-4 my-3 rounded-3 border shadow-lg">
+    <section className="col-xxl-8 mx-auto p-2 my-3 rounded-3 border shadow-lg">
       <div className="ratio ratio-16x9">
         <iframe src="https://www.youtube.com/embed/_ENk4k53lOw?si=ZCLnq5AbM3onaSAv&amp;controls=0&autoplay=1" title="FUMA Clubs" allow="autoplay" allowFullScreen></iframe>
       </div>
