@@ -181,14 +181,12 @@ const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
                                         </div>
                                     </div>
                                     {showScorers && fixture.result &&
-                                        <div className="row fw-medium">
-                                            <div className="col p-0 text-end">
+                                        <div className="row grid gap-0 fw-medium">
+                                            <div className="col p-0 pe-1 text-end">
                                                 <EventList events={fixture.result.ResultEvent} teamId={fixture.homeTeam.id} isHomeTeam={true} />
                                                 <PerformanceList performances={fixture.result.ResultPlayerPerformance} teamId={fixture.homeTeam.id} isHomeTeam={true} />
                                             </div>
-                                            <div className="col-2 p-0 text-center">
-                                            </div>
-                                            <div className="col p-0 text-start">
+                                            <div className="col p-0 ps-1 text-start">
                                                 <EventList events={fixture.result.ResultEvent} teamId={fixture.awayTeam.id} isHomeTeam={false} />
                                                 <PerformanceList performances={fixture.result.ResultPlayerPerformance} teamId={fixture.awayTeam.id} isHomeTeam={false} />
                                             </div>
