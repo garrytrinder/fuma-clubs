@@ -1,8 +1,18 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import NextAuth from "next-auth";
+import NextAuth, { DefaultSession } from "next-auth";
 import { prisma } from "./app/lib/prisma";
 import Discord from "next-auth/providers/discord";
 import { Guild } from "discord.js";
+
+declare module "next-auth" {
+    interface Session {
+        user: {
+            playerId: number,
+            teamId?: number,
+            isCaptain: boolean,
+        } & DefaultSession["user"]
+    }
+}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -22,5 +32,45 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
             return isMember;
         },
-    },
+        session: async ({ session, user }) => {
+            const currentUser = await prisma.user.findUnique({
+                where: {
+                    id: user.id
+                },
+                select: {
+                    accounts: true
+                }
+            });
+
+            if (!currentUser) {
+                return session;
+            }
+
+            const player = await prisma.player.findUnique({
+                where: {
+                    discordId: currentUser?.accounts[0].providerAccountId
+                },
+                include: {
+                    team: true
+                }
+            });
+
+            if (!player) {
+                return session;
+            }
+
+            session.user.playerId = player?.id;
+            session.user.teamId = player?.team?.id;
+
+            const isCaptain = await prisma.teamCaptain.findFirst({
+                where: {
+                    playerId: player?.id
+                }
+            });
+
+            session.user.isCaptain = isCaptain ? true : false;
+
+            return session;
+        },
+    }
 })
