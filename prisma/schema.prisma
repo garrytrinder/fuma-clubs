@@ -78,12 +78,13 @@ model Team {
 model Player {
   id                      Int                       @id @default(autoincrement())
   discordId               String                    @unique
+  discordUsername         String                    @unique @default("")
   gamertag                String?                   @unique
   eaId                    String?
+  pictureUrl              String?
+  kitName                 String?
   youtube                 String?
   twitch                  String?
-  discordUsername         String                    @unique @default("")
-  pictureUrl              String?
   country                 Country?                  @relation(fields: [countryId], references: [id])
   countryId               Int?
   platform                Platform?                 @relation(fields: [platformId], references: [id])
