@@ -82,20 +82,23 @@ model Player {
   eaId                    String?
   youtube                 String?
   twitch                  String?
-  createdAt               DateTime                  @default(now())
-  updatedAt               DateTime                  @updatedAt
-  teamId                  Int?
-  countryId               Int?
   discordUsername         String                    @unique @default("")
-  platformId              Int?
   pictureUrl              String?
   country                 Country?                  @relation(fields: [countryId], references: [id])
+  countryId               Int?
   platform                Platform?                 @relation(fields: [platformId], references: [id])
+  platformId              Int?
   team                    Team?                     @relation(fields: [teamId], references: [id])
+  teamId                  Int?
+  primaryPosition         Position?                 @relation("primaryPosition", fields: [primaryPositionId], references: [id])
+  primaryPositionId       Int?
+  secondaryPosition       Position?                 @relation("secondaryPosition", fields: [secondaryPositionId], references: [id])
+  secondaryPositionId     Int?
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
   teamCaptain             TeamCaptain?
   ResultEvent             ResultEvent[]
   ResultPlayerPerformance ResultPlayerPerformance[]
-  PlayerPosition          PlayerPosition[]
 }
 
 model Platform {
@@ -158,10 +161,10 @@ model Result {
   penalties               Boolean                   @default(false)
   homeTeamPenalties       Int?
   awayTeamPenalties       Int?
-  createdAt               DateTime                  @default(now())
-  updatedAt               DateTime                  @updatedAt
   youtubeLink             String?
   twitchLink              String?
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
   Fixture                 Fixture?
   ResultEvent             ResultEvent[]
   ResultMatchStat         ResultMatchStat[]
@@ -263,29 +266,17 @@ model TeamCaptain {
   player    Player   @relation(fields: [playerId], references: [id])
 }
 
-model PlayerPosition {
-  playerId   Int
-  positionId Int
-  isPrimary  Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  player     Player   @relation(fields: [playerId], references: [id])
-  position   Position @relation(fields: [positionId], references: [id])
-
-  @@id([playerId, positionId])
-}
-
 model Position {
-  id        Int               @id @default(autoincrement())
-  name      String
-  shortName String
-  order     Int?
-  category  PositionCategory?
-  createdAt DateTime          @default(now())
-  updatedAt DateTime          @updatedAt
-
-  PlayerPosition PlayerPosition[]
-  Formation      Formation[]
+  id                Int               @id @default(autoincrement())
+  name              String
+  shortName         String
+  order             Int?
+  category          PositionCategory?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  Formation         Formation[]
+  primaryPosition   Player[]          @relation("primaryPosition")
+  secondaryPosition Player[]          @relation("secondaryPosition")
 }
 
 enum PositionCategory {
