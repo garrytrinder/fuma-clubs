@@ -6,17 +6,17 @@ import Link from "next/link";
 export default async function Page({
     params,
 }: {
-    params: Promise<{ playerId: string }>
+    params: Promise<{ id: string }>
 }) {
     const session = await auth();
     if (!session || !session.user) return <div>Not authenticated</div>
 
-    const { playerId } = (await params);
+    const { id } = (await params);
 
     const [player, platforms, countries] = await Promise.all([
         prisma.player.findUnique({
             where: {
-                id: Number(playerId)
+                id: Number(id)
             },
             include: {
                 team: true

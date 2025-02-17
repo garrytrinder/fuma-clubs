@@ -7,16 +7,16 @@ import EditProfileButton from "./ui/edit-profile-button";
 export default async function Page({
     params,
 }: {
-    params: Promise<{ playerId: string }>
+    params: Promise<{ id: string }>
 }) {
     const session = await auth();
     if (!session || !session.user) return <div>Not authenticated</div>;
 
-    const { playerId } = (await params);
+    const { id } = (await params);
 
     const player = await prisma.player.findUnique({
         where: {
-            id: Number(playerId)
+            id: Number(id)
         },
         include: {
             team: true,
@@ -101,7 +101,7 @@ export default async function Page({
                     <div id="countryHelp" className="form-text"></div>
                 </div>
                 <div className="mb-3 text-end">
-                    <EditProfileButton playerId={playerId} />
+                    <EditProfileButton playerId={id} />
                 </div>
             </div>
         </>

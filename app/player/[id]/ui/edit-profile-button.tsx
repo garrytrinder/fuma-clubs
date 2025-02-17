@@ -9,7 +9,7 @@ export default function EditProfileButton({ playerId }: { playerId: string }) {
 
     const handleClick = () => {
         setLoading(true);
-        router.push(`/profile/${playerId}/edit`);
+        router.push(`/player/${playerId}/edit`);
     };
 
     return (

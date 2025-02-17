@@ -25,7 +25,7 @@ export default function EditProfileForm(
 
     const handleCancel = () => {
         setLoading(true);
-        router.push(`/profile/${player.id}`);
+        router.push(`/player/${player.id}`);
     };
 
     return (

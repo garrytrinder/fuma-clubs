@@ -32,6 +32,6 @@ export async function updateProfile(formData: FormData) {
         }
     });
 
-    revalidatePath(`/profile/${rawFormData.playerId}`);
-    redirect(`/profile/${rawFormData.playerId}`);
+    revalidatePath(`/player/${rawFormData.playerId}`);
+    redirect(`/player/${rawFormData.playerId}`);
 }
