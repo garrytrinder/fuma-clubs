@@ -58,7 +58,7 @@ export const Nav = () => {
               <Image src={session.user?.image} alt="mdo" width="32" height="32" className="rounded-circle" />
             </a>
             <ul className="dropdown-menu text-small shadow">
-              <li><Link href="/profile" className="dropdown-item">Profile</Link></li>
+              <li><Link href={`/profile/${session.user.playerId}`} className="dropdown-item">My profile</Link></li>
               <li><hr className="dropdown-divider" /></li>
               <li><button className="dropdown-item" onClick={() => signOut({ redirectTo: "/" })}>Sign out</button></li>
             </ul>

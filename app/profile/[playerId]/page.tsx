@@ -4,13 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import EditProfileButton from "./ui/edit-profile-button";
 
-export default async function ProfilePage() {
+export default async function ProfilePage({
+    params,
+}: {
+    params: Promise<{ playerId: string }>
+}) {
     const session = await auth();
     if (!session || !session.user) return <div>Not authenticated</div>;
 
+    const { playerId } = (await params);
+
     const player = await prisma.player.findUnique({
         where: {
-            id: session.user.playerId
+            id: Number(playerId)
         },
         include: {
             team: true,
@@ -94,8 +100,8 @@ export default async function ProfilePage() {
                     <input type="text" className="form-control" name="country" id="country" aria-describedby="countryHelp" defaultValue={`${player.country?.name || ""} ${player.country?.emoji || ""}`} disabled />
                     <div id="countryHelp" className="form-text"></div>
                 </div>
-                <div className="mb-3">
-                    <EditProfileButton />
+                <div className="mb-3 text-end">
+                    <EditProfileButton playerId={playerId} />
                 </div>
             </div>
         </>

@@ -3,14 +3,20 @@ import { auth } from "@/auth";
 import { ProfileEditForm } from "./form";
 import Link from "next/link";
 
-export default async function EditProfilePage() {
+export default async function EditProfilePage({
+    params,
+}: {
+    params: Promise<{ playerId: string }>
+}) {
     const session = await auth();
     if (!session || !session.user) return <div>Not authenticated</div>
+
+    const { playerId } = (await params);
 
     const [player, platforms, countries] = await Promise.all([
         prisma.player.findUnique({
             where: {
-                id: session.user.playerId
+                id: Number(playerId)
             },
             include: {
                 team: true
@@ -33,7 +39,7 @@ export default async function EditProfilePage() {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb p-3 bg-body-tertiary rounded-3">
                     <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-                    <li className="breadcrumb-item"><Link href="/profile">Profile</Link></li>
+                    <li className="breadcrumb-item"><Link href={`/profile/${session.user.playerId}`}>Profile</Link></li>
                     <li className="breadcrumb-item active" aria-current="page">Edit</li>
                 </ol>
             </nav>

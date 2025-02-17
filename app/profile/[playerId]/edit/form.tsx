@@ -25,11 +25,12 @@ export function ProfileEditForm(
 
     const handleCancel = () => {
         setLoading(true);
-        router.push("/profile");
+        router.push(`/profile/${player.id}`);
     };
 
     return (
         <Form action={updateProfile}>
+            <input type="hidden" className="form-control" name="playerId" id="playerId" defaultValue={player.id} />
             <div className="mb-3">
                 <div className="text-center">
                     <Image src={image || ""} alt={player.gamertag || player.discordUsername} width={100} height={100} className="rounded-circle text-center" />
@@ -110,9 +111,7 @@ export function ProfileEditForm(
                 </select>
                 <div id="countryHelp" className="form-text"></div>
             </div>
-            <div className="mb-3">
-                <SaveProfileButton isGamertagValid={isGamertagValid} />
-                &nbsp;
+            <div className="mb-3 text-end">
                 <button type="button" className="btn btn-secondary" onClick={handleCancel} disabled={loading}>
                     {loading ? (
                         <>
@@ -123,6 +122,8 @@ export function ProfileEditForm(
                         "Cancel"
                     )}
                 </button>
+                &nbsp;
+                <SaveProfileButton isGamertagValid={isGamertagValid} />
             </div>
         </Form>
     )

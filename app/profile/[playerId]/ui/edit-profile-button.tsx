@@ -3,13 +3,13 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function EditProfileButton() {
+export default function EditProfileButton({ playerId }: { playerId: string }) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
     const handleClick = () => {
         setLoading(true);
-        router.push("/profile/edit");
+        router.push(`/profile/${playerId}/edit`);
     };
 
     return (

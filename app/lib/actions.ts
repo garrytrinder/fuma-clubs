@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 
 export async function updateProfile(formData: FormData) {
     const rawFormData = {
+        playerId: formData.get('playerId'),
         discordId: formData.get('discordId'),
         platformId: formData.get('platformId'),
         gamertag: formData.get('gamertag'),
@@ -13,24 +14,24 @@ export async function updateProfile(formData: FormData) {
         country: formData.get('countryId'),
         teamId: formData.get('teamId'),
         youtube: formData.get('youtube'),
-        Twitch: formData.get('twitch')
+        twitch: formData.get('twitch')
     };
 
     await prisma.player.update({
         where: {
-            discordId: rawFormData.discordId as string
+            id: parseInt(rawFormData.playerId as string)
         },
         data: {
-            platformId: parseInt(rawFormData.platformId as string),
-            gamertag: rawFormData.gamertag as string,
-            eaId: rawFormData.eaId as string,
-            countryId: parseInt(rawFormData.country as string),
-            youtube: formData.get('youtube') as string,
-            twitch: formData.get('twitch') as string,
+            platformId: parseInt(rawFormData.platformId as string) || null,
+            gamertag: rawFormData.gamertag as string || null,
+            eaId: rawFormData.eaId as string || null,
+            countryId: parseInt(rawFormData.country as string) || null,
+            youtube: rawFormData.youtube as string || null,
+            twitch: rawFormData.twitch as string || null,
             updatedAt: new Date()
         }
     });
 
-    revalidatePath('/profile');
-    redirect('/profile');
+    revalidatePath(`/profile/${rawFormData.playerId}`);
+    redirect(`/profile/${rawFormData.playerId}`);
 }
