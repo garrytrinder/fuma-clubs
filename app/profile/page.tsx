@@ -8,18 +8,9 @@ export default async function ProfilePage() {
     const session = await auth();
     if (!session || !session.user) return <div>Not authenticated</div>;
 
-    const user = await prisma.user.findUnique({
-        where: {
-            id: session.user.id
-        },
-        select: {
-            accounts: true
-        }
-    });
-
     const player = await prisma.player.findUnique({
         where: {
-            discordId: user?.accounts[0].providerAccountId
+            id: session.user.playerId
         },
         include: {
             team: true,

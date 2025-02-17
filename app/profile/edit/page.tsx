@@ -7,13 +7,13 @@ export default async function EditProfilePage() {
     const session = await auth();
     if (!session || !session.user) return <div>Not authenticated</div>
 
-    const [user, platforms, countries] = await Promise.all([
-        prisma.user.findUnique({
+    const [player, platforms, countries] = await Promise.all([
+        prisma.player.findUnique({
             where: {
-                id: session.user.id
+                id: session.user.playerId
             },
-            select: {
-                accounts: true
+            include: {
+                team: true
             }
         }),
         prisma.platform.findMany({
@@ -28,15 +28,6 @@ export default async function EditProfilePage() {
         })
     ]);
 
-    const player = await prisma.player.findUnique({
-        where: {
-            discordId: user?.accounts[0].providerAccountId
-        },
-        include: {
-            team: true
-        }
-    });
-
     return (
         <>
             <nav aria-label="breadcrumb">
@@ -47,7 +38,7 @@ export default async function EditProfilePage() {
                 </ol>
             </nav>
             <div className="p-3 bg-body-tertiary rounded-3">
-                {player && user && session.user.image &&
+                {player && session.user.image &&
                     <ProfileEditForm
                         image={session.user.image}
                         player={player}
