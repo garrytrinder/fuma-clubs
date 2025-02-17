@@ -14,7 +14,7 @@ const gamertagCheck = (gamertag: string | null) => {
     return gamertag ? gamertag.length > 3 : false
 }
 
-export function ProfileEditForm(
+export default function EditProfileForm(
     { image, platforms, player, team, countries }:
         { image: string, platforms: Platform[], player: Player, team: Team | null, countries: Country[] }) {
 

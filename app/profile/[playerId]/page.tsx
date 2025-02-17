@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import EditProfileButton from "./ui/edit-profile-button";
 
-export default async function ProfilePage({
+export default async function Page({
     params,
 }: {
     params: Promise<{ playerId: string }>

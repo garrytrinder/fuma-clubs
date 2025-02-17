@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function RulesPage() {
+export default function Page() {
   return <>
     <h1 className="text-primary">League Rules</h1>
     <h2 className="text-secondary">EQUITY RULES</h2>

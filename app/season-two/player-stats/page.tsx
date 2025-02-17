@@ -1,8 +1,7 @@
 import { prisma } from "@/app/lib/prisma";
 import { PlayerStats } from "./stats";
 
-export default async function SeasonTwoTopScorersPage() {
-    // Run all queries in parallel
+export default async function Page() {
     const [topScorersData, assistsData, topPlayersData] = await Promise.all([
         prisma.resultEvent.findMany({
             where: {

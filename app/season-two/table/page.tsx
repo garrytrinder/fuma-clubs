@@ -2,7 +2,7 @@ import { prisma } from "@/app/lib/prisma";
 
 export const dynamic = 'force-dynamic';
 
-export default async function SeasonTwoTablePage() {
+export default async function Page() {
     const tournament = await prisma.tournament.findUnique({
         where: {
             id: 1

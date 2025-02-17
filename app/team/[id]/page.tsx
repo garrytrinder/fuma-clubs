@@ -1,7 +1,7 @@
 import { prisma } from "@/app/lib/prisma";
 import Link from "next/link";
 
-export default async function TeamPage({
+export default async function Page({
     params,
 }: {
     params: Promise<{ id: string }>

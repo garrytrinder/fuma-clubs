@@ -1,4 +1,4 @@
-export default function ControllerSettingsPage() {
+export default function Page() {
   return <>
     <h1 className="text-primary">Controller Settings</h1>
     <p>Please ensure you set the following controller settings in the main menu before the match starts.</p>

@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../lib/google-sheets";
 
 export const dynamic = 'force-dynamic';
 
-export default async function SeasonOneTablePage() {
+export default async function Page() {
 
   const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
   const sheet = googleSpreadsheet.sheetsById[GoogleSheets.Table];

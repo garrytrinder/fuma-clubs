@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import { prisma } from "../lib/prisma";
 
-export default async function TeamLandingPage() {
+export default async function Page() {
 
     const teams = await prisma.team.findMany({
         include: {

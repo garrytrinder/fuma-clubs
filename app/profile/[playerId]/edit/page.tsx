@@ -1,9 +1,9 @@
 import { prisma } from "@/app/lib/prisma";
 import { auth } from "@/auth";
-import { ProfileEditForm } from "./form";
+import Form from "./edit-form";
 import Link from "next/link";
 
-export default async function EditProfilePage({
+export default async function Page({
     params,
 }: {
     params: Promise<{ playerId: string }>
@@ -45,7 +45,7 @@ export default async function EditProfilePage({
             </nav>
             <div className="p-3 bg-body-tertiary rounded-3">
                 {player && session.user.image &&
-                    <ProfileEditForm
+                    <Form
                         image={session.user.image}
                         player={player}
                         platforms={platforms}

@@ -3,7 +3,7 @@ import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../li
 
 export const dynamic = 'force-dynamic';
 
-export default async function SeasonOneScoresFixturesPage() {
+export default async function Page() {
 
   const googleSpreadsheet = await getGoogleSpreadsheet(GoogleSpreadsheets.ManualProLeague);
   const sheet = googleSpreadsheet.sheetsById[GoogleSheets.ScoresFixtures];
