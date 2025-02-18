@@ -10,11 +10,11 @@ export default async function Page({
     params: Promise<{ id: string }>
 }) {
     const session = await auth();
-    if (!session || !session.user) return <div>Not authenticated</div>;
+    if (!session || !session.user) return <div>Not authenticated.</div>;
 
     const { id } = (await params);
 
-    const player = await prisma.player.findUnique({
+    const player = await prisma.player.findFirst({
         where: {
             id: Number(id)
         },

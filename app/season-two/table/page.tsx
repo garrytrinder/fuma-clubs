@@ -3,7 +3,7 @@ import { prisma } from "@/app/lib/prisma";
 export const dynamic = 'force-dynamic';
 
 export default async function Page() {
-    const tournament = await prisma.tournament.findUnique({
+    const tournament = await prisma.tournament.findFirst({
         where: {
             id: 1
         },

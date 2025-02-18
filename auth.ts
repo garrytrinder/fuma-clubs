@@ -29,9 +29,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     },
                 }).then((res) => res.json()),
                 fetch("https://discord.com/api/users/@me/guilds", {
-                headers: {
-                    Authorization: `Bearer ${account?.access_token}`,
-                },
+                    headers: {
+                        Authorization: `Bearer ${account?.access_token}`,
+                    },
                 }).then((res) => res.json())
             ]);
 
@@ -61,7 +61,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return isMember;
         },
         session: async ({ session, user }) => {
-            const currentUser = await prisma.user.findUnique({
+            const currentUser = await prisma.user.findFirst({
                 where: {
                     id: user.id
                 },
@@ -74,7 +74,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 return session;
             }
 
-            const player = await prisma.player.findUnique({
+            const player = await prisma.player.findFirst({
                 where: {
                     discordId: currentUser?.accounts[0].providerAccountId
                 },

@@ -14,7 +14,7 @@ export default async function Page({
     const { id } = (await params);
 
     const [player, platforms, countries, positions] = await Promise.all([
-        prisma.player.findUnique({
+        prisma.player.findFirst({
             where: {
                 id: Number(id)
             },

@@ -11,7 +11,7 @@ export default async function Page({
 }) {
     const id = (await params).id;
 
-    const team = await prisma.team.findUnique({
+    const team = await prisma.team.findFirst({
         where: {
             id: Number(id)
         },
