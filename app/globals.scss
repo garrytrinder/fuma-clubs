@@ -61,6 +61,10 @@ a.dropdown-toggle:focus {
   background-color: rgb(28, 126, 214)
 }
 
+.bg-twitch {
+  background-color: rgb(145, 71, 255)
+}
+
 // Import Bootstrap and Bootstrap Icons
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
 @import "/node_modules/bootstrap-icons/font/bootstrap-icons.scss";

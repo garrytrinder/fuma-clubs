@@ -72,19 +72,31 @@ export default async function Page({
                                         ? <span className="fs-6 badge text-bg-secondary" title={player.country?.name}>{player.country.emoji}</span>
                                         : <span className="fs-6 badge text-bg-secondary" title="World">🌐</span>}
                                 </div>
-                                <div className="d-flex w-100 justify-content-between">
+                                <div className="d-flex w-100 py-1 justify-content-between">
                                     <h6 className="mb-1">{player.gamertag}</h6>
                                     {player.platform
                                         ? <span className="fs-6 badge text-bg-secondary"><i className={`bi bi-${player.platform.iconClass}`} title={player.platform.name}></i></span>
                                         : <span className="fs-6 badge text-bg-secondary"></span>}
                                 </div>
-                                <div className="d-flex w-100 justify-content-between">
+                                <div className="d-flex w-100 py-1 justify-content-between">
                                     <span className="d-flex gap-1">
                                         {player.primaryPosition &&
                                             <span className={`fs-6 badge ${getColourForPositionCategory(player.primaryPosition.category)}`} title={player.primaryPosition.name}>{player.primaryPosition.shortName}</span>
                                         }
                                         {player.secondaryPosition &&
                                             <span className={`fs-6 badge ${getColourForPositionCategory(player.secondaryPosition.category)}`} title={player.secondaryPosition.name}>{player.secondaryPosition.shortName}</span>
+                                        }
+                                    </span>
+                                    <span className="d-flex gap-1">
+                                        {player.youtube &&
+                                            <Link href={`https://youtube.com/${player.youtube}`} target="_blank" title="YouTube" className="fs-6 badge text-bg-danger">
+                                                <i className="bi bi-youtube"></i>
+                                            </Link>
+                                        }
+                                        {player.twitch &&
+                                            <Link href={`https://twitch.tv/${player.twitch}`} target="_blank" title="Twitch" className="fs-6 badge bg-twitch">
+                                                <i className="bi bi-twitch"></i>
+                                            </Link>
                                         }
                                     </span>
                                 </div>
