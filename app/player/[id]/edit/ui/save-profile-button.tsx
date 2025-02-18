@@ -2,12 +2,12 @@
 
 import { useFormStatus } from "react-dom";
 
-export default function SaveProfileButton({ isGamertagValid }: { isGamertagValid: boolean }) {
+export default function SaveProfileButton({ disabled }: { disabled: boolean }) {
 
     const { pending } = useFormStatus();
 
     return (
-        <button type="submit" className="btn btn-primary" disabled={!isGamertagValid || pending}>
+        <button type="submit" className="btn btn-primary" disabled={!disabled || pending}>
             {!pending ?
                 "Save" :
                 <>

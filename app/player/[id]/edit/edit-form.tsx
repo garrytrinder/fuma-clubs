@@ -20,7 +20,12 @@ export default function EditProfileForm(
 
     const [gamertag, setGamertag] = useState(player.gamertag);
     const isGamertagValid = gamertagCheck(gamertag);
+    const [kitName, setKitName] = useState(player.kitName || "");
+    const isKitNameValid = kitName.length > 0;
+    const [primaryPosition, setPrimaryPosition] = useState(player.primaryPositionId || "");
+    const isPrimaryPositionValid = primaryPosition !== "" && primaryPosition !== null;
     const [loading, setLoading] = useState(false);
+
     const router = useRouter();
 
     const handleCancel = () => {
@@ -75,8 +80,7 @@ export default function EditProfileForm(
                     Looks good!
                 </div> : <div className="invalid-feedback">
                     Please provide a gamertag.
-                </div>
-                }
+                </div>}
             </div>
             <div className="mb-3">
                 <label htmlFor="eaId" className="form-label">EA ID</label>
@@ -85,13 +89,18 @@ export default function EditProfileForm(
             </div>
             <div className="mb-3">
                 <label htmlFor="kitName" className="form-label">Kit name</label>
-                <input type="text" className="form-control" name="kitName" id="kitName" aria-describedby="kitNameHelp" defaultValue={player.kitName || ""} />
+                <input type="text" className={`form-control ${isKitNameValid ? "is-valid" : "is-invalid"}`} name="kitName" id="kitName" aria-describedby="kitNameHelp" defaultValue={player.kitName || ""} required={true} onChange={(e) => setKitName(e.target.value)} />
                 <div id="kitNameHelp" className="form-text">This is the name you choose to display on the back of your kit, and it is the name that also shows when reporting stats. Make sure this is updated, so we know who to attribute stats to.</div>
+                {isKitNameValid ? <div className="valid-feedback">
+                    Looks good!
+                </div> : <div className="invalid-feedback">
+                    Please provide your kit name.
+                </div>}
             </div>
             <div className="mb-3">
                 <label htmlFor="primaryPosition" className="form-label">Primary position</label>
-                <select className="form-select" name="primaryPositionId" id="primaryPositionId" aria-describedby="primaryPositionHelp" defaultValue={player.primaryPositionId || ""}>
-                    <option></option>
+                <select className={`form-select ${isPrimaryPositionValid ? "is-valid" : "is-invalid"}`} name="primaryPositionId" id="primaryPositionId" aria-describedby="primaryPositionHelp" defaultValue={player.primaryPositionId || ""} required={true} onChange={(e) => setPrimaryPosition(e.target.value)}>
+                    <option value=""></option>
                     {
                         positions.map((position) => {
                             return <option key={position.id} value={position.id}>{`${position.shortName} (${position.name})`}</option>
@@ -99,6 +108,11 @@ export default function EditProfileForm(
                     }
                 </select>
                 <div id="primaryPositionHelp" className="form-text"></div>
+                {isPrimaryPositionValid ? <div className="valid-feedback">
+                    Looks good!
+                </div> : <div className="invalid-feedback">
+                    Please select your primary position.
+                </div>}
             </div>
             <div className="mb-3">
                 <label htmlFor="secondaryPosition" className="form-label">Secondary position</label>
@@ -152,7 +166,7 @@ export default function EditProfileForm(
                     )}
                 </button>
                 &nbsp;
-                <SaveProfileButton isGamertagValid={isGamertagValid} />
+                <SaveProfileButton disabled={isGamertagValid && isKitNameValid && isPrimaryPositionValid} />
             </div>
         </Form>
     )
