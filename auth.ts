@@ -2,7 +2,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import NextAuth, { DefaultSession } from "next-auth";
 import { prisma } from "./app/lib/prisma";
 import Discord from "next-auth/providers/discord";
-import { Guild } from "discord.js";
+import { Guild, User } from "discord.js";
 
 declare module "next-auth" {
     interface Session {
@@ -22,13 +22,41 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     })],
     callbacks: {
         signIn: async ({ user, account, profile }) => {
-            const guilds: Guild[] = await fetch("https://discord.com/api/users/@me/guilds", {
+            const [discordUser, guilds]: [User, Guild[]] = await Promise.all([
+                fetch("https://discord.com/api/users/@me", {
+                    headers: {
+                        Authorization: `Bearer ${account?.access_token}`,
+                    },
+                }).then((res) => res.json()),
+                fetch("https://discord.com/api/users/@me/guilds", {
                 headers: {
                     Authorization: `Bearer ${account?.access_token}`,
                 },
-            }).then((res) => res.json());
+                }).then((res) => res.json())
+            ]);
 
             const isMember = guilds.some((guild: Guild) => guild.id === process.env.DISCORD_GUILD_ID);
+
+            if (isMember) {
+                // Check if player exists
+                const player = await prisma.player.findFirst({
+                    where: {
+                        discordId: discordUser.id
+                    }
+                });
+
+                // If player does not exist, create player
+                if (!player) {
+                    console.log("Creating player...");
+                    await prisma.player.create({
+                        data: {
+                            discordId: discordUser.id,
+                            discordUsername: discordUser.username,
+                            updatedAt: new Date()
+                        }
+                    });
+                }
+            }
 
             return isMember;
         },
