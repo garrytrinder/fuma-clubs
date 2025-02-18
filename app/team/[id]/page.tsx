@@ -13,7 +13,7 @@ export default async function Page({
 
     const team = await prisma.team.findUnique({
         where: {
-            id: parseInt(id)
+            id: Number(id)
         },
         include: {
             players: {

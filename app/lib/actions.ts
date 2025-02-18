@@ -22,16 +22,16 @@ export async function updateProfile(formData: FormData) {
 
     await prisma.player.update({
         where: {
-            id: parseInt(rawFormData.playerId as string)
+            id: Number(rawFormData.playerId as string)
         },
         data: {
-            platformId: parseInt(rawFormData.platformId as string) || null,
+            platformId: Number(rawFormData.platformId as string) || null,
             gamertag: rawFormData.gamertag as string || null,
             eaId: rawFormData.eaId as string || null,
-            countryId: parseInt(rawFormData.country as string) || null,
+            countryId: Number(rawFormData.country as string) || null,
             kitName: rawFormData.kitName as string || null,
-            primaryPositionId: parseInt(rawFormData.primaryPositionId as string) || null,
-            secondaryPositionId: parseInt(rawFormData.secondaryPositionId as string) || null,
+            primaryPositionId: Number(rawFormData.primaryPositionId as string) || null,
+            secondaryPositionId: Number(rawFormData.secondaryPositionId as string) || null,
             youtube: rawFormData.youtube as string || null,
             twitch: rawFormData.twitch as string || null,
             updatedAt: new Date()

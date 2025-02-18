@@ -44,8 +44,8 @@ enum Result {
 }
 
 function determineWinner(game: GoogleSpreadsheetRow<Record<string, any>>) {
-  const homeScore = parseInt(game.get("SCORE HOME"));
-  const awayScore = parseInt(game.get("SCORE AWAY"));
+  const homeScore = Number(game.get("SCORE HOME"));
+  const awayScore = Number(game.get("SCORE AWAY"));
 
   if (homeScore > awayScore) {
     return Result.Home;
