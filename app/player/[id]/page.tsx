@@ -21,7 +21,9 @@ export default async function Page({
         include: {
             team: true,
             country: true,
-            platform: true
+            platform: true,
+            primaryPosition: true,
+            secondaryPosition: true
         }
     });
 
@@ -80,6 +82,26 @@ export default async function Page({
                     <div id="eaIdHelp" className="form-text"></div>
                 </div>
                 <div className="mb-3">
+                    <label htmlFor="kitName" className="form-label">Kit name</label>
+                    <input type="text" className="form-control" name="kitName" id="kitName" aria-describedby="kitNameHelp" defaultValue={player.kitName || ""} disabled />
+                    <div id="kitNameHelp" className="form-text"></div>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="primaryPosition" className="form-label">Primary position</label>
+                    <input type="text" className="form-control" name="primaryPosition" id="primaryPosition" aria-describedby="primaryPositionHelp" defaultValue={player.primaryPosition ? `${player.primaryPosition.shortName} (${player.primaryPosition.name})` : ""} disabled />
+                    <div id="primaryPositionHelp" className="form-text"></div>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="secondaryPosition" className="form-label">Secondary position</label>
+                    <input type="text" className="form-control" name="secondaryPosition" id="secondaryPosition" aria-describedby="secondaryPositionHelp" defaultValue={player.secondaryPosition ? `${player.secondaryPosition.shortName} (${player.secondaryPosition.name})` : ""} disabled />
+                    <div id="secondaryPositionHelp" className="form-text"></div>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="country" className="form-label">Country</label>
+                    <input type="text" className="form-control" name="country" id="country" aria-describedby="countryHelp" defaultValue={`${player.country?.name || ""} ${player.country?.emoji || ""}`} disabled />
+                    <div id="countryHelp" className="form-text"></div>
+                </div>
+                <div className="mb-3">
                     <label htmlFor="youtube" className="form-label">YouTube</label>
                     <div className="input-group">
                         <div className="input-group-text">https://youtube.com/</div>
@@ -95,11 +117,7 @@ export default async function Page({
                         <div id="twitchHelp" className="form-text"></div>
                     </div>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="country" className="form-label">Country</label>
-                    <input type="text" className="form-control" name="country" id="country" aria-describedby="countryHelp" defaultValue={`${player.country?.name || ""} ${player.country?.emoji || ""}`} disabled />
-                    <div id="countryHelp" className="form-text"></div>
-                </div>
+
                 <div className="mb-3 text-end">
                     <EditProfileButton playerId={id} />
                 </div>

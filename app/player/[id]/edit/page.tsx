@@ -13,7 +13,7 @@ export default async function Page({
 
     const { id } = (await params);
 
-    const [player, platforms, countries] = await Promise.all([
+    const [player, platforms, countries, positions] = await Promise.all([
         prisma.player.findUnique({
             where: {
                 id: Number(id)
@@ -31,6 +31,11 @@ export default async function Page({
             orderBy: {
                 name: 'asc'
             }
+        }),
+        prisma.position.findMany({
+            orderBy: {
+                order: 'asc'
+            }
         })
     ]);
 
@@ -39,7 +44,7 @@ export default async function Page({
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb p-3 bg-body-tertiary rounded-3">
                     <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-                    <li className="breadcrumb-item"><Link href={`/profile/${session.user.playerId}`}>Profile</Link></li>
+                    <li className="breadcrumb-item"><Link href={`/player/${session.user.playerId}`}>Profile</Link></li>
                     <li className="breadcrumb-item active" aria-current="page">Edit</li>
                 </ol>
             </nav>
@@ -51,6 +56,7 @@ export default async function Page({
                         platforms={platforms}
                         team={player.team}
                         countries={countries}
+                        positions={positions}
                     />
                 }
             </div>

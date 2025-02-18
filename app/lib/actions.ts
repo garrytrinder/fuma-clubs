@@ -6,13 +6,16 @@ import { redirect } from "next/navigation";
 
 export async function updateProfile(formData: FormData) {
     const rawFormData = {
+        teamId: formData.get('teamId'),
         playerId: formData.get('playerId'),
         discordId: formData.get('discordId'),
         platformId: formData.get('platformId'),
         gamertag: formData.get('gamertag'),
         eaId: formData.get('eaId'),
+        kitName: formData.get('kitName'),
+        primaryPositionId: formData.get('primaryPositionId'),
+        secondaryPositionId: formData.get('secondaryPositionId'),
         country: formData.get('countryId'),
-        teamId: formData.get('teamId'),
         youtube: formData.get('youtube'),
         twitch: formData.get('twitch')
     };
@@ -26,6 +29,9 @@ export async function updateProfile(formData: FormData) {
             gamertag: rawFormData.gamertag as string || null,
             eaId: rawFormData.eaId as string || null,
             countryId: parseInt(rawFormData.country as string) || null,
+            kitName: rawFormData.kitName as string || null,
+            primaryPositionId: parseInt(rawFormData.primaryPositionId as string) || null,
+            secondaryPositionId: parseInt(rawFormData.secondaryPositionId as string) || null,
             youtube: rawFormData.youtube as string || null,
             twitch: rawFormData.twitch as string || null,
             updatedAt: new Date()

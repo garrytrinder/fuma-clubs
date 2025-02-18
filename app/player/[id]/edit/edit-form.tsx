@@ -1,7 +1,7 @@
 "use client";
 
 import { updateProfile } from "@/app/lib/actions"
-import { Country, Platform, Player, Team } from "@prisma/client";
+import { Country, Platform, Player, Position, Team } from "@prisma/client";
 
 import Form from 'next/form';
 import Image from "next/image";
@@ -15,8 +15,8 @@ const gamertagCheck = (gamertag: string | null) => {
 }
 
 export default function EditProfileForm(
-    { image, platforms, player, team, countries }:
-        { image: string, platforms: Platform[], player: Player, team: Team | null, countries: Country[] }) {
+    { image, platforms, player, team, countries, positions }:
+        { image: string, platforms: Platform[], player: Player, team: Team | null, countries: Country[], positions: Position[] }) {
 
     const [gamertag, setGamertag] = useState(player.gamertag);
     const isGamertagValid = gamertagCheck(gamertag);
@@ -84,6 +84,47 @@ export default function EditProfileForm(
                 <div id="eaIdHelp" className="form-text"></div>
             </div>
             <div className="mb-3">
+                <label htmlFor="kitName" className="form-label">Kit name</label>
+                <input type="text" className="form-control" name="kitName" id="kitName" aria-describedby="kitNameHelp" defaultValue={player.kitName || ""} />
+                <div id="kitNameHelp" className="form-text">This is the name you choose to display on the back of your kit, and it is the name that also shows when reporting stats. Make sure this is updated, so we know who to attribute stats to.</div>
+            </div>
+            <div className="mb-3">
+                <label htmlFor="primaryPosition" className="form-label">Primary position</label>
+                <select className="form-select" name="primaryPositionId" id="primaryPositionId" aria-describedby="primaryPositionHelp" defaultValue={player.primaryPositionId || ""}>
+                    <option></option>
+                    {
+                        positions.map((position) => {
+                            return <option key={position.id} value={position.id}>{`${position.shortName} (${position.name})`}</option>
+                        })
+                    }
+                </select>
+                <div id="primaryPositionHelp" className="form-text"></div>
+            </div>
+            <div className="mb-3">
+                <label htmlFor="secondaryPosition" className="form-label">Secondary position</label>
+                <select className="form-select" name="secondaryPositionId" id="secondaryPositionId" aria-describedby="secondaryPositionHelp" defaultValue={player.secondaryPositionId || ""}>
+                    <option></option>
+                    {
+                        positions.map((position) => {
+                            return <option key={position.id} value={position.id}>{`${position.shortName} (${position.name})`}</option>
+                        })
+                    }
+                </select>
+                <div id="secondaryPositionHelp" className="form-text"></div>
+            </div>
+            <div className="mb-3">
+                <label htmlFor="country" className="form-label">Country</label>
+                <select className="form-select" name="countryId" id="countryId" aria-describedby="countryHelp" defaultValue={player.countryId || ""}>
+                    <option></option>
+                    {
+                        countries.map((country) => {
+                            return <option key={country.id} value={country.id}>{country.name} {country.emoji}</option>
+                        })
+                    }
+                </select>
+                <div id="countryHelp" className="form-text"></div>
+            </div>
+            <div className="mb-3">
                 <label htmlFor="youtube" className="form-label">YouTube</label>
                 <div className="input-group">
                     <div className="input-group-text">https://youtube.com/</div>
@@ -98,18 +139,6 @@ export default function EditProfileForm(
                     <input type="text" className="form-control" name="twitch" id="twitch" aria-describedby="twitchHelp" defaultValue={player.twitch || ""} />
                     <div id="twitchHelp" className="form-text"></div>
                 </div>
-            </div>
-            <div className="mb-3">
-                <label htmlFor="country" className="form-label">Country</label>
-                <select className="form-select" name="countryId" id="countryId" aria-describedby="countryHelp" defaultValue={player.countryId || ""}>
-                    <option></option>
-                    {
-                        countries.map((country) => {
-                            return <option key={country.id} value={country.id}>{country.name} {country.emoji}</option>
-                        })
-                    }
-                </select>
-                <div id="countryHelp" className="form-text"></div>
             </div>
             <div className="mb-3 text-end">
                 <button type="button" className="btn btn-secondary" onClick={handleCancel} disabled={loading}>

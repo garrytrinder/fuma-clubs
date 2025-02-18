@@ -45,6 +45,22 @@ a.dropdown-toggle:focus {
   margin: 0 0.5rem;
 }
 
+.bg-goalkeeper {
+  background-color: rgb(209, 57, 19);
+}
+
+.bg-defender {
+  background-color: rgb(230, 119, 0)
+}
+
+.bg-midfielder {
+  background-color: rgb(92, 148, 13)
+}
+
+.bg-forward {
+  background-color: rgb(28, 126, 214)
+}
+
 // Import Bootstrap and Bootstrap Icons
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
 @import "/node_modules/bootstrap-icons/font/bootstrap-icons.scss";

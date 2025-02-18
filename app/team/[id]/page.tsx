@@ -1,4 +1,5 @@
 import { prisma } from "@/app/lib/prisma";
+import { PositionCategory } from "@prisma/client";
 import Link from "next/link";
 
 export default async function Page({
@@ -17,16 +18,18 @@ export default async function Page({
                 include: {
                     country: true,
                     platform: true,
-                    teamCaptain: true
+                    teamCaptain: true,
+                    primaryPosition: true,
+                    secondaryPosition: true
                 },
                 orderBy: [
                     {
-                        gamertag: 'asc'
+                        primaryPosition: {
+                            order: 'asc'
+                        }
                     },
                     {
-                        teamCaptain: {
-                            isClubCaptain: 'asc',
-                        }
+                        gamertag: 'asc'
                     }
                 ]
             }
@@ -52,23 +55,57 @@ export default async function Page({
                 {team.players
                     .map((player, index) => {
                         return (
-                            <li className="list-group-item d-flex justify-content-between align-items-center" key={`player-${index}`}>
-                                {player.gamertag}
-                                <span className="w-30 d-flex justify-content-around gap-1">
-                                    {player.teamCaptain && player.teamCaptain.isClubCaptain === true && <span className={`fs-5 badge text-bg-primary`} title="Captain">C</span>}
-                                    {player.teamCaptain && player.teamCaptain.isClubCaptain === false && <span className={`fs-5 badge text-bg-secondary`} title="Co-Captain">C</span>}
-                                    {player.platform
-                                        ? <span className="fs-5 badge text-bg-secondary"><i className={`bi bi-${player.platform.iconClass}`} title={player.platform.name}></i></span>
-                                        : <span className="fs-5 badge text-bg-secondary"></span>}
-
+                            <li className="list-group-item" key={`player-${index}`}>
+                                <div className="d-flex w-100 py-1 justify-content-between">
+                                    <span className="d-flex gap-1">
+                                        <h5 className="mb-1">{player.kitName ? player.kitName : player.gamertag}</h5>
+                                        {player.teamCaptain && player.teamCaptain.isClubCaptain === true &&
+                                            <span className={`fs-6 badge text-bg-primary`} title="Captain">C</span>
+                                        }
+                                        {player.teamCaptain && player.teamCaptain.isClubCaptain === false &&
+                                            <span className={`fs-6 badge text-bg-secondary`} title="Co-Captain">C</span>
+                                        }
+                                    </span>
                                     {player.country
-                                        ? <span className="fs-5 badge text-bg-secondary" title={player.country?.name}>{player.country.emoji}</span>
-                                        : <span className="fs-5 badge text-bg-secondary" title="World">🌐</span>}
-                                </span>
+                                        ? <span className="fs-6 badge text-bg-secondary" title={player.country?.name}>{player.country.emoji}</span>
+                                        : <span className="fs-6 badge text-bg-secondary" title="World">🌐</span>}
+                                </div>
+                                <div className="d-flex w-100 justify-content-between">
+                                    <h6 className="mb-1">{player.gamertag}</h6>
+                                    {player.platform
+                                        ? <span className="fs-6 badge text-bg-secondary"><i className={`bi bi-${player.platform.iconClass}`} title={player.platform.name}></i></span>
+                                        : <span className="fs-6 badge text-bg-secondary"></span>}
+                                </div>
+                                <div className="d-flex w-100 justify-content-between">
+                                    <span className="d-flex gap-1">
+                                        {player.primaryPosition &&
+                                            <span className={`fs-6 badge ${getColourForPositionCategory(player.primaryPosition.category)}`} title={player.primaryPosition.name}>{player.primaryPosition.shortName}</span>
+                                        }
+                                        {player.secondaryPosition &&
+                                            <span className={`fs-6 badge ${getColourForPositionCategory(player.secondaryPosition.category)}`} title={player.secondaryPosition.name}>{player.secondaryPosition.shortName}</span>
+                                        }
+                                    </span>
+                                </div>
                             </li>
                         );
                     })}
-            </ul >
+            </ul>
         </>
     );
+}
+
+function getColourForPositionCategory(positionCategory: PositionCategory | null) {
+    switch (positionCategory) {
+        case "Goalkeeper":
+            return "bg-goalkeeper";
+        case "Defender":
+            return "bg-defender";
+        case "Midfielder":
+            return "bg-midfielder";
+        case "Forward":
+            return "bg-forward";
+        default:
+            return "bg-primary";
+    }
+
 }
