@@ -2,6 +2,8 @@ import { prisma } from "@/app/lib/prisma";
 import { PositionCategory } from "@prisma/client";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page({
     params,
 }: {
@@ -107,5 +109,4 @@ function getColourForPositionCategory(positionCategory: PositionCategory | null)
         default:
             return "bg-primary";
     }
-
 }
