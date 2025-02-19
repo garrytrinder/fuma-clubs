@@ -73,7 +73,7 @@ export default function EditProfileForm(
                 <div id="platformIdHelp" className="form-text"></div>
             </div>
             <div className="mb-3">
-                <label htmlFor="gamertag" className="form-label">Gamertag</label>
+                <label htmlFor="gamertag" className="form-label">Gamertag (required)</label>
                 <input type="text" className={`form-control ${isGamertagValid ? "is-valid" : "is-invalid"}`} name="gamertag" id="gamertag" aria-describedby="gamertagHelp" defaultValue={player.gamertag || ""} required={true} onChange={(e) => setGamertag(e.target.value)} />
                 <div id="gamertagHelp" className="form-text"></div>
                 {isGamertagValid ? <div className="valid-feedback">
@@ -88,7 +88,7 @@ export default function EditProfileForm(
                 <div id="eaIdHelp" className="form-text"></div>
             </div>
             <div className="mb-3">
-                <label htmlFor="kitName" className="form-label">Kit name</label>
+                <label htmlFor="kitName" className="form-label">Kit name (required)</label>
                 <input type="text" className={`form-control ${isKitNameValid ? "is-valid" : "is-invalid"}`} name="kitName" id="kitName" aria-describedby="kitNameHelp" defaultValue={player.kitName || ""} required={true} onChange={(e) => setKitName(e.target.value)} />
                 <div id="kitNameHelp" className="form-text">This is the name you choose to display on the back of your kit, and it is the name that also shows when reporting stats. Make sure this is updated, so we know who to attribute stats to.</div>
                 {isKitNameValid ? <div className="valid-feedback">
@@ -98,7 +98,7 @@ export default function EditProfileForm(
                 </div>}
             </div>
             <div className="mb-3">
-                <label htmlFor="primaryPosition" className="form-label">Primary position</label>
+                <label htmlFor="primaryPosition" className="form-label">Primary position (required)</label>
                 <select className={`form-select ${isPrimaryPositionValid ? "is-valid" : "is-invalid"}`} name="primaryPositionId" id="primaryPositionId" aria-describedby="primaryPositionHelp" defaultValue={player.primaryPositionId || ""} required={true} onChange={(e) => setPrimaryPosition(e.target.value)}>
                     <option value=""></option>
                     {
