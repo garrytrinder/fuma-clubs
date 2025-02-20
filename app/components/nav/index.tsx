@@ -58,7 +58,7 @@ export const Nav = () => {
               <Image src={session.user?.image} alt="mdo" width="32" height="32" className="rounded-circle" />
             </a>
             <ul className="dropdown-menu text-small shadow">
-              <li><Link href={`/player/${session.user.playerId}`} className="dropdown-item">My profile</Link></li>
+              <li><Link href="/profile" className="dropdown-item">My profile</Link></li>
               {session.user.teamId &&
                 <li><Link href={`/team/${session.user.teamId}`} className="dropdown-item">My team</Link></li>
               }
