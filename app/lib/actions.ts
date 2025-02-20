@@ -1,7 +1,9 @@
 "use server"
 
+import { redirect } from "next/navigation";
 import { prisma } from "./prisma";
 import { z } from 'zod';
+import { revalidatePath } from "next/cache";
 
 export type State = {
     errors?: {
@@ -68,19 +70,68 @@ export async function updatePlayer(
         };
     }
 
-    const { data } = validatedFields;
-
-    await prisma.player.update({
-        where: {
-            id: id
-        },
-        data: {
-            ...data,
-            updatedAt: new Date()
+    try {
+        await prisma.player.update({
+            where: {
+                id: id
+            },
+            data: {
+                ...validatedFields.data,
+                updatedAt: new Date()
+            }
+        });
+    } catch (error) {
+        return {
+            message: 'There was an error updating the player'
         }
-    });
+    }
 
     return {
         message: "Success"
     }
+}
+
+export async function updateClubPlayer(
+    id: number,
+    prevState: State,
+    formData: FormData
+) {
+    const validatedFields = UpdatePlayer.safeParse({
+        kitName: formData.get("kitName"),
+        gamertag: formData.get("gamertag"),
+        primaryPositionId: formData.get("primaryPositionId"),
+        secondaryPositionId: formData.get("secondaryPositionId"),
+        platformId: formData.get("platformId"),
+        countryId: formData.get("countryId"),
+        eaId: formData.get("eaId"),
+        youtube: formData.get("youtube"),
+        twitch: formData.get("twitch")
+    });
+
+    if (!validatedFields.success) {
+        return {
+            errors: validatedFields.error.flatten().fieldErrors,
+            message: 'Error',
+            payload: formData
+        };
+    }
+
+    try {
+        await prisma.player.update({
+            where: {
+                id: id
+            },
+            data: {
+                ...validatedFields.data,
+                updatedAt: new Date()
+            }
+        });
+    } catch (error) {
+        return {
+            message: 'There was an error updating the player'
+        }
+    }
+
+    revalidatePath('/club');
+    redirect('/club');
 }

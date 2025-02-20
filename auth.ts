@@ -10,6 +10,7 @@ declare module "next-auth" {
             playerId: number,
             teamId?: number,
             isCaptain: boolean,
+            isCaptainOf?: number
         } & DefaultSession["user"]
     }
 }
@@ -97,6 +98,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             });
 
             session.user.isCaptain = isCaptain ? true : false;
+            session.user.isCaptainOf = isCaptain?.teamId;
 
             return session;
         },

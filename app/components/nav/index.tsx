@@ -62,6 +62,9 @@ export const Nav = () => {
               {session.user.teamId &&
                 <li><Link href={`/team/${session.user.teamId}`} className="dropdown-item">My team</Link></li>
               }
+              {session.user.isCaptain &&
+                <li><Link href="/club" className="dropdown-item">My club</Link></li>
+              }
               <li><hr className="dropdown-divider" /></li>
               <li><button className="dropdown-item" onClick={() => signOut({ redirectTo: "/" })}>Sign out</button></li>
             </ul>
