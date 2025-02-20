@@ -60,7 +60,10 @@ export const Nav = () => {
             <ul className="dropdown-menu text-small shadow">
               <li><Link href="/profile" className="dropdown-item">My profile</Link></li>
               {session.user.teamId &&
-                <li><Link href={`/team/${session.user.teamId}`} className="dropdown-item">My team</Link></li>
+                <>
+                  <li><Link href={`/team/${session.user.teamId}`} className="dropdown-item">My team</Link></li>
+                  <li><Link href={`/fixtures`} className="dropdown-item">My fixtures</Link></li>
+                </>
               }
               {session.user.isCaptain &&
                 <li><Link href="/club" className="dropdown-item">My club</Link></li>
