@@ -95,6 +95,7 @@ export const Nav = () => {
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/season-three/scores-fixtures' ? 'active' : ''}`} href="/season-three/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
             </li>
+            <hr />
             {/* <li className="nav-item">
               <Link className={`nav-link ${pathname === '/season-two/table' ? 'active' : ''}`} href="/season-two/table" onClick={() => { setShow(false) }}>Table</Link>
             </li>
