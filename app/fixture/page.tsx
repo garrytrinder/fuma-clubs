@@ -40,7 +40,7 @@ export default async function Page() {
             id: fixture.id,
             deadline: fixture.round?.end,
             opponent: fixture.homeTeamId === session.user.teamId ? fixture.awayTeam.name : fixture.homeTeam.name,
-            venue: fixture.homeTeamId === session.user.teamId ? 'Away' : 'Home'
+            venue: fixture.homeTeamId === session.user.teamId ? 'Home' : 'Away'
         } as FixtureRow;
     });
 
