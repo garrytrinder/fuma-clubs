@@ -1,6 +1,7 @@
 import { prisma } from "@/app/lib/prisma";
 import { PositionCategory } from "@prisma/client";
 import Link from "next/link";
+import Image from 'next/image';
 
 export const dynamic = 'force-dynamic';
 
@@ -51,7 +52,15 @@ export default async function Page({
                     <li className="breadcrumb-item active" aria-current="page">{team.name}</li>
                 </ol>
             </nav>
-            <h1 className="text-primary">{team.name}</h1>
+            <div className="p-3 bg-body-tertiary rounded-3 mb-3">
+                <div className="d-flex gap-4">
+                    <Image src={team.badgeUrl ? team.badgeUrl : '/badge.svg'} alt={team.name} width={100} height={100} />
+                    <div className="d-flex flex-column gap-2 flex-grow-1">
+                        <h1 className="text-primary">{team.name}</h1>
+                        <h2 className="text-secondary">{team.shortName}</h2>
+                    </div>
+                </div>
+            </div>
             <h2 className="text-secondary">Squad</h2>
             <ul className="list-group">
                 {team.players

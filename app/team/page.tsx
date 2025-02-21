@@ -6,23 +6,31 @@ export const dynamic = 'force-dynamic';
 
 export default async function Page() {
 
-    const teams = await prisma.team.findMany({
+    const data = await prisma.team.findMany({
+        where: {
+            active: true
+        },
         include: {
             captains: {
                 include: {
                     player: true
                 }
             },
-            players: true
+            players: true,
         },
         orderBy: [
-            {
-                active: 'desc'
-            },
             {
                 name: 'asc'
             }
         ]
+    });
+
+    const teams = data.map(team => {
+        return {
+            id: team.id,
+            image: team.badgeUrl,
+            name: team.name
+        } as Team;
     });
 
     return (
@@ -34,40 +42,33 @@ export default async function Page() {
                 </ol>
             </nav>
             <h1 className="text-primary">Teams</h1>
-            <div className="list-group">
-                {teams.map((team, index) => {
-                    const playerCount = team.players.length;
-                    const captain = team.captains.find(captain => captain.isClubCaptain === true && captain.teamId === team.id);
-
-                    return (
-                        <Link key={`team-${team.id}`} href={`team/${team.id}`} className={`list-group-item list-group-item-action ${!team.active ? 'disabled' : ''}`}>
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">{team.name}</h5>
-                                <Image src={team.badgeUrl ? team.badgeUrl : '/badge.svg'} alt={team.name} width={35} height={35} />
-                            </div>
-                            <div className="d-flex gap-1">
-                                {team.active
-                                    ? <span className="badge rounded-pill bg-success">Active</span>
-                                    : <span className="badge rounded-pill bg-danger">Inactive</span>
-                                }
-                                {team.recruiting
-                                    ? <span className="badge rounded-pill bg-info">Recruiting</span>
-                                    : null
-                                }
-                            </div>
-                            <div className="d-flex gap-1">
-                                <small className="text-body-secondary">{playerCount} players</small>
-                            </div>
-                            {captain
-                                ? <div className="d-flex gap-1">
-                                    <small className="text-body-secondary">Club captain: {captain.player.gamertag}</small>
-                                </div>
-                                : null
-                            }
-                        </Link>
-                    )
-                })}
-            </div>
+            <TeamList teams={teams} />
         </>
     );
 }
+
+interface Team {
+    id: number;
+    image: string;
+    name: string;
+}
+
+const TeamList = ({ teams }: { teams: Team[] }) =>
+    <div className="list-group">
+        {teams.map((team, index) => {
+            return (
+                <Team key={`team-${team.id}`} id={team.id} name={team.name} image={team.image} />
+            )
+        })}
+    </div>
+
+const Team = ({ id, name, image, }: { id: number, name: string, image: string }) =>
+    <Link href={`team/${id}`} className="list-group-item list-group-item-action">
+        <div className="d-flex align-items-center gap-4">
+            <div className="">
+                <Image src={image ? image : '/badge.svg'} alt={name} width={50} height={50} /></div>
+            <div className="fs-5">
+                {name}
+            </div>
+        </div>
+    </Link>

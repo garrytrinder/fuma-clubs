@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { prisma } from "../lib/prisma";
 import { FixtureTable } from "./table";
-import { FixtureRow } from "./table";
+import { Fixture } from "./table";
 
 export default async function Page() {
     const session = await auth();
@@ -40,8 +40,9 @@ export default async function Page() {
             id: fixture.id,
             deadline: fixture.round?.end,
             opponent: fixture.homeTeamId === session.user.teamId ? fixture.awayTeam.name : fixture.homeTeam.name,
-            venue: fixture.homeTeamId === session.user.teamId ? 'Home' : 'Away'
-        } as FixtureRow;
+            venue: fixture.homeTeamId === session.user.teamId ? 'Home' : 'Away',
+            image: fixture.homeTeamId === session.user.teamId ? fixture.awayTeam.badgeUrl : fixture.homeTeam.badgeUrl
+        } as Fixture;
     });
 
     return (

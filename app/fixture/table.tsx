@@ -1,13 +1,16 @@
 "use client";
 
-export interface FixtureRow {
+import Image from 'next/image';
+
+export interface Fixture {
     id: number;
+    image: string;
     deadline: Date;
     opponent: string;
     venue: string;
 }
 
-export const FixtureTable = ({ isCaptain, fixtures }: { isCaptain: boolean, fixtures: FixtureRow[] }) => {
+export const FixtureTable = ({ isCaptain, fixtures }: { isCaptain: boolean, fixtures: Fixture[] }) => {
     return (
         <div className="table-responsive">
             <table className="table">
@@ -30,8 +33,11 @@ export const FixtureTable = ({ isCaptain, fixtures }: { isCaptain: boolean, fixt
                                 </td>
                             } */}
                             <td>{fixture.deadline.toLocaleDateString()}</td>
-                            <td>
-                                {fixture.opponent}
+                            <td className="d-flex align-items-center gap-2 flex-row">
+                                <Image src={fixture.image ? fixture.image : '/badge.svg'} alt={fixture.opponent} width={30} height={30} />
+                                <div className="flex-grow-1">
+                                    {fixture.opponent}
+                                </div>
                             </td>
                             <td>
                                 {fixture.venue}

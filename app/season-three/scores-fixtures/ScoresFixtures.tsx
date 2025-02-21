@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 interface Tournament {
     id: number;
@@ -25,6 +26,7 @@ interface Fixture {
 interface Team {
     id: number;
     name: string;
+    badgeUrl: string;
 }
 
 interface Result {
@@ -159,11 +161,12 @@ const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
                         <ul className="list-group list-group-flush" key={round.id}>
                             {round.fixtures.map((fixture, index) =>
                                 <li className="list-group-item" key={index} id={`fixture-${fixture.id}`}>
-                                    <div className="row py-2 align-items-center">
-                                        <div className="col p-0 text-end">
+                                    <div className="d-flex flex-row gap-2 align-items-center py-2">
+                                        <div className="flex-grow-1 text-end w-25">
                                             {fixture.homeTeam.name}
                                         </div>
-                                        <div className="col-2 p-0 text-center fs-5 fw-bold">
+                                        <Image src={fixture.homeTeam.badgeUrl ? fixture.homeTeam.badgeUrl : '/badge.svg'} alt={fixture.homeTeam.name} width={30} height={30} />
+                                        <div className="fs-5 fw-bold">
                                             {fixture.result ? <div>
                                                 <div className="d-inline">
                                                     {fixture.result.homeTeamScore}
@@ -176,7 +179,8 @@ const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
                                             </div> : 'vs'
                                             }
                                         </div>
-                                        <div className="col p-0 text-start">
+                                        <Image src={fixture.awayTeam.badgeUrl ? fixture.awayTeam.badgeUrl : '/badge.svg'} alt={fixture.awayTeam.name} width={30} height={30} />
+                                        <div className="flex-grow-1 w-25">
                                             {fixture.awayTeam.name}
                                         </div>
                                     </div>
