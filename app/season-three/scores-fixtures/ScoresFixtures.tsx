@@ -26,7 +26,7 @@ interface Fixture {
 interface Team {
     id: number;
     name: string;
-    badgeUrl: string;
+    badgeUrl: string | null;
 }
 
 interface Result {
