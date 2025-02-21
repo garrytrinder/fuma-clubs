@@ -91,6 +91,16 @@ export const Nav = () => {
               <NavLink key={link.href} href={link.href} label={link.label} onClick={() => { setShow(false) }} />
             ))}
             <hr />
+            <h5 className="offcanvas-title">Season Three</h5>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname === '/season-three/scores-fixtures' ? 'active' : ''}`} href="/season-three/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
+            </li>
+            {/* <li className="nav-item">
+              <Link className={`nav-link ${pathname === '/season-two/table' ? 'active' : ''}`} href="/season-two/table" onClick={() => { setShow(false) }}>Table</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname === '/season-two/players-stats' ? 'active' : ''}`} href="/season-two/player-stats" onClick={() => { setShow(false) }}>Player stats</Link>
+            </li> */}
             <h5 className="offcanvas-title">Season Two</h5>
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/season-two/scores-fixtures' ? 'active' : ''}`} href="/season-two/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
