@@ -62,7 +62,7 @@ export const Nav = () => {
               {session.user.teamId &&
                 <>
                   <li><Link href={`/team/${session.user.teamId}`} className="dropdown-item">My team</Link></li>
-                  <li><Link href={`/fixtures`} className="dropdown-item">My fixtures</Link></li>
+                  <li><Link href={`/fixture`} className="dropdown-item">My fixtures</Link></li>
                 </>
               }
               {session.user.isCaptain &&
