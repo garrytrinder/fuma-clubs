@@ -133,5 +133,6 @@ export async function updateClubPlayer(
     }
 
     revalidatePath('/club');
+    revalidatePath('team/[id]');
     redirect('/club');
 }
