@@ -3,86 +3,124 @@ import Link from "next/link";
 export default function Page() {
   return <>
     <h1 className="text-primary">League Rules</h1>
-    <h2 className="text-secondary">EQUITY RULES</h2>
-    <ul>
-      <li><b className="text-primary">All players must record the game and display, before the kick-off, their manual settings and the statistics of their pro</b> (<Link href="/controller-settings">Controller Settings</Link>)</li>
-      <li>Lobbed through ball (LB + Y / L1 + Triangle) is prohibited. See <Link href="https://answers.ea.com/t5/Bug-Reports/Master-Switch-overwriting-Manual-Lob-Through-Passes-to-Assisted/m-p/14072149#M1073">Master Switch overwriting Manual Lob Through Passes to Assisted</Link>.</li>
-      <li>At least <b className="text-primary">one player per team</b> must stream and sharing the game to promote our community to others.</li>
-      <li>In case of doubt (based on the stream), the captains <b className="text-primary">can request</b> the recording of a player. If recording is not provided in 7 days, the player and his team will be sanctioned.</li>
-    </ul>
-    <h2 className="text-secondary">LEAGUE FORMAT</h2>
-    <ul>
-      <li><b className="text-primary">1 matchday / week</b> =&gt; 2 games against the same team (Home/Away).</li>
-      <li><b className="text-primary">The captains</b> agree on the day and time of the matches.</li>
-      <li><b className="text-primary">Minimum 10 players</b> required to play the league.</li>
-      <li>W = 3pts; D = 1pts ; L = 0pts / No extra-time</li>
-      <li>In case of equality of points, the leaderboard shall follow this order:</li>
+    <h2 className="text-secondary">1. SQUAD COMPOSITION</h2>
+    <ol>
+      <li>Each team may register a maximum of 15 outfield players plus 1 designated permanent goalkeeper. Where a team has a squad of 16 players, the designated keeper must be confirmed to administration before the season starts. </li>
+      <li>If a team has 15 players or less, the team can register a goalkeeper at any point in the season. However, this player can no longer play outfield until specified times. Failure to comply will result in 3-0 loss in all matches this player was used in an outfield position. </li>
+      <li>The permanent goalkeeper designation can only be changed at the midpoint of the season (during transfer window).</li>
+      <li>Any request to change the designated goalkeeper outside this period will only be considered in exceptional circumstances, subject to captains’ majority vote.</li>
+    </ol>
+    <h2 className="text-secondary">2. LEAGUE RULES (FUMA SETTINGS / BUILD YOUR PRO)</h2>
+    <h3>2.1 Recording Footage</h3>
+    <ol>
+      <li>The in-game captain of each team must stream or record and upload the match, ensuring that the height and weight of every player on the team are displayed at some point during the match (half-time is recommended). The recording must also include the Match Stats and Performances menu of both teams after the end of each game.</li>
+      <li>If a captain fails to show height and weight in the stream, they have 24 hours to provide this footage.</li>
+      <li>If the heights and weights were not respected, the opposition can request a rematch but with a deadline of the end of the match week. If the required information is not provided within 24 hours, the opposition captain may request a rematch.</li>
+      <li>If a team fails this requirement three times in one season, the team will receive a 3-0 forfeit loss for each failure from this point in the season.</li>
+    </ol>
+    <h3>2.2. Sharing Team Line Ups:</h3>
+    <ol>
+      <li>Captains must exchange starting line-ups at least 30 minutes before kick-off.</li>
+      <li>If a player becomes unavailable within this time, they may be replaced, but the opposing captain must be informed before kick-off.</li>
+    </ol>
+    <h3>2.3. Ensuring FUMA Settings:</h3>
+    <ol>
+      <li>Captains may nominate up to 3 players from the opposing team to verify their manual settings.</li>
+      <li>Nominated players must record their game and display their controller settings in the main menu before kick-off and continue recording for the entire match.</li>
+      <li>If requested by the opposing captain within 24 hours of the scheduled kick-off, the nominated player must upload the full match recording (including settings display) within 48 hours.</li>
+      <li>Failure to comply will allow the opposition team to request a rematch.</li>
+      <li>If a team fails this check three times in a season, the team forfeits the match (3-0 loss), and the player may receive a ban.</li>
+    </ol>
+    <h3>2.4 - Lobbed Through Pass</h3>
+    <ol>
+      <li>Lobbed Through Pass behaves as Semi-Assisted (Not Manual) and should never be used. However, we understand that mistakes can happen. If a team should use a Lobbed Through Pass 3 times or more in one match (one leg), the opposition may request a rematch.</li>
+    </ol>
+    <h2 className="text-secondary">3. LEAGUE FORMAT</h2>
+    <ol>
+      <li>Matchday Frequency: One matchday per week.</li>
+      <li>Each matchday consists of two games (legs), the home team invites the away team to both legs, aggregate score applies.</li>
+      <li>No extra time.</li>
+      <li>Points System: Win = 3 pts, Draw = 1 pt, Loss = 0 pts.</li>
+      <li>Tiebreakers (if teams finish on equal points): 1st - Goal difference, 2nd - Goals scored, 3rd - Head-to-head results.</li>
+      <li>Number of Players Required: A minimum of 10 players are required to play a league match.</li>
+      <li>If a team has fewer than 10 players, they must use a Joker or forfeit the match (3-0 loss).</li>
+      <li>If both teams have fewer than 10 players, the match will be rescheduled at the committee's discretion.</li>
+    </ol>
 
-      <ul>
-        <li>Goal difference</li>
-        <li>Number of goals scored</li>
-        <li>Direct head-to-head</li>
-      </ul>
+    <h3>3.2 Joker Rule (Postponements):</h3>
+    <ol>
+      <li>Each team is allowed two Jokers per season to postpone a scheduled match.</li>
+      <li>The postponed match must be played within 7 days.</li>
+      <li>Teams cannot play their next scheduled opponent until the postponed match is completed, unless it is approved by the committee and all involved parties.</li>
+      <li>The Joker should be used only for squad availability issues, not to delay for a stronger lineup.</li>
+    </ol>
 
-      <li><b className="text-primary">1 joker per team/season</b> =&gt; Joker allows a match to be postponed. This must be played the following week in addition to the match scheduled on the calendar.</li>
-      <li><b className="text-primary">The match must be streamed by both teams.</b></li>
-      <li>After the matchday, both team captains must report results, ratings, goals, assists, clean sheet, MOTM & red cards.</li>
-      <li><b className="text-primary">RED CARD = 1 BAN MATCH</b></li>
-      <li>One break week in the middle of the season.</li>
-    </ul>
-    <h2 className="text-secondary">PLAYER CREATION</h2>
+    <h3>3.3. Red Card Sanctions:</h3>
+    <ol>
+      <li>A red card results in a temporary in-match suspension (sin bin) but does not cause the player to miss the next match.</li>
+      <li>If there is evidence of consistent abuse of this rule, it will be subject to review at the midpoint of the season, with potential amendments based on captains’ majority decision.</li>
+    </ol>
+
+    <h2 className="text-secondary">4. PLAYER CREATION</h2>
+    <h3>V5 system rules</h3>
     <ul>
-      <li>All outfield players must use GK position.</li>
-      <li>No restrictions on skill points or PlayStyles for outfield players.</li>
-      <li>Real goalkeepers are 80 rated with no additional skill points or PlayStyles.</li>
-      <li>Max height: 6ft 2/ 189cm</li>
-      <li>Max weight: 88kg / 194lbs</li>
-      <li>Min height: 5ft 5 / 167cm</li>
-      <li>Min weight: 69kg / 159lbs</li>
-      <li>Men and women allowed.</li>
-      <li>Accessories allowed.</li>
+      <li>Goalkeepers: 80 rated, no additional upgrades</li>
+      <li>Maximum height: 6ft 2 (189cm)</li>
+      <li>Maximum weight: 95kg (209lbs)</li>
+      <li>Minimum weight: 69kg (159lbs)</li>
+      <li>No playstyles are banned.</li>
+      <li>Men and women players are allowed.</li>
+      <li>Accessories are allowed</li>
     </ul>
-    <h2 className="text-secondary">LEADERBOARD / PLAYER STATS</h2>
-    <p>DATA to enter by captains for each match:</p>
+
+    <h2 className="text-secondary">5. LEADERBOARD / PLAYER STATS</h2>
+
+    <h3>5.1 Match Reporting (Captains' Responsibility):</h3>
+    <p>After each match, both captains must submit:</p>
     <ul>
-      <li>Rating</li>
+      <li>Match score</li>
+      <li>Player ratings</li>
       <li>Goals</li>
       <li>Assists</li>
-      <li>MOTM</li>
-      <li>Clean sheet (GK only)</li>
-      <li>Red cards system (<b className="text-primary">1 red card = 1 match ban</b>)</li>
+      <li>Clean sheets (goalkeepers only)</li>
+      <li>Man of the Match</li>
+      <li>Red cards</li>
     </ul>
-    <p>In addition to the team ranking, we will find a personalized ranking for each of these elements (with the exception of the ranking for red cards).</p>
-    <h2 className="text-secondary">FREE PLAYERS CONTRIBUTION</h2>
+
+    <h3>5.2. Personalized Leaderboards:</h3>
+
     <ul>
-      <li>Free players can join a team in order to play in the league at any time but must be transferred before.</li>
-      <li>Once transferred, a player cannot play for another team until the transfer window.</li>
+      <li>Stats will be tracked for goals, assists, MOTM, and clean sheets.</li>
+      <li>Red card suspensions will not be included in the ranking.</li>
+      <li>Failure to report match statistics within 48 hours will result in a deduction of 1 league point.</li>
     </ul>
-    <h2 className="text-secondary">TRANSFER WINDOW</h2>
+
+    <h2 className="text-secondary">6. FREE AGENTS CONTRIBUTION</h2>
+
+    <ol>
+      <li>Free players (players without a club) can join a team at any time but must be transferred before playing.</li>
+      <li> Once transferred, a player cannot play for another team until the transfer window opens.</li>
+    </ol>
+
+    <h2 className="text-secondary">7. TRANSFERS</h2>
+    <ol>
+      <li>The transfer period is open between seasons and at the midpoint of each season.</li>
+      <li>Each team can register a maximum of 15 players (+1 permanent GK).</li>
+      <li>Free agents may join a club at any time, but signed players must wait for the transfer window.</li>
+      <li>No player can play for more than two teams per season (with the exception of their club forfeiting the league).</li>
+      <li>All transfers must be reported by captains in the transfer channel.</li>
+      <li>If a club withdraws from the league, its players immediately become free agents.</li>
+      <li>Teams may sign free agents at any time, provided they do not exceed the 15-player limit.</li>
+      <li>If a player leaves a club but does not sign elsewhere, they may rejoin their former club at any point in the season, as long as the 15-player limit is maintained.</li>
+
+    </ol>
+
+    <h2 className="text-secondary">8. MAIN ISSUES AND CONSEQUENCES</h2>
+
     <ul>
-      <li>The transfer period is open between each season.</li>
-      <li>Each club can register max. 17 players</li>
-      <li>&quot;Free-players&quot; (players without a club) are free to join a club at anytime, but Team Players will have to wait until transfer period to move in other team.</li>
-      <li><b className="text-primary">No player can play for two teams during the same season.</b></li>
-      <li>All transfers and status change have to be reported by captains in <Link href="https://discord.com/channels/882539898953949204/1064517191661256716">transfer-news</Link> channel on Discord</li>
+      <li>Disconnection: If a player disconnects, the match continues unless both captains agree to restart. If an entire team disconnects without opponent consent, they will forfeit (3-0 loss).</li>
+      <li>Team Withdrawal: If a team withdraws mid-season, all their results are deleted.</li>
     </ul>
-    <h2 className="text-secondary">MAIN ISSUES AND CONSEQUENCES</h2>
-    <p><b className="text-primary">Each situation is unique but you will find here the generic consequences (the most serious) in the case where an admin has to make a decision. No admin will intervene if the captains manage to find an arrangement between themselves:</b></p>
-    <h3>1) Disconnection</h3>
-    <p>If a player is disconnected during an official game (voluntarily or not), the game shall continue playing to its end except if 2 captains are agree to restart and only if the disconnection takes place during the first half and there is no goal.</p>
-    <p>If all the team disconnects without the opponents captain&apos;s consent, the match will end in defeat for the team who disconnected (3-0).</p>
-    <h3>2) Cheat / Rules infringement</h3>
-    <ul>
-      <li>If your avatar doesn&apo;t respect the restrictions mentioned above = Team defeat (3 - 0)</li>
-      <li>At the request of an opponent&apos;s captain (<b className="text-primary">EXCEPTIONAL CASE</b>):
-        <ol>
-          <li>The video is sent but no commands are displayed = Team defeat (3 - 0)</li>
-          <li>The video is not sent = Team defeat (3 - 0)  + 1 matchday ban for the player.</li>
-          <li>The video is sent and displays auto commands = Team defeat (3 - 0) + Ban of the player for the current season.</li>
-        </ol>
-      </li>
-    </ul>
-    <h3>3) Team retirement</h3>
-    <p>If an entire team drops out during the season, all results of this team are deleted (even the matches already played)</p>
+
   </>;
 }
