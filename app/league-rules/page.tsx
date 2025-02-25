@@ -1,8 +1,6 @@
-import Link from "next/link";
-
 export default function Page() {
   return <>
-    <h1 className="text-primary">League Rules</h1>
+    <h1 className="text-primary">SEASON 3 RULES</h1>
     <h2 className="text-secondary">1. SQUAD COMPOSITION</h2>
     <ol>
       <li>Each team may register a maximum of 15 outfield players plus 1 designated permanent goalkeeper. Where a team has a squad of 16 players, the designated keeper must be confirmed to administration before the season starts. </li>
@@ -44,7 +42,7 @@ export default function Page() {
       <li>Tiebreakers (if teams finish on equal points): 1st - Goal difference, 2nd - Goals scored, 3rd - Head-to-head results.</li>
       <li>Number of Players Required: A minimum of 10 players are required to play a league match.</li>
       <li>If a team has fewer than 10 players, they must use a Joker or forfeit the match (3-0 loss).</li>
-      <li>If both teams have fewer than 10 players, the match will be rescheduled at the committee's discretion.</li>
+      <li>If both teams have fewer than 10 players, the match will be rescheduled at the committee&apos;s discretion.</li>
     </ol>
 
     <h3>3.2 Joker Rule (Postponements):</h3>
@@ -75,7 +73,7 @@ export default function Page() {
 
     <h2 className="text-secondary">5. LEADERBOARD / PLAYER STATS</h2>
 
-    <h3>5.1 Match Reporting (Captains' Responsibility):</h3>
+    <h3>5.1 Match Reporting (Captains&apos; Responsibility):</h3>
     <p>After each match, both captains must submit:</p>
     <ul>
       <li>Match score</li>
