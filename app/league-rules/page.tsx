@@ -62,12 +62,12 @@ export default function Page() {
     <h2 className="text-secondary">4. PLAYER CREATION</h2>
     <h3>V5 system rules</h3>
     <ul>
-      <li>Goalkeepers: 80 rated, no additional upgrades</li>
+      <li>Goalkeeper profile only. No outfield positions allowed.</li>
       <li>Maximum height: 6ft 2 (189cm)</li>
       <li>Maximum weight: 95kg (209lbs)</li>
       <li>Minimum weight: 69kg (159lbs)</li>
-      <li>No playstyles are banned.</li>
-      <li>Men and women players are allowed.</li>
+      <li>No playstyles are banned</li>
+      <li>Men and women players are allowed</li>
       <li>Accessories are allowed</li>
     </ul>
 
