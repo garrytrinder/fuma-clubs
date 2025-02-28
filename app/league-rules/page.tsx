@@ -120,5 +120,12 @@ export default function Page() {
       <li>Team Withdrawal: If a team withdraws mid-season, all their results are deleted.</li>
     </ul>
 
-  </>;
+    <p>
+      These rules are subject to change at the discretion of the committee. 
+      Any changes will be communicated to all team captains.
+    </p>
+    <p>
+      Last updated: 25th February 2025
+    </p>
+  </>;  
 }
