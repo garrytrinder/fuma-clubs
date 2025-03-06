@@ -182,22 +182,22 @@ model ResultMatchStat {
   id               Int      @id @default(autoincrement())
   resultId         Int
   teamId           Int
-  posession        Int
-  ballRecoveryTime Int
-  shots            Int
-  expectedGoals    Float
-  passes           Int
-  tackles          Int
-  tacklesWon       Int
-  interceptions    Int
-  saves            Int
-  foulsCommitted   Int
-  offsides         Int
-  corners          Int
-  freeKicks        Int
-  dribbleSuccess   Int
-  shotAccuracy     Int
-  passAccuracy     Int
+  possession       Int?
+  ballRecoveryTime Int?
+  shots            Int?
+  expectedGoals    Float?
+  passes           Int?
+  tackles          Int?
+  tacklesWon       Int?
+  interceptions    Int?
+  saves            Int?
+  foulsCommitted   Int?
+  offsides         Int?
+  corners          Int?
+  freeKicks        Int?
+  dribbleSuccess   Int?
+  shotAccuracy     Int?
+  passAccuracy     Int?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
   result           Result   @relation(fields: [resultId], references: [id])
