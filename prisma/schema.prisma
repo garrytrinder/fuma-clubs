@@ -160,6 +160,12 @@ model Result {
   awayTeamScore           Int
   homeTeamHalfTimeScore   Int?
   awayTeamHalfTimeScore   Int?
+  homeTeamFormation       Formation?                @relation("HomeTeamFormation", fields: [homeTeamFormationId], references: [id])
+  awayTeamFormation       Formation?                @relation("AwayTeamFormation", fields: [awayTeamFormationId], references: [id])
+  homeTeamFormationId     Int?
+  awayTeamFormationId     Int?
+  homeTeamRating          Float?
+  awayTeamRating          Float?
   afterExtraTime          Boolean                   @default(false)
   penalties               Boolean                   @default(false)
   homeTeamPenalties       Int?
@@ -285,9 +291,11 @@ enum PositionCategory {
 }
 
 model Formation {
-  id        Int        @id @default(autoincrement())
-  name      String
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  positions Position[]
+  id                 Int        @id @default(autoincrement())
+  name               String
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  positions          Position[]
+  homeTeamFormations Result[]   @relation("HomeTeamFormation")
+  awayTeamFormations Result[]   @relation("AwayTeamFormation")
 }
