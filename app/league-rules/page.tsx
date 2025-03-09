@@ -110,7 +110,8 @@ export default function Page() {
       <li>If a club withdraws from the league, its players immediately become free agents.</li>
       <li>Teams may sign free agents at any time, provided they do not exceed the 15-player limit.</li>
       <li>If a player leaves a club but does not sign elsewhere, they may rejoin their former club at any point in the season, as long as the 15-player limit is maintained.</li>
-
+      <li>Up to 2 players per season can be transfered outside of designated transfer windows per team, these transfers will only be granted with the approval of both captains.</li>
+      <li>All teams must have a squad size of at least 12 players at all times. You cannot transfer out existing players until you have recruited more than 12.</li>
     </ol>
 
     <h2 className="text-secondary">8. MAIN ISSUES AND CONSEQUENCES</h2>
@@ -121,11 +122,11 @@ export default function Page() {
     </ul>
 
     <p>
-      These rules are subject to change at the discretion of the committee. 
+      These rules are subject to change at the discretion of the committee.
       Any changes will be communicated to all team captains.
     </p>
     <p>
-      Last updated: 25th February 2025
+      Last updated: 9th March 2025
     </p>
-  </>;  
+  </>;
 }
