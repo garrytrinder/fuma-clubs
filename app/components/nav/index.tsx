@@ -95,16 +95,16 @@ export const Nav = () => {
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/season-three/scores-fixtures' ? 'active' : ''}`} href="/season-three/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
             </li>
-            <hr />
-            {/* <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/season-two/table' ? 'active' : ''}`} href="/season-two/table" onClick={() => { setShow(false) }}>Table</Link>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname === '/season-three/table' ? 'active' : ''}`} href="/season-three/table" onClick={() => { setShow(false) }}>Table</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/season-two/players-stats' ? 'active' : ''}`} href="/season-two/player-stats" onClick={() => { setShow(false) }}>Player stats</Link>
-            </li> */}
+              <Link className={`nav-link ${pathname === '/season-three/players-stats' ? 'active' : ''}`} href="/season-three/player-stats" onClick={() => { setShow(false) }}>Player stats</Link>
+            </li>
+            <hr />
             <h5 className="offcanvas-title">Season Two</h5>
             <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/season-two/scores-fixtures' ? 'active' : ''}`} href="/season-two/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
+              <Link className={`nav-link ${pathname === '/season-two/scores-fixtures' ? 'active' : ''}`} href="/season-three/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/season-two/table' ? 'active' : ''}`} href="/season-two/table" onClick={() => { setShow(false) }}>Table</Link>

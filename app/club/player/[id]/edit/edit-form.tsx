@@ -1,12 +1,10 @@
 "use client";
 
-import { updatePlayer, State, updateClubPlayer } from "@/app/lib/actions"
-import { Country, Platform, Player, Position, Team } from "@prisma/client";
+import { State, updateClubPlayer } from "@/app/lib/actions"
+import { Country, Platform, Player, Position } from "@prisma/client";
 import Form from 'next/form';
 import { startTransition, useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function EditProfileForm(
     {
@@ -217,7 +215,7 @@ export default function EditProfileForm(
     )
 }
 
-const SubmitButton = () => {
+export const SubmitButton = () => {
     const { pending } = useFormStatus();
 
     return (
