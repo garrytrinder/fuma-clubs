@@ -1,8 +1,6 @@
 import { prisma } from "@/app/lib/prisma";
 import ScoresFixtures from "./ScoresFixtures";
 
-export const dynamic = 'force-dynamic';
-
 export default async function Page() {
     const tournament = await prisma.tournament.findFirst({
         where: {

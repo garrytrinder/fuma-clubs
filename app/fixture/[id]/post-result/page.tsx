@@ -1,6 +1,6 @@
 import { prisma } from "@/app/lib/prisma";
 import { auth } from "@/auth";
-import { ResultEditForm } from "./edit-form";
+import { ResultCreateForm } from "./edit-form";
 
 export default async function Page({
     params,
@@ -40,21 +40,31 @@ export default async function Page({
         }
     });
 
+    const positions = await prisma.position.findMany({
+        orderBy: {
+            order: 'asc'
+        }
+    });
+
+    const formations = await prisma.formation.findMany();
+
     if (!fixture) {
         return <div>Fixture not found</div>;
     }
 
-    if (session.user.teamId !== fixture.homeTeamId && session.user.teamId !== fixture.awayTeamId) {
-        return <div>Access denied</div>;
+    if (session.user.playerId !== 213) {
+        return <div>Not authorised</div>
     }
 
     return (
         <>
-            <ResultEditForm
-                resultId={id}
+            <ResultCreateForm
+                fixtureId={Number(id)}
                 homeTeam={fixture.homeTeam}
                 awayTeam={fixture.awayTeam}
                 players={[...fixture.homeTeam.players, ...fixture.awayTeam.players]}
+                positions={positions}
+                formations={formations}
             />
         </>
     )
