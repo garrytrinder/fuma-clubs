@@ -104,7 +104,7 @@ export const Nav = () => {
             <hr />
             <h5 className="offcanvas-title">Season Two</h5>
             <li className="nav-item">
-              <Link className={`nav-link ${pathname === '/season-two/scores-fixtures' ? 'active' : ''}`} href="/season-three/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
+              <Link className={`nav-link ${pathname === '/season-two/scores-fixtures' ? 'active' : ''}`} href="/season-two/scores-fixtures" onClick={() => { setShow(false) }}>Scores &amp; Fixtures</Link>
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${pathname === '/season-two/table' ? 'active' : ''}`} href="/season-two/table" onClick={() => { setShow(false) }}>Table</Link>
