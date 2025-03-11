@@ -339,7 +339,9 @@ export async function createResult(
         }
     }
 
-    revalidatePath('/');
+    revalidatePath('/season-three/scores-fixtures');
+    revalidatePath('/season-three/player-stats');
+    revalidatePath('/season-three/table');
 
     return {
         message: 'Success!'
