@@ -19,7 +19,7 @@ export const TournamentTable = ({ tableData }: { tableData: TableData[] }) => {
         <table className="table table-sm">
             <thead>
                 <tr>
-                    <th className="text-secondary">#</th>
+                    <th className="text-secondary text-center">#</th>
                     <th className="text-secondary">Team</th>
                     <th className="text-secondary text-center">PL</th>
                     <th className="text-secondary text-center">W</th>
