@@ -32,6 +32,9 @@ export const ResultCreateForm = (
         }
     });
 
+    const [homeHalfTimeGoals, setHomeHalfTimeGoals] = useState(0);
+    const [awayHalfTimeGoals, setAwayHalfTimeGoals] = useState(0);
+
     const [playerPerformances, setPlayerPerformances] = useState<PlayerPerformance[]>([]);
     const [playerPerformanceForm, setPlayerPerformanceForm] = useState({
         playerId: 0,
@@ -66,20 +69,6 @@ export const ResultCreateForm = (
     const totalHomeOwnGoals = playerPerformances.filter(playerPerformance => playerPerformance.teamId === homeTeam.id).reduce((acc, playerPerformance) => acc + playerPerformance.ownGoals, 0);
     const totalAwayGoals = playerPerformances.filter(playerPerformance => playerPerformance.teamId === awayTeam.id).reduce((acc, playerPerformance) => acc + playerPerformance.goals, 0);
     const totalAwayOwnGoals = playerPerformances.filter(playerPerformance => playerPerformance.teamId === awayTeam.id).reduce((acc, playerPerformance) => acc + playerPerformance.ownGoals, 0);
-
-    const halfTimeHomeGoals = playerPerformances
-        .filter(playerPerformance => playerPerformance.teamId === homeTeam.id)
-        .reduce((acc, playerPerformance) => acc + playerPerformance.goals, 0)
-        + playerPerformances
-            .filter(playerPerformance => playerPerformance.teamId === awayTeam.id)
-            .reduce((acc, playerPerformance) => acc + playerPerformance.ownGoals, 0);
-
-    const halfTimeAwayGoals = playerPerformances
-        .filter(playerPerformance => playerPerformance.teamId === awayTeam.id)
-        .reduce((acc, playerPerformance) => acc + playerPerformance.goals, 0)
-        + playerPerformances
-            .filter(playerPerformance => playerPerformance.teamId === homeTeam.id)
-            .reduce((acc, playerPerformance) => acc + playerPerformance.ownGoals, 0);
 
     const homeScore = totalHomeGoals + totalAwayOwnGoals;
     const awayScore = totalAwayGoals + totalHomeOwnGoals;
@@ -243,8 +232,8 @@ export const ResultCreateForm = (
         formData.append("awayScore", String(awayScore));
         formData.append("homeTeamRating", String(homeTeamRating));
         formData.append("awayTeamRating", String(awayTeamRating));
-        formData.append("halfTimeHomeGoals", String(halfTimeHomeGoals));
-        formData.append("halfTimeAwayGoals", String(halfTimeAwayGoals));
+        formData.append("halfTimeHomeGoals", String(homeHalfTimeGoals));
+        formData.append("halfTimeAwayGoals", String(awayHalfTimeGoals));
         formData.append("homeShots", String(totalHomeShots));
         formData.append("awayShots", String(totalAwayShots));
         formData.append("homePossession", String(totalHomePossession));
@@ -295,9 +284,9 @@ export const ResultCreateForm = (
             </div>
             <div className="d-flex flex-row fs-3 justify-content-between">
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" readOnly value={halfTimeHomeGoals} />
+                    <input type="text" className="form-control" value={homeHalfTimeGoals} onChange={(e) => setHomeHalfTimeGoals(parseInt(e.target.value) || 0)} />
                     <span className="input-group-text">Half time</span>
-                    <input type="text" className="form-control" readOnly value={halfTimeAwayGoals} />
+                    <input type="text" className="form-control" value={awayHalfTimeGoals} onChange={(e) => setAwayHalfTimeGoals(parseInt(e.target.value) || 0)} />
                 </div>
             </div>
             <div className="d-flex flex-row fs-3 justify-content-between">
