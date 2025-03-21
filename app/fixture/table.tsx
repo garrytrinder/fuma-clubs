@@ -16,9 +16,6 @@ export const FixtureTable = ({ isCaptain, fixtures }: { isCaptain: boolean, fixt
             <table className="table">
                 <thead>
                     <tr>
-                        {/* {isCaptain &&
-                            <th scope="col"></th>
-                        } */}
                         <th scope="col">Deadline</th>
                         <th scope="col">Opponent</th>
                         <th scope="col">Venue</th>
@@ -27,11 +24,6 @@ export const FixtureTable = ({ isCaptain, fixtures }: { isCaptain: boolean, fixt
                 <tbody>
                     {fixtures.map(fixture => (
                         <tr key={fixture.id}>
-                            {/* {isCaptain &&
-                                <td>
-                                    <Link href={`/fixture/${fixture.id}/result`} className="btn btn-primary">Edit</Link>
-                                </td>
-                            } */}
                             <td>{fixture.deadline.toLocaleDateString()}</td>
                             <td className="d-flex align-items-center gap-2 flex-row">
                                 <Image src={fixture.image ? fixture.image : '/badge.svg'} alt={fixture.opponent} width={30} height={30} />
