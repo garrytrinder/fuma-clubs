@@ -541,7 +541,7 @@ export const ResultCreateForm = (
                                         <td>{playerPerformance.ownGoals}</td>
                                         <td>
                                             <button className="btn btn-primary" onClick={() => {
-                                                setPlayerPerformances(playerPerformances.filter(playerPerformance => playerPerformance.playerId !== playerPerformance.playerId));
+                                                setPlayerPerformances(playerPerformances.filter(p => p.playerId !== playerPerformance.playerId));
                                             }}>
                                                 <i className="bi bi-trash"></i>
                                             </button>
@@ -577,7 +577,7 @@ export const ResultCreateForm = (
                                         <td>{playerPerformance.ownGoals}</td>
                                         <td>
                                             <button className="btn btn-primary" onClick={() => {
-                                                setPlayerPerformances(playerPerformances.filter(playerPerformance => playerPerformance.playerId !== playerPerformance.playerId));
+                                                setPlayerPerformances(playerPerformances.filter(p => p.playerId !== playerPerformance.playerId));
                                             }}>
                                                 <i className="bi bi-trash"></i>
                                             </button>
