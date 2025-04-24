@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { prisma } from "./prisma";
 import { z } from 'zod';
 import { revalidatePath } from "next/cache";
-import { PlayerPerformance, ResultCreateForm } from "../fixture/[id]/post-result/edit-form";
+import { PlayerPerformance } from "../fixture/[id]/post-result/edit-form";
 import { Result, ResultEvent, ResultPlayerPerformance } from "@prisma/client";
 
 export type State = {
