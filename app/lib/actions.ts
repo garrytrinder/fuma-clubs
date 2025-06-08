@@ -1,11 +1,11 @@
 "use server"
 
-import { redirect } from "next/navigation";
-import { prisma } from "./prisma";
-import { z } from 'zod';
-import { revalidatePath } from "next/cache";
-import { PlayerPerformance } from "../fixture/[id]/post-result/edit-form";
 import { Result, ResultEvent, ResultPlayerPerformance } from "@prisma/client";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { z } from 'zod';
+import { PlayerPerformance } from "../(main)/fixture/[id]/post-result/edit-form";
+import { prisma } from "./prisma";
 
 export type State = {
     errors?: {

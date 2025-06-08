@@ -1,7 +1,6 @@
 import { auth } from "@/auth";
-import { prisma } from "../lib/prisma";
-import { FixtureTable } from "./table";
-import { Fixture } from "./table";
+import { prisma } from "../../lib/prisma";
+import { Fixture, FixtureTable } from "./table";
 
 export default async function Page() {
     const session = await auth();

@@ -1,3 +1,7 @@
+generator nextAdmin {
+  provider = "next-admin-generator-prisma"
+}
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -297,4 +301,9 @@ enum PositionCategory {
   Defender
   Midfielder
   Forward
+}
+
+model Admin {
+  id        Int    @id @default(autoincrement())
+  discordId String @unique
 }

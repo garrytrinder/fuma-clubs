@@ -1,6 +1,6 @@
 "use client";
 
-import { SubmitButton } from "@/app/club/player/[id]/edit/edit-form";
+import { SubmitButton } from "@/app/(main)/club/player/[id]/edit/edit-form";
 import { createResult } from "@/app/lib/actions";
 import { Formation, Player, Position, Team } from "@prisma/client";
 import Form from "next/form";

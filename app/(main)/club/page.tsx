@@ -1,7 +1,7 @@
 import { auth } from '@/auth';
 import Image from 'next/image';
-import { prisma } from '../lib/prisma';
 import Link from 'next/link';
+import { prisma } from '../../lib/prisma';
 
 export default async function Page() {
     const session = await auth();

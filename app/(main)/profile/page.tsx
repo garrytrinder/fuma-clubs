@@ -1,8 +1,8 @@
 import { auth } from "@/auth";
-import { prisma } from "../lib/prisma";
-import Form from "./edit-form";
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { prisma } from "../../lib/prisma";
+import Form from "./edit-form";
 
 export default async function Page() {
     const session = await auth();

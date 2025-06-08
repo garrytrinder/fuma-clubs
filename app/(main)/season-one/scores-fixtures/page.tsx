@@ -1,5 +1,5 @@
 import { GoogleSpreadsheetRow } from "google-spreadsheet";
-import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../lib/google-sheets";
+import { GoogleSheets, GoogleSpreadsheets, getGoogleSpreadsheet } from "../../../lib/google-sheets";
 
 export const dynamic = 'force-dynamic';
 
