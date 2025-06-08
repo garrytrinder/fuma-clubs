@@ -18,12 +18,13 @@ declare module "next-auth" {
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
     providers: [Discord({
-        authorization: "https://discord.com/api/oauth2/authorize?scope=identify+openid+email+guilds+guilds.members.read",
+        authorization: "https://discord.com/api/oauth2/authorize?scope=identify+openid+guilds+guilds.members.read",
         issuer: "https://discord.com",
     })],
     callbacks: {
         signIn: async ({ user, account, profile }) => {
-          //scrub user data from discord as we don't need it
+          // scrub PII from discord user as we don't need it
+          // email is not returned by discord, but we need to set it to avoid errors
           user.name = "";
           user.email = "";
 
