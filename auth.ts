@@ -23,6 +23,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     })],
     callbacks: {
         signIn: async ({ user, account, profile }) => {
+      user.name = "";
+      user.email = "";
+
             const [discordUser, guilds]: [User, Guild[]] = await Promise.all([
                 fetch("https://discord.com/api/users/@me", {
                     headers: {
