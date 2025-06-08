@@ -10,7 +10,7 @@ datasource db {
 model User {
   id            String    @id @default(cuid())
   name          String?
-  email         String    @unique
+  email         String?
   emailVerified DateTime?
   image         String?
   createdAt     DateTime  @default(now())
@@ -59,56 +59,56 @@ model Team {
   id                      Int                       @id @default(autoincrement())
   name                    String
   shortName               String
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
   active                  Boolean                   @default(true)
   recruiting              Boolean                   @default(false)
   discordRoleId           String                    @default("")
   badgeUrl                String?
   description             String?
-  createdAt               DateTime                  @default(now())
-  updatedAt               DateTime                  @updatedAt
   awayTeamFixtures        Fixture[]                 @relation("awayTeam")
   homeTeamFixtures        Fixture[]                 @relation("homeTeam")
   players                 Player[]
-  captains                TeamCaptain[]
   ResultEvent             ResultEvent[]
   ResultMatchStat         ResultMatchStat[]
   ResultPlayerPerformance ResultPlayerPerformance[]
+  captains                TeamCaptain[]
 }
 
 model Player {
   id                      Int                       @id @default(autoincrement())
   discordId               String                    @unique
-  discordUsername         String                    @unique @default("")
   gamertag                String?                   @unique
   eaId                    String?
-  pictureUrl              String?
-  kitName                 String?
   youtube                 String?
   twitch                  String?
-  country                 Country?                  @relation(fields: [countryId], references: [id])
-  countryId               Int?
-  platform                Platform?                 @relation(fields: [platformId], references: [id])
-  platformId              Int?
-  team                    Team?                     @relation(fields: [teamId], references: [id])
-  teamId                  Int?
-  primaryPosition         Position?                 @relation("primaryPosition", fields: [primaryPositionId], references: [id])
-  primaryPositionId       Int?
-  secondaryPosition       Position?                 @relation("secondaryPosition", fields: [secondaryPositionId], references: [id])
-  secondaryPositionId     Int?
   createdAt               DateTime                  @default(now())
   updatedAt               DateTime                  @updatedAt
-  teamCaptain             TeamCaptain?
+  teamId                  Int?
+  countryId               Int?
+  discordUsername         String                    @unique @default("")
+  platformId              Int?
+  pictureUrl              String?
+  primaryPositionId       Int?
+  secondaryPositionId     Int?
+  kitName                 String?
+  country                 Country?                  @relation(fields: [countryId], references: [id])
+  platform                Platform?                 @relation(fields: [platformId], references: [id])
+  primaryPosition         Position?                 @relation("primaryPosition", fields: [primaryPositionId], references: [id])
+  secondaryPosition       Position?                 @relation("secondaryPosition", fields: [secondaryPositionId], references: [id])
+  team                    Team?                     @relation(fields: [teamId], references: [id])
   ResultEvent             ResultEvent[]
   ResultPlayerPerformance ResultPlayerPerformance[]
+  teamCaptain             TeamCaptain?
 }
 
 model Platform {
   id           Int      @id @default(autoincrement())
   name         String
-  discordEmoji String?
-  iconClass    String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+  discordEmoji String?
+  iconClass    String?
   Player       Player[]
 }
 
@@ -158,27 +158,27 @@ model Result {
   id                      Int                       @id @default(autoincrement())
   homeTeamScore           Int
   awayTeamScore           Int
-  homeTeamHalfTimeScore   Int?
-  awayTeamHalfTimeScore   Int?
-  homeTeamFormation       Formation?                @relation("HomeTeamFormation", fields: [homeTeamFormationId], references: [id])
-  awayTeamFormation       Formation?                @relation("AwayTeamFormation", fields: [awayTeamFormationId], references: [id])
-  homeTeamFormationId     Int?
-  awayTeamFormationId     Int?
-  homeTeamRating          Float?
-  awayTeamRating          Float?
   afterExtraTime          Boolean                   @default(false)
   penalties               Boolean                   @default(false)
   homeTeamPenalties       Int?
   awayTeamPenalties       Int?
-  recordingHomeGame1      String?
-  recordingHomeGame2      String?
-  recordingAwayGame1      String?
-  recordingAwayGame2      String?
-  youtubeLink             String?
-  twitchLink              String?
   createdAt               DateTime                  @default(now())
   updatedAt               DateTime                  @updatedAt
+  youtubeLink             String?
+  twitchLink              String?
+  awayTeamHalfTimeScore   Int?
+  homeTeamHalfTimeScore   Int?
+  recordingAwayGame1      String?
+  recordingAwayGame2      String?
+  recordingHomeGame1      String?
+  recordingHomeGame2      String?
+  awayTeamFormationId     Int?
+  awayTeamRating          Float?
+  homeTeamFormationId     Int?
+  homeTeamRating          Float?
   Fixture                 Fixture?
+  awayTeamFormation       Formation?                @relation("AwayTeamFormation", fields: [awayTeamFormationId], references: [id])
+  homeTeamFormation       Formation?                @relation("HomeTeamFormation", fields: [homeTeamFormationId], references: [id])
   ResultEvent             ResultEvent[]
   ResultMatchStat         ResultMatchStat[]
   ResultPlayerPerformance ResultPlayerPerformance[]
@@ -188,7 +188,6 @@ model ResultMatchStat {
   id               Int      @id @default(autoincrement())
   resultId         Int
   teamId           Int
-  possession       Int?
   ballRecoveryTime Int?
   shots            Int?
   expectedGoals    Float?
@@ -206,6 +205,7 @@ model ResultMatchStat {
   passAccuracy     Int?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
+  possession       Int?
   result           Result   @relation(fields: [resultId], references: [id])
   team             Team     @relation(fields: [teamId], references: [id])
 }
@@ -238,56 +238,48 @@ model EventType {
 model ResultPlayerPerformance {
   id            Int       @id @default(autoincrement())
   playerId      Int
-  player        Player    @relation(fields: [playerId], references: [id])
   teamId        Int
-  team          Team      @relation(fields: [teamId], references: [id])
   resultId      Int
-  result        Result    @relation(fields: [resultId], references: [id])
-  positionId    Int?
-  position      Position? @relation(fields: [positionId], references: [id])
   rating        Float?
   goals         Int?
   assists       Int?
-  ownGoals      Int?
-  cleanSheet    Boolean   @default(false)
   manOfTheMatch Boolean   @default(false)
   yellowCard    Boolean   @default(false)
   redCard       Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  cleanSheet    Boolean   @default(false)
+  ownGoals      Int?
+  positionId    Int?
+  player        Player    @relation(fields: [playerId], references: [id])
+  position      Position? @relation(fields: [positionId], references: [id])
+  result        Result    @relation(fields: [resultId], references: [id])
+  team          Team      @relation(fields: [teamId], references: [id])
 }
 
 model TeamCaptain {
-  id            Int     @id @default(autoincrement())
+  id            Int      @id @default(autoincrement())
   teamId        Int
-  playerId      Int     @unique
-  isClubCaptain Boolean @default(false)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  team      Team     @relation(fields: [teamId], references: [id])
-  player    Player   @relation(fields: [playerId], references: [id])
+  playerId      Int      @unique
+  isClubCaptain Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  player        Player   @relation(fields: [playerId], references: [id])
+  team          Team     @relation(fields: [teamId], references: [id])
 }
 
 model Position {
   id                      Int                       @id @default(autoincrement())
   name                    String
   shortName               String
-  order                   Int?
-  category                PositionCategory?
   createdAt               DateTime                  @default(now())
   updatedAt               DateTime                  @updatedAt
-  Formation               Formation[]
+  category                PositionCategory?
+  order                   Int?
   primaryPosition         Player[]                  @relation("primaryPosition")
   secondaryPosition       Player[]                  @relation("secondaryPosition")
   ResultPlayerPerformance ResultPlayerPerformance[]
-}
-
-enum PositionCategory {
-  Goalkeeper
-  Defender
-  Midfielder
-  Forward
+  Formation               Formation[]               @relation("FormationToPosition")
 }
 
 model Formation {
@@ -295,7 +287,14 @@ model Formation {
   name               String
   createdAt          DateTime   @default(now())
   updatedAt          DateTime   @updatedAt
-  positions          Position[]
-  homeTeamFormations Result[]   @relation("HomeTeamFormation")
   awayTeamFormations Result[]   @relation("AwayTeamFormation")
+  homeTeamFormations Result[]   @relation("HomeTeamFormation")
+  positions          Position[] @relation("FormationToPosition")
+}
+
+enum PositionCategory {
+  Goalkeeper
+  Defender
+  Midfielder
+  Forward
 }
