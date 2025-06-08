@@ -1,8 +1,8 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import NextAuth, { DefaultSession } from "next-auth";
-import { prisma } from "./app/lib/prisma";
-import Discord from "next-auth/providers/discord";
 import { Guild, User } from "discord.js";
+import NextAuth, { DefaultSession } from "next-auth";
+import Discord from "next-auth/providers/discord";
+import { prisma } from "./app/lib/prisma";
 
 declare module "next-auth" {
     interface Session {
@@ -23,8 +23,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     })],
     callbacks: {
         signIn: async ({ user, account, profile }) => {
-      user.name = "";
-      user.email = "";
+          //scrub user data from discord as we don't need it
+          user.name = "";
+          user.email = "";
 
             const [discordUser, guilds]: [User, Guild[]] = await Promise.all([
                 fetch("https://discord.com/api/users/@me", {
