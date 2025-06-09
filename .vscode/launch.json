@@ -16,7 +16,7 @@
         "action": "openExternally"
       },
       "env": {
-        "NODE_OPTIONS": "--inspect"
+        "NODE_OPTIONS": "--inspect=127.0.0.1:9229"
       }
     },
     {
@@ -29,7 +29,7 @@
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**"],
       "env": {
-        "NODE_OPTIONS": "--inspect"
+        "NODE_OPTIONS": "--inspect=127.0.0.1:9230"
       }
     },
     {
@@ -44,6 +44,13 @@
         "webpack:///./~/*": "${webRoot}/node_modules/*",
         "webpack://?:*/*": "${webRoot}/*"
       }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Next.js: debug full stack",
+      "configurations": ["Next.js: debug server-side", "Next.js: debug client-side"],
+      "stopAll": true
     }
   ]
 }
