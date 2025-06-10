@@ -21,9 +21,12 @@ export default async function Page({
     redirect("/");
   }
 
+  const { nextadmin } = await params;
+  const sp = await searchParams;
+
   const nextAdminProps = await getNextAdminProps({
-    params: (await params).nextadmin,
-    searchParams: await searchParams,
+    params: nextadmin,
+    searchParams: sp,
     basePath: "/admin",
     apiBasePath: "/api/admin",
     prisma,
