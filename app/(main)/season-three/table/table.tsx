@@ -2,19 +2,22 @@
 
 import Image from 'next/image';
 
-interface TableData {
-    name: string;
-    badgeUrl: string | null;
-    played: number;
-    wins: number;
-    draws: number;
-    losses: number;
-    goalsFor: number;
-    goalsAgainst: number;
-    points: number;
-};
+export interface TableRow {
+  id: number;
+  badgeurl: string;
+  team: string;
+  matches_played: number;
+  wins: number;
+  draws: number;
+  losses: number;
+  total_points: number;
+  goals_scored: number;
+  goals_conceded: number;
+  goal_difference: number;
+  form: string;
+}
 
-export const TournamentTable = ({ tableData }: { tableData: TableData[] }) => {
+export const TournamentTable = ({ tableData }: { tableData: TableRow[] }) => {
     return (
         <table className="table table-sm">
             <thead>
@@ -31,23 +34,23 @@ export const TournamentTable = ({ tableData }: { tableData: TableData[] }) => {
                 </tr>
             </thead>
             <tbody>
-                {tableData.map((team, index) => {
+                {tableData.map((row, index) => {
                     return (
-                        <tr key={team.name} className={`${index === 0 ? "text-primary" : ""}`}>
+                        <tr key={row.id} className={`${index === 0 ? "text-primary" : ""}`}>
                             <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{index + 1}</td>
                             <td className={index === 0 ? "text-primary" : ""}>
                                 <div className="d-flex flex-row gap-2">
-                                    <div><Image src={team.badgeUrl ? team.badgeUrl : '/badge.svg'} alt={team.name} width={30} height={30} /></div>
-                                    <div>{team.name}</div>
+                                    <div><Image src={row.badgeurl ? row.badgeurl : '/badge.svg'} alt={row.team} width={30} height={30} /></div>
+                                    <div>{row.team}</div>
                                 </div>
                             </td>
-                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.played}</td>
-                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.wins}</td>
-                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.draws}</td>
-                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.losses}</td>
-                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.goalsFor}-{team.goalsAgainst}</td>
-                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.goalsFor - team.goalsAgainst}</td>
-                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{team.points}</td>
+                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{row.matches_played}</td>
+                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{row.wins}</td>
+                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{row.draws}</td>
+                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{row.losses}</td>
+                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{row.goals_scored}-{row.goals_conceded}</td>
+                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{row.goal_difference}</td>
+                            <td className={`text-center ${index === 0 ? "text-primary" : ""}`}>{row.total_points}</td>
                         </tr>
                     );
                 })}
