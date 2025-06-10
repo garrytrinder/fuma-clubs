@@ -1,4 +1,5 @@
 import type { NextAdminOptions } from "@premieroctet/next-admin";
+import Image from "next/image";
 
 const options: NextAdminOptions = {
   title: "FUMA Clubs Admin",
@@ -11,8 +12,48 @@ const options: NextAdminOptions = {
       title: "Players",
       icon: "UsersIcon",
       list: {
-        search: ["discordUsername"],
-        display: ["discordUsername", "gamertag", "kitName", "team"],
+        search: ["discordUsername", "gamertag", "kitName"],
+        display: [
+          "discordUsername",
+          "gamertag",
+          "kitName",
+          "team",
+          "platform",
+          "country",
+          "teamCaptain",
+        ],
+        fields: {
+          team: {
+            formatter: (team) => {
+              return (
+                <div className="flex items-center gap-2">
+                  <Image
+                    src={team.badgeUrl || "/badge.svg"}
+                    alt={team.name}
+                    width={24}
+                    height={24}
+                  />
+                  {team.name}
+                </div>
+              );
+            },
+          },
+          platform: {
+            formatter: (platform) => {
+              return platform.name;
+            },
+          },
+          country: {
+            formatter: (country) => {
+              return country.name;
+            },
+          },
+          teamCaptain: {
+            formatter: (teamCaptain) => {
+              return teamCaptain ? "Yes" : "No";
+            },
+          },
+        },
       },
       edit: {
         display: ["discordUsername", "gamertag", "kitName", "team"],
