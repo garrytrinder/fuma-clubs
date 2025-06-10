@@ -1,9 +1,15 @@
 import type { NextAdminOptions } from "@premieroctet/next-admin";
-import Image from "next/image";
 
 const options: NextAdminOptions = {
   title: "FUMA Clubs Admin",
   model: {
+    Country: {
+      toString: (country) => country.name,
+      title: "Countries",
+    },
+    Platform: {
+      toString: (platform) => platform.name,
+    },
     Player: {
       toString: (player) =>
         `${player.discordUsername} ${
@@ -11,31 +17,30 @@ const options: NextAdminOptions = {
         }`,
       title: "Players",
       icon: "UsersIcon",
+      aliases: {
+        kitName: "Kit name",
+        discordUsername: "Discord username",
+        team: "Team",
+        gamertag: "Gamertag",
+        platform: "Platform",
+        country: "Country",
+        eaId: "EA ID",
+      },
+      permissions: ["create", "delete", "edit"],
       list: {
         search: ["discordUsername", "gamertag", "kitName"],
         display: [
-          "discordUsername",
           "gamertag",
+          "discordUsername",
           "kitName",
           "team",
           "platform",
           "country",
-          "teamCaptain",
         ],
         fields: {
           team: {
             formatter: (team) => {
-              return (
-                <div className="flex items-center gap-2">
-                  <Image
-                    src={team.badgeUrl || "/badge.svg"}
-                    alt={team.name}
-                    width={24}
-                    height={24}
-                  />
-                  {team.name}
-                </div>
-              );
+              return team.name;
             },
           },
           platform: {
@@ -48,28 +53,84 @@ const options: NextAdminOptions = {
               return country.name;
             },
           },
-          teamCaptain: {
-            formatter: (teamCaptain) => {
-              return teamCaptain ? "Yes" : "No";
-            },
-          },
         },
       },
       edit: {
-        display: ["discordUsername", "gamertag", "kitName", "team"],
+        display: [
+          "discordUsername",
+          "gamertag",
+          "kitName",
+          "team",
+          "platform",
+          "country",
+          "eaId",
+          "primaryPosition",
+          "secondaryPosition",
+          "twitch",
+          "youtube",
+        ],
+        fields: {
+          discordUsername: {
+            required: true,
+          },
+          gamertag: {
+            required: true,
+          },
+          twitch: {
+            helperText: "Twitch username (e.g. user)",
+          },
+          youtube: {
+            helperText:
+              "YouTube channel name should be the part after youtube.com. For example, for https://www.youtube.com/@user, the channel name is '@user'.",
+            tooltip:
+              "YouTube channel name should be the part after youtube.com. For example, for https://www.youtube.com/@user, the channel name is '@user'.",
+          },
+        },
       },
+    },
+    Position: {
+      toString: (position) => `${position.name} (${position.shortName})`,
+      title: "Positions",
     },
     Team: {
       toString: (team) => team.name,
       title: "Teams",
       icon: "UserGroupIcon",
+      aliases: {
+        discordRoleId: "Discord Role ID",
+        badgeUrl: "Badge URL",
+      },
       list: {
         search: ["name"],
         display: ["name", "shortName", "active"],
       },
       edit: {
-        display: ["name", "shortName", "captains", "active"],
+        display: [
+          "name",
+          "shortName",
+          "description",
+          "captains",
+          "active",
+          "badgeUrl",
+          "discordRoleId",
+        ],
+        fields: {
+          name: {
+            required: true,
+          },
+          shortName: {
+            required: true,
+          },
+          discordRoleId: {
+            helperText: "Associated role in Discord",
+          },
+        },
       },
+    },
+    TeamCaptain: {
+      toString: (TeamCaptain) =>
+        TeamCaptain.player.gamertag || TeamCaptain.player.discordUsername,
+      title: "Captains",
     },
   },
   forceColorScheme: "light",
