@@ -45,6 +45,11 @@ const FormSchema = z.object({
     twitch: z.string().optional()
 });
 
+export async function clearCache(prevState: any, formData: FormData) {
+    revalidatePath('/');
+    return { message: 'Cache cleared successfully!' };
+}
+
 const UpdatePlayer = FormSchema.omit({ id: true });
 
 export async function updatePlayer(

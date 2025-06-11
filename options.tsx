@@ -336,6 +336,12 @@ const options: NextAdminOptions = {
       title: "Tournaments",
     },
   },
+  pages: {
+    "/cache": {
+      title: "Clear cache",
+      icon: "PresentationChartBarIcon",
+    },
+  },
   externalLinks: [
     {
       label: "FUMA Clubs",
