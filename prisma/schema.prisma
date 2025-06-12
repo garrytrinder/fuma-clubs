@@ -156,6 +156,8 @@ model Fixture {
   result       Result?     @relation(fields: [resultId], references: [id])
   round        Round?      @relation(fields: [roundId], references: [id])
   tournament   Tournament? @relation(fields: [tournamentId], references: [id])
+
+  @@index([tournamentId, resultId], map: "idx_fixture_tournament_result")
 }
 
 model Result {
@@ -259,6 +261,9 @@ model ResultPlayerPerformance {
   position      Position? @relation(fields: [positionId], references: [id])
   result        Result    @relation(fields: [resultId], references: [id])
   team          Team      @relation(fields: [teamId], references: [id])
+
+  @@index([resultId, playerId], map: "idx_performance_player_result")
+  @@index([resultId], map: "idx_performance_result")
 }
 
 model TeamCaptain {
@@ -296,14 +301,20 @@ model Formation {
   positions          Position[] @relation("FormationToPosition")
 }
 
+model Admin {
+  id        Int    @id @default(autoincrement())
+  discordId String @unique
+}
+
+model TournamentTeam {
+  id            Int @id @default(autoincrement())
+  tournament_id Int
+  teamid        Int
+}
+
 enum PositionCategory {
   Goalkeeper
   Defender
   Midfielder
   Forward
-}
-
-model Admin {
-  id        Int    @id @default(autoincrement())
-  discordId String @unique
 }
