@@ -104,6 +104,9 @@ const options: NextAdminOptions = {
     Platform: {
       toString: (platform) => platform.name,
       icon: "ComputerDesktopIcon",
+      list:{
+        display: ["id", "name"],
+      }
     },
     Player: {
       toString: (player) =>
@@ -187,12 +190,87 @@ const options: NextAdminOptions = {
       toString: (position) => `${position.name} (${position.shortName})`,
       title: "Positions",
       icon: "SquaresPlusIcon",
+      list: {
+        display: ["name", "shortName", "order"],
+        fields: {
+          name: {
+            formatter: (name) => name,
+          },
+          shortName: {
+            formatter: (shortName) => shortName,
+          },
+        },
+      },
     },
     ResultPlayerPerformance: {
       toString: (performance) =>
         `${performance.player.gamertag} (${performance.teamId}) - ${performance.rating}`,
       title: "Player Performances",
       icon: "StarIcon",
+      list: {
+        display: [
+          "rating",
+          "goals",
+          "assists",
+          "ownGoals",
+          "cleanSheet",
+          "manOfTheMatch",
+          "player",
+          "position",
+          "result",
+          "team",
+        ],
+        fields: {
+          rating: {
+            formatter: (rating) => rating?.toFixed(1),
+          },
+          player: {
+            formatter: (player) => player.kitName || player.gamertag,
+          },
+          position: {
+            formatter: (position) => position.name,
+          },
+          team: {
+            formatter: (team) => team.name,
+          },
+          result: {
+            formatter: async (result) => {
+              const row = await prisma.result.findUnique({
+                where: { id: result.id },
+                include: {
+                  Fixture: {
+                    include: {
+                      homeTeam: true,
+                      awayTeam: true,
+                      tournament: true,
+                    },
+                  },
+                },
+              });
+
+              return (
+                <>
+                  {row?.Fixture?.homeTeam.name} {result.homeTeamScore}-
+                  {result.awayTeamScore} {row?.Fixture?.awayTeam.name} (
+                  {row?.Fixture?.tournament?.name})
+                </>
+              );
+            },
+          },
+        },
+        filters: [
+          {
+            name: "No fixture",
+            value: {
+              result: {
+                Fixture: {
+                  is: null,
+                },
+              },
+            },
+          },
+        ],
+      },
     },
     ResultEvent: {
       toString: (event) =>
@@ -206,6 +284,18 @@ const options: NextAdminOptions = {
       },
       list: {
         display: ["id", "player", "team", "eventType", "result"],
+        filters: [
+          {
+            name: "No fixture",
+            value: {
+              result: {
+                Fixture: {
+                  is: null,
+                },
+              },
+            },
+          },
+        ],
         fields: {
           result: {
             formatter: async (result) => {
