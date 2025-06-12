@@ -7,7 +7,11 @@ const options: NextAdminOptions = {
   model: {
     Country: {
       toString: (country) => country.name,
+      icon: "GlobeAltIcon",
       title: "Countries",
+      list: {
+        display: ["id", "name", "emoji"],
+      },
     },
     Fixture: {
       toString: (fixture) =>
@@ -49,21 +53,32 @@ const options: NextAdminOptions = {
         },
         filters: [
           {
-            name: "Season Three",
-            active: true,
+            name: "S3: All Matches",
             value: {
-              tournament: {
-                name: "Season Three",
-              },
+              AND: [
+                {
+                  tournament: {
+                    name: "Season Three",
+                  },
+                },
+              ],
             },
           },
           {
-            name: "Season Two",
-            active: false,
+            name: "S3: Unplayed Matches",
             value: {
-              tournament: {
-                name: "Season Two",
-              },
+              AND: [
+                {
+                  tournament: {
+                    name: "Season Three",
+                  },
+                },
+                {
+                  result: {
+                    is: null,
+                  },
+                },
+              ],
             },
           },
         ],
@@ -88,6 +103,7 @@ const options: NextAdminOptions = {
     },
     Platform: {
       toString: (platform) => platform.name,
+      icon: "ComputerDesktopIcon",
     },
     Player: {
       toString: (player) =>
@@ -170,16 +186,19 @@ const options: NextAdminOptions = {
     Position: {
       toString: (position) => `${position.name} (${position.shortName})`,
       title: "Positions",
+      icon: "SquaresPlusIcon",
     },
     ResultPlayerPerformance: {
       toString: (performance) =>
         `${performance.player.gamertag} (${performance.teamId}) - ${performance.rating}`,
       title: "Player Performances",
+      icon: "StarIcon",
     },
     ResultEvent: {
       toString: (event) =>
         `${event.player.gamertag} (${event.team.name}) - ${event.eventType.name}`,
       title: "Events",
+      icon: "NumberedListIcon",
       aliases: {
         id: "ID",
         player: "Player",
@@ -248,19 +267,7 @@ const options: NextAdminOptions = {
         },
         filters: [
           {
-            name: "Season Three",
-            active: true,
-            value: {
-              Fixture: {
-                tournament: {
-                  name: "Season Three",
-                },
-              },
-            },
-          },
-          {
             name: "Season Two",
-            active: false,
             value: {
               Fixture: {
                 tournament: {
@@ -274,6 +281,7 @@ const options: NextAdminOptions = {
     },
     Round: {
       title: "Rounds",
+      icon: "CalendarIcon",
       toString: (round) =>
         `${format(new Date(round.start), "dd-MM-yyyy")} - ${format(
           new Date(round.end),
@@ -334,6 +342,10 @@ const options: NextAdminOptions = {
     Tournament: {
       toString: (tournament) => tournament.name,
       title: "Tournaments",
+      icon: "TrophyIcon",
+      list: {
+        display: ["id", "name"],
+      },
     },
   },
   pages: {
