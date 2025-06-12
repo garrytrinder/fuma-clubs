@@ -101,12 +101,25 @@ const options: NextAdminOptions = {
         },
       },
     },
+    Formation: {
+      toString: (formation) => formation.name,
+      title: "Formations",
+      icon: "SquaresPlusIcon",
+      list: {
+        display: ["id", "name"],
+        fields: {
+          name: {
+            formatter: (name) => name,
+          },
+        },
+      },
+    },
     Platform: {
       toString: (platform) => platform.name,
       icon: "ComputerDesktopIcon",
-      list:{
+      list: {
         display: ["id", "name"],
-      }
+      },
     },
     Player: {
       toString: (player) =>
@@ -357,16 +370,34 @@ const options: NextAdminOptions = {
         },
         filters: [
           {
-            name: "Season Two",
+            name: "Season Three",
             value: {
               Fixture: {
                 tournament: {
-                  name: "Season Two",
+                  id: 3,
                 },
               },
             },
           },
         ],
+      },
+      edit: {
+        display: [
+          "Fixture",
+          "homeTeamHalfTimeScore",
+          "awayTeamHalfTimeScore",
+          "homeTeamScore",
+          "awayTeamScore",
+          "homeTeamFormation",
+          "awayTeamFormation",
+        ],
+        fields: {
+          Fixture: {
+            optionFormatter(item) {
+              return `${item.homeTeam.name} vs ${item.awayTeam.name} (${item.tournament?.name})`;
+            },
+          },
+        },
       },
     },
     Round: {
