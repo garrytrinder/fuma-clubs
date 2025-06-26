@@ -9,7 +9,10 @@ export const PlayerStats = ({ topScorers, topAssists, topPlayers }: { topScorers
     return <>
         <h1 className="text-primary">Season Three</h1>
         <h2 className="text-secondary">Player stats</h2>
-        <div>
+        <div className="alert alert-info mb-4">
+            <p className="mb-0">📊 The stats for Season Three are currently being verified by admins and will be available soon. Please check back later!</p>
+        </div>
+        <div style={{ display: 'none' }}>
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <a
