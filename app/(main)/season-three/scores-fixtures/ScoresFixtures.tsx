@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 
 interface Tournament {
     id: number;
@@ -139,17 +139,12 @@ const PerformanceList: React.FC<{ performances: ResultPlayerPerformance[], teamI
 
 const ScoresFixtures: React.FC<ScoresFixturesProps> = ({ tournament }) => {
 
-    const [showScorers, setShowScorers] = React.useState(false);
+    const showScorers = false;
 
     return (
         <>
             <h1 className="text-primary">{tournament?.name}</h1>
             <h2 className="text-secondary">Scores and fixtures</h2>
-            <div className="text-end">
-                <button className="btn btn-primary" onClick={() => setShowScorers(!showScorers)}>
-                    {showScorers ? 'Hide scorers' : 'Show scorers'}
-                </button>
-            </div>
 
             {tournament?.rounds.map((round, index) => (
                 <div className="py-2" key={round.id}>
