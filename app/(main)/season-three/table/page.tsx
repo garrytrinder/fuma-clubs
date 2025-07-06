@@ -35,7 +35,7 @@ export interface TableRow {
   form: string;
 }
 
-export const TournamentTable = ({ tableData }: { tableData: TableRow[] }) => {
+const TournamentTable = ({ tableData }: { tableData: TableRow[] }) => {
   return (
     <table className="table table-sm">
       <thead>
