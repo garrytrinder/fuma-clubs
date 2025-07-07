@@ -7,7 +7,7 @@ export default async function Page() {
       playername: string;
       teamname: string;
       badgeurl: string;
-      assists: number;
+      goals: number;
     }[];
 
   return (
@@ -38,7 +38,7 @@ export default async function Page() {
                     {player.playername}
                   </div>
                 </td>
-                <td className="text-center">{player.assists}</td>
+                <td className="text-center">{player.goals}</td>
               </tr>
             );
           })}
