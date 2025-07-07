@@ -98,7 +98,7 @@ LIMIT 3;
       <h2 className="text-secondary">Player Stats</h2>
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-4 mb-3">
+          <div className="col-12 col-md-4 mb-3 d-none">
             <Card
               title="Top rated"
               players={topRated.map((player) => {
