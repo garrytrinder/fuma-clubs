@@ -3,114 +3,49 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page() {
-  const topRated = (await prisma.$queryRaw`
-  SELECT 
-    COALESCE(p.gamertag, p."discordUsername") AS "playerName",
-    t.name AS "teamName",
-    t."badgeUrl",
-    ROUND(AVG(rpp.rating)::NUMERIC, 2) AS rating,
-    SUM(CASE WHEN rpp."manOfTheMatch" = true THEN 1 ELSE 0 END) AS man_of_the_match_awards
-FROM 
-    "ResultPlayerPerformance" rpp
-    JOIN "Result" r ON rpp."resultId" = r.id
-    JOIN "Fixture" f ON r.id = f."resultId"
-    JOIN "Player" p ON rpp."playerId" = p.id
-    JOIN "Team" t ON rpp."teamId" = t.id
-WHERE 
-    f."tournamentId" = 3
-    AND rpp.rating IS NOT NULL  -- Only include players with ratings
-GROUP BY 
-    p.id,
-    COALESCE(p.gamertag, p."discordUsername"),
-    t.name,
-    t."badgeUrl"
-HAVING
-    COUNT(rpp.id) >= 3  -- Only include players who played at least 3 matches
-ORDER BY 
-    rating DESC,
-    "playerName" ASC
-LIMIT 3;
-`) as {
-    playerName: string;
-    teamName: string;
-    badgeUrl: string;
-    rating: number;
-  }[];
+  const topRated =
+    (await prisma.$queryRaw`select * from playerstats_top_ratings_get(p_tournament_id:=3, p_min_no_of_matches:=3, p_no_of_to_players:=3)`) as {
+      playername: string;
+      teamname: string;
+      badgeurl: string;
+      rating: number;
+      man_of_the_match_awards: number;
+    }[];
 
-  const assists = (await prisma.$queryRaw`
-SELECT COALESCE(p.gamertag, p."discordUsername") AS "playerName",
-       t.name AS "teamName",
-       SUM(rpp.assists) AS assists,
-       t."badgeUrl"
-FROM "ResultPlayerPerformance" rpp
-JOIN "Result" r ON rpp."resultId" = r.id
-JOIN "Fixture" f ON r.id = f."resultId"
-JOIN "Player" p ON rpp."playerId" = p.id
-JOIN "Team" t ON rpp."teamId" = t.id
-WHERE f."tournamentId" = 3
-    AND rpp.assists > 0
-GROUP BY p.id,
-         COALESCE(p.gamertag, p."discordUsername"),
-         t.name,
-         t."badgeUrl"
-ORDER BY assists DESC,
-         "playerName" ASC
-         LIMIT 3;
-  `) as {
-    playerName: string;
-    teamName: string;
-    assists: number;
-    badgeUrl: string;
-  }[];
+  const goals =
+    (await prisma.$queryRaw`select * from playerstats_top_scorers_get(p_tournament_id:=3, p_no_of_to_players:=3)`) as {
+      playername: string;
+      teamname: string;
+      badgeurl: string;
+      assists: number;
+    }[];
 
-  const goals = (await prisma.$queryRaw`
-  SELECT COALESCE(p.gamertag, p."discordUsername") AS "playerName",
-    SUM(rpp.goals) AS goals,
-       t.name AS "teamName",
-    t."badgeUrl"
-FROM 
-    "ResultPlayerPerformance" rpp
-    JOIN "Result" r ON rpp."resultId" = r.id
-    JOIN "Fixture" f ON r.id = f."resultId"
-    JOIN "Player" p ON rpp."playerId" = p.id
-    JOIN "Team" t ON rpp."teamId" = t.id
-WHERE 
-    f."tournamentId" = 3 AND
-    rpp.goals > 0
-GROUP BY 
-    p.id,
-    COALESCE(p.gamertag, p."discordUsername"),
-    t.name,
-    t."badgeUrl"
-ORDER BY 
-    goals DESC,
-    "playerName" ASC
-LIMIT 3;
-`) as {
-    playerName: string;
-    teamName: string;
-    goals: number;
-    badgeUrl: string;
-  }[];
+  const assists =
+    (await prisma.$queryRaw`select * from playerstats_top_assists_get(p_tournament_id:=3, p_no_of_to_players:=3)`) as {
+      playername: string;
+      teamname: string;
+      badgeurl: string;
+      assists: number;
+    }[];
 
   return (
     <>
       <h2 className="text-secondary">Player Stats</h2>
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-4 mb-3 d-none">
+          <div className="col-12 col-md-4 mb-3">
             <Card
               title="Top rated"
               players={topRated.map((player) => {
                 return {
-                  playerName: player.playerName,
-                  teamName: player.teamName,
-                  badgeUrl: player.badgeUrl,
+                  playerName: player.playername,
+                  teamName: player.teamname,
+                  badgeUrl: player.badgeurl,
                   value: player.rating,
                 } as CardPlayer;
               })}
               allLink="/season-three/player-stats/ratings"
-              showAll={false}
+              showAll={true}
             />
           </div>
           <div className="col-12 col-md-4 mb-3">
@@ -118,14 +53,14 @@ LIMIT 3;
               title="Top scorers"
               players={goals.map((player) => {
                 return {
-                  playerName: player.playerName,
-                  teamName: player.teamName,
-                  badgeUrl: player.badgeUrl,
-                  value: player.goals,
+                  playerName: player.playername,
+                  teamName: player.teamname,
+                  badgeUrl: player.badgeurl,
+                  value: player.assists,
                 } as CardPlayer;
               })}
               allLink="/season-three/player-stats/goals"
-              showAll={false}
+              showAll={true}
             />
           </div>
           <div className="col-12 col-md-4 mb-3">
@@ -133,14 +68,14 @@ LIMIT 3;
               title="Top assists"
               players={assists.map((player) => {
                 return {
-                  playerName: player.playerName,
-                  teamName: player.teamName,
-                  badgeUrl: player.badgeUrl,
+                  playerName: player.playername,
+                  teamName: player.teamname,
+                  badgeUrl: player.badgeurl,
                   value: player.assists,
                 } as CardPlayer;
               })}
               allLink="/season-three/player-stats/assists"
-              showAll={false}
+              showAll={true}
             />
           </div>
         </div>
