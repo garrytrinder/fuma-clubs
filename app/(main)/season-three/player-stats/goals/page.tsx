@@ -9,7 +9,7 @@ export default async function Page() {
       teamname: string;
       badgeurl: string;
       goals: number;
-      matches_played: number;
+      matchesplayed: number;
     }[];
 
   return (
@@ -27,20 +27,28 @@ export default async function Page() {
           {goals.map((player, index) => {
             return (
               <tr key={index}>
-                <td className="text-secondary text-center">{player.rn}</td>
+                <td className="text-secondary text-center align-middle">{player.rn}</td>
                 <td>
-                  <div className="d-flex align-items-center">
+                  <div className="d-flex align-items-center justify-content-center justify-content-sm-start gap-2">
                     <Image
                       src={player.badgeurl ? player.badgeurl : "/badge.svg"}
                       alt={player.teamname}
-                      className="rounded-circle me-2"
+                      className="rounded-circle mx-2 flex-shrink-0 align-self-center"
                       width={30}
                       height={30}
                     />
-                    {player.playername}
+                    <div>
+                      <div className="fs-5">{player.playername}</div>
+                      <div className="d-flex flex-wrap gap-sm-2">
+                        <small className="text-muted">
+                          Games played: {player.matchesplayed}
+                        </small>
+
+                      </div>
+                    </div>
                   </div>
                 </td>
-                <td className="text-center">{player.goals}</td>
+                <td className="text-center align-middle">{player.goals}</td>
               </tr>
             );
           })}
