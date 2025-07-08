@@ -3,13 +3,13 @@ import Image from "next/image";
 
 export default async function Page() {
   const assists =
-    (await prisma.$queryRaw`select * from playerstats_top_assists_get(p_tournament_id:=3, p_no_of_top_positions:=3)`) as {
+    (await prisma.$queryRaw`select * from playerstats_top_assists_get(p_tournament_id:=3, p_no_of_top_positions:=100000)`) as {
       rn: number;
       playername: string;
       teamname: string;
       badgeurl: string;
       assists: number;
-      matches_played: number;
+      matchesplayed: number;
     }[];
 
   return (
@@ -27,20 +27,27 @@ export default async function Page() {
           {assists.map((player, index) => {
             return (
               <tr key={index}>
-                <td className="text-secondary text-center">{player.rn}</td>
+                <td className="text-secondary text-center align-middle">{player.rn}</td>
                 <td>
-                  <div className="d-flex align-items-center">
+                  <div className="d-flex align-items-center justify-content-center justify-content-sm-start gap-2">
                     <Image
                       src={player.badgeurl ? player.badgeurl : "/badge.svg"}
                       alt={player.teamname}
-                      className="rounded-circle me-2"
+                      className="rounded-circle mx-2 flex-shrink-0 align-self-center"
                       width={30}
                       height={30}
                     />
-                    {player.playername}
+                    <div>
+                      <div className="fs-5">{player.playername}</div>
+                      <div className="d-flex flex-wrap gap-sm-2">
+                        <small className="text-muted">
+                          Games played: {player.matchesplayed}
+                        </small>
+                      </div>
+                    </div>
                   </div>
                 </td>
-                <td className="text-center">{player.assists}</td>
+                <td className="text-center align-middle">{player.assists}</td>
               </tr>
             );
           })}
