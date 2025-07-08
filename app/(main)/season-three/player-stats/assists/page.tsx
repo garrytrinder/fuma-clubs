@@ -29,7 +29,7 @@ export default async function Page() {
               <tr key={index}>
                 <td className="text-secondary text-center align-middle">{player.rn}</td>
                 <td>
-                  <div className="d-flex align-items-center justify-content-center justify-content-sm-start gap-2">
+                  <div className="d-flex gap-2">
                     <Image
                       src={player.badgeurl ? player.badgeurl : "/badge.svg"}
                       alt={player.teamname}
