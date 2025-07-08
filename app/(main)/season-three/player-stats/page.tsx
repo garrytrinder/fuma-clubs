@@ -4,28 +4,34 @@ import Link from "next/link";
 
 export default async function Page() {
   const topRated =
-    (await prisma.$queryRaw`select * from playerstats_top_ratings_get(p_tournament_id:=3, p_min_no_of_matches:=3, p_no_of_to_players:=3)`) as {
+    (await prisma.$queryRaw`select * from playerstats_top_ratings_get(p_tournament_id:=3, p_no_of_top_positions:=3)`) as {
+      rn: number;
       playername: string;
       teamname: string;
       badgeurl: string;
       rating: number;
       man_of_the_match_awards: number;
+      matches_played: number;
     }[];
 
   const goals =
-    (await prisma.$queryRaw`select * from playerstats_top_scorers_get(p_tournament_id:=3, p_no_of_to_players:=3)`) as {
+    (await prisma.$queryRaw`select * from playerstats_top_scorers_get(p_tournament_id:=3, p_no_of_top_positions:=3)`) as {
+      rn: number;
       playername: string;
       teamname: string;
       badgeurl: string;
-      assists: number;
+      goals: number;
+      matches_played: number;
     }[];
 
   const assists =
-    (await prisma.$queryRaw`select * from playerstats_top_assists_get(p_tournament_id:=3, p_no_of_to_players:=3)`) as {
+    (await prisma.$queryRaw`select * from playerstats_top_assists_get(p_tournament_id:=3, p_no_of_top_positions:=3)`) as {
+      rn: number;
       playername: string;
       teamname: string;
       badgeurl: string;
       assists: number;
+      matches_played: number;
     }[];
 
   return (
@@ -56,7 +62,7 @@ export default async function Page() {
                   playerName: player.playername,
                   teamName: player.teamname,
                   badgeUrl: player.badgeurl,
-                  value: player.assists,
+                  value: player.goals,
                 } as CardPlayer;
               })}
               allLink="/season-three/player-stats/goals"
@@ -66,7 +72,7 @@ export default async function Page() {
           <div className="col-12 col-md-4 mb-3">
             <Card
               title="Top assists"
-              players={assists.map((player) => {
+              players={assists.slice(0, 3).map((player) => {
                 return {
                   playerName: player.playername,
                   teamName: player.teamname,
@@ -112,9 +118,8 @@ const Card = ({
               <div className="d-flex w-100 justify-content-between">
                 <h5 className="card-title">{player.playerName}</h5>
                 <span
-                  className={`fs-6 badge rounded-pill ${
-                    index === 0 ? "text-bg-primary" : ""
-                  }`}
+                  className={`fs-6 badge rounded-pill ${index === 0 ? "text-bg-primary" : ""
+                    }`}
                 >
                   {player.value?.toString()}
                 </span>

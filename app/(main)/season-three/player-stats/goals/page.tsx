@@ -3,11 +3,13 @@ import Image from "next/image";
 
 export default async function Page() {
   const goals =
-    (await prisma.$queryRaw`select * from playerstats_top_scorers_get(p_tournament_id:=3, p_no_of_to_players:=10000)`) as {
+    (await prisma.$queryRaw`select * from playerstats_top_scorers_get(p_tournament_id:=3, p_no_of_top_positions:=10000)`) as {
+      rn: number;
       playername: string;
       teamname: string;
       badgeurl: string;
       goals: number;
+      matches_played: number;
     }[];
 
   return (
@@ -25,7 +27,7 @@ export default async function Page() {
           {goals.map((player, index) => {
             return (
               <tr key={index}>
-                <td className="text-secondary text-center">{index + 1}</td>
+                <td className="text-secondary text-center">{player.rn}</td>
                 <td>
                   <div className="d-flex align-items-center">
                     <Image
