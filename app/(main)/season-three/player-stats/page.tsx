@@ -11,7 +11,7 @@ export default async function Page() {
       badgeurl: string;
       rating: number;
       man_of_the_match_awards: number;
-      matches_played: number;
+      matchesplayed: number;
     }[];
 
   const goals =
@@ -21,7 +21,7 @@ export default async function Page() {
       teamname: string;
       badgeurl: string;
       goals: number;
-      matches_played: number;
+      matchesplayed: number;
     }[];
 
   const assists =
@@ -31,7 +31,7 @@ export default async function Page() {
       teamname: string;
       badgeurl: string;
       assists: number;
-      matches_played: number;
+      matchesplayed: number;
     }[];
 
   return (
