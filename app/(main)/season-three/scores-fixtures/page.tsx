@@ -122,8 +122,7 @@ const ScoresFixtures = ({
 }) => {
   return (
     <>
-      <h1 className="text-primary">{tournament?.name}</h1>
-      <h2 className="text-secondary">Scores and fixtures</h2>
+      <h2 className="text-secondary">Scores & Fixtures</h2>
       {tournament?.rounds.map((round, index) => (
         <div className="py-2" key={round.id}>
           <div className="card">

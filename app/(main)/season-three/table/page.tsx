@@ -12,7 +12,6 @@ export default async function Page() {
 
   return (
     <>
-      <h1 className="text-primary">{tournament?.name}</h1>
       <h2 className="text-secondary">Table</h2>
 
       <TournamentTable tableData={tableData} />

@@ -233,6 +233,19 @@ export const Nav = () => {
                 Player stats
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className={`nav-link ${
+                  pathname === "/season-three/tots" ? "active" : ""
+                }`}
+                href="/season-three/tots"
+                onClick={() => {
+                  setShow(false);
+                }}
+              >
+                Team of the Season
+              </Link>
+            </li>
             <hr />
             <h5 className="offcanvas-title">Season Two</h5>
             <li className="nav-item">
