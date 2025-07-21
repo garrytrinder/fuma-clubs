@@ -99,7 +99,7 @@ export default async function HomePage() {
             <div className="d-grid gap-2 d-md-flex justify-content-center">
               <a
                 className="btn btn-primary btn-lg px-4 me-md-2"
-                href="https://discord.gg/5qWVPBWmzQ"
+                href="https://discord.gg/GpNZ96JqzJ"
                 target="_blank"
               >
                 Join today!
