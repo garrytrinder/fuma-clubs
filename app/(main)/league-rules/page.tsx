@@ -165,8 +165,6 @@ export default function Page() {
         <li>Men and women players are allowed</li>
         <li>Accessories are allowed</li>
       </ul>
-      Max height: 6ft 2/ 189cm Max weight: 88kg / 194lbs Min weight: 69kg /
-      159lbs
       <h2 className="text-secondary">5. LEADERBOARD / PLAYER STATS</h2>
       <h3>5.1 Match Reporting (Captains&apos; Responsibility):</h3>
       <p>After each match, both captains must submit:</p>
