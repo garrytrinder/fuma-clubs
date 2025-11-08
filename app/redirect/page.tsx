@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
-export default function HomePage() {
+export default function RedirectPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.location.href = "https://www.fuma-clubs.com";
